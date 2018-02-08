@@ -1,5 +1,5 @@
 ---
-title: Functional Mock-up Interface
+title: System Structure and Parametrization
 timezone: UTC
 collections:
   posts:
@@ -8,7 +8,7 @@ collections:
   uploads:
     title: Uploads
     output: true
-email: contact@fmi-standard.org
+email: contact@ssp-standard.org
 description: 'Functional Mock-up Interface (FMI) is a tool independent standard to
   support both model exchange and co-simulation of dynamic models using a combination
   of xml-files and compiled C-code (see overview in PDF or PPT format). The first
@@ -17,7 +17,7 @@ description: 'Functional Mock-up Interface (FMI) is a tool independent standard 
   simulation models between suppliers and OEMs
 
 '
-url: http://fmi-standard.org
+url: http://ssp-standard.org
 twitter_username: jekyllrb
 github_username: jekyll
 markdown: kramdown
