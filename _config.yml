@@ -9,14 +9,7 @@ collections:
     title: Uploads
     output: true
 email: contact@ssp-standard.org
-description: 'Functional Mock-up Interface (FMI) is a tool independent standard to
-  support both model exchange and co-simulation of dynamic models using a combination
-  of xml-files and compiled C-code (see overview in PDF or PPT format). The first
-  version, FMI 1.0, was published in 2010, followed by FMI 2.0 in July 2014. The FMI
-  development was initiated by Daimler AG with the goal to improve the exchange of
-  simulation models between suppliers and OEMs
-
-'
+description: 'System Structure and Parameterization (SSP) is a tool independent standard to define complete systems consisting of one or more FMUs including its parameterization that can be transferred between simulation tools.'
 url: http://ssp-standard.org
 twitter_username: jekyllrb
 github_username: jekyll
