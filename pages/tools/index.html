@@ -1,49 +1,110 @@
 ---
-permalink: "/"
+title: Tools
+permalink: "/tools/"
 layout: default
 ---
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+th.sup {
+  width: 15%;
+  text-align:center;
+}
 
-<figure class="cover">
-    <img class="cover-img" src="{{ '/assets/img/ssp-illustration-1920.png' | prepend: site.baseurl}}"
-         srcset="{{ '/assets/img/ssp-illustration-280.png' | prepend: site.baseurl}} 280w,
-                 {{ '/assets/img/ssp-illustration-480.png' | prepend: site.baseurl}} 480w,
-                 {{ '/assets/img/ssp-illustration-680.png' | prepend: site.baseurl}} 680w,
-                 {{ '/assets/img/ssp-illustration-880.png' | prepend: site.baseurl}} 880w,
-                 {{ '/assets/img/ssp-illustration-1920.png' | prepend: site.baseurl}} 1920w"
-         sizes="(min-width: 1000px) 1920, (min-width: 800px) 880, (min-width: 600px) 680, (min-width: 300px) 480, 280"
-         alt="">
-</figure>
+th.imex {
+  width: 10%;
+  text-align:center;
+}
 
-<div class="row">
-    <article class="section section-half section-title">
-        <h1 class="title title-one title-front">SSP</h1>
-        <div class="annotation">
-            <p>
-                System Structure and Parameterization (SSP) is a tool independent standard to
-				define complete systems consisting of one or more FMUs (see <a href="http://fmi-standard.org">Functional-Mockup-Interface</a>) including its parameterization
-				that can be transferred between simulation tools.
-            </p>
-            <p>
-	    The first version of the standard has been published in March 2019. It is available in the <a href="/downloads/">Downloads</a> section.
-            </p>
-            <p>
-                Contact us here: <a href="mailto:map-ssp_projectlead@googlegroups.com">map-ssp_projectlead@googlegroups.com</a>.
-            </p>
-        </div>
-    </article>
+th.descr {
+  width: 25%;
+}
 
-    <aside class="section section-half">
+th.center {
+	text-align:center;
+}
 
-        <h2 class="title title-highlighted">Latest News</h2>
 
-        <ul class="post-list">
-            {% for post in site.posts %}
-            <li class="post-list-item post">
-                <span class="post-date">{{ post.date | date: " %Y-%m-%d, " }}</span>
-                {{ post.content }}
-            </li>
-            {% endfor %}
-        </ul>
+th, td {
+  padding:17px 5px 17px 5px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
 
-    </aside>
-</div>
+td {
+  vertical-align: middle;
+}
+
+table tbody tr:hover {background-color:#f5f5f5;}
+
+table thead tr {
+  background-color: #fff;
+}
+table thead th {
+  border-bottom: 3px solid #ddd;
+  padding:5px 5px 5px 5px;
+}
+
+h3{
+        margin-left:0px;
+        margin-bottom:0px;
+}
+
+h4{
+		margin-left:0px;
+        margin-bottom:0px;
+}
+
+
+</style>
+<section class="section">
+    <h2 class="title title-one">SSP Related Tools</h2> 
+
+<article class="contentbox">
+<table>
+  <thead>
+    <tr>
+      <th><h3 class="title">Name</h3></th>
+      <th><h3 class="title">Vendor</h3></th>
+      <th class="descr"><h3 class="title">Short Description</h3></th>
+      <th><h3 class="title_c">License</h3></th>
+      <th class="imex"><h3  class="title_c">Import</h3></th>
+      <th class="imex"><h3 class="title_c">Export</h3></th>
+      <th class="sup"><h3 class="title_c">Supported SSP Versions</h3></th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for item in site.data.tools %}
+    <tr>
+	{% if item.homepage_tool != "n.a." %}
+      <th><h4><a href="{{ item.homepage_tool }}" >
+      {{ item.name }}
+    </a></h4></th>
+	{% endif %}	
+	{% if item.homepage_tool == "n.a." %}
+      <th><h4>{{ item.name }}</h4></th>
+	{% endif %}
+	 
+	{% if item.homepage_vendor != "n.a." %}
+      <th><h4><a href="{{ item.homepage_vendor }}" >
+      {{ item.vendor }}
+    </a></h4></th>
+	{% endif %}	
+	{% if item.homepage_vendor == "n.a." %}
+      <th><h4>{{ item.vendor }}</h4></th>
+	{% endif %}
+	 
+	  <th class="descr"><h4>{{item.short_description}}</h4></th>
+	  <th class="center"><h4>{{item.license | downcase}}</h4></th>
+	  <th class="imex"><h4>{{item.import | downcase}}</h4></th>
+	  <th class="imex"><h4>{{item.export | downcase}}</h4></th>
+	  <th class="sup"><h4>{{item.supportet_SSP_versions | downcase}}</h4></th>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+</article>
+</section>
+
