@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 2.0.17">
+<meta name="generator" content="Asciidoctor 2.0.18">
 <title>System Structure and Parameterization</title>
 <style>
 /* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
@@ -586,8 +586,8 @@ document.addEventListener('keydown', (event) => {
 <div id="header">
 <h1>System Structure and Parameterization</h1>
 <div class="details">
-<span id="revnumber">version 10f667e,</span>
-<span id="revdate">2022-07-05</span>
+<span id="revnumber">version d3e048c,</span>
+<span id="revdate">2022-10-19</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Contents</div>
@@ -782,7 +782,7 @@ document.addEventListener('keydown', (event) => {
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">1.0.1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">2022-05-25</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2022-07-25</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Public Release of SSP 1.0.1</p></td>
 </tr>
 </tbody>
@@ -1828,7 +1828,7 @@ The underlying type of the connector is the same as for Integer.</p>
 <p><span class="image"><img src="images/image17.png" alt="image" width="319" height="114"></span></p>
 </div>
 <div class="paragraph">
-<p>This type specifies that the connector in question represents a length-terminated binary data type, like the binary type defined for the (planned) FMI 3.0 standard, or substitute types like the binary type defined via the OSI Sensor Model Packaging specification [OSMP100].</p>
+<p>This type specifies that the connector in question represents a length-terminated binary data type, like the binary type defined for the FMI 3.0 standard, or substitute types like the binary type defined via the OSI Sensor Model Packaging specification [OSMP120].</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -2233,7 +2233,7 @@ This standard does not specify additional measures to deal with differing indepe
 </div>
 <div class="paragraph">
 <p>This optional element specifies the set of connectors of this model element, which represent the interface of the model element to the outside world.
-For components the set of connectors <strong>MUST</strong> match variables/ports of the underlying component implementation, e.g., for referenced FMI 2.0 FMUs, the name of a connector has to match the name attribute of the corresponding &lt;ScalarVariable&gt; element; for referenced FMUs that follow the OSI Sensor Model Packaging specification [OSMP100], the name of a connector of type Binary has to match the name attribute of the corresponding &lt;osmp:osmp-binary-variable&gt;.</p>
+For components the set of connectors <strong>MUST</strong> match variables/ports of the underlying component implementation, e.g., for referenced FMI 2.0 FMUs, the name of a connector has to match the name attribute of the corresponding &lt;ScalarVariable&gt; element; for referenced FMUs that follow the OSI Sensor Model Packaging specification [OSMP120], the name of a connector of type Binary has to match the name attribute of the corresponding &lt;osmp:osmp-binary-variable&gt;.</p>
 </div>
 <div class="paragraph">
 <p>Names of &lt;ScalarVariable&gt; elements of an FMU might follow the “Variable Naming Conventions” specification as defined by the FMI standard.
@@ -4016,7 +4016,8 @@ Boolean / String / Enumeration / Binary</p></td>
 <h2 id="_literature">9. Literature</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>[RFC2119] IETF: <strong>RFC 2119 - Key words for use in RFCs to Indicate Requirement Levels.</strong> IETF Best Current Practice BCP 14. 1997. <a href="https://www.ietf.org/rfc/rfc2119.txt" class="bare">https://www.ietf.org/rfc/rfc2119.txt</a></p>
+<p>[RFC2119] IETF: <strong>RFC 2119 - Key words for use in RFCs to Indicate Requirement Levels.</strong> IETF Best Current Practice BCP 14. 1997.<br>
+<a href="https://www.ietf.org/rfc/rfc2119.txt" class="bare">https://www.ietf.org/rfc/rfc2119.txt</a></p>
 </div>
 <div class="paragraph">
 <p>[ZIP635] PKWARE Inc.: <strong>APPNOTE.TXT - .ZIP File Format Specification, Version 6.3.5.</strong> 2018.<br>
@@ -4027,14 +4028,16 @@ Boolean / String / Enumeration / Binary</p></td>
 <a href="https://semver.org/spec/v2.0.0.html" class="bare">https://semver.org/spec/v2.0.0.html</a></p>
 </div>
 <div class="paragraph">
-<p>[XML10] World Wide Web Consortium: <strong>Extensible Markup Language (XML) 1.0 (Fifth Edition).</strong> W3C Recommendation. 2008. <a href="http://www.w3.org/TR/2008/REC-xml-20081126/" class="bare">http://www.w3.org/TR/2008/REC-xml-20081126/</a></p>
+<p>[XML10] World Wide Web Consortium: <strong>Extensible Markup Language (XML) 1.0 (Fifth Edition).</strong> W3C Recommendation. 2008.<br>
+<a href="http://www.w3.org/TR/2008/REC-xml-20081126/" class="bare">http://www.w3.org/TR/2008/REC-xml-20081126/</a></p>
 </div>
 <div class="paragraph">
-<p>[FMI20] Modelica Association: <strong>Functional Mock-up Interface for Model Exchange and Co-Simulation, Version 2.0.</strong> 2014. <a href="https://svn.modelica.org/fmi/branches/public/specifications/v2.0/FMI_for_ModelExchange_and_CoSimulation_v2.0.pdf" class="bare">https://svn.modelica.org/fmi/branches/public/specifications/v2.0/FMI_for_ModelExchange_and_CoSimulation_v2.0.pdf</a></p>
+<p>[FMI20] Modelica Association: <strong>Functional Mock-up Interface for Model Exchange and Co-Simulation, Version 2.0.3.</strong> 2021.<br>
+<a href="https://github.com/modelica/fmi-standard/releases/download/v2.0.3/FMI-Specification-2.0.3.pdf" class="bare">https://github.com/modelica/fmi-standard/releases/download/v2.0.3/FMI-Specification-2.0.3.pdf</a></p>
 </div>
 <div class="paragraph">
-<p>[OSMP100] Mai, P.R.: <strong>OSI Sensor Model Packaging Version 1.0.0.</strong> 2018.<br>
-<a href="https://github.com/OpenSimulationInterface/osi-sensor-model-packaging/releases/tag/v1.0.0" class="bare">https://github.com/OpenSimulationInterface/osi-sensor-model-packaging/releases/tag/v1.0.0</a></p>
+<p>[OSMP120] ASAM e.V.: <strong>OSI Sensor Model Packaging Version 1.2.0.</strong> 2021.<br>
+<a href="https://github.com/OpenSimulationInterface/osi-sensor-model-packaging/releases/tag/v1.2.0" class="bare">https://github.com/OpenSimulationInterface/osi-sensor-model-packaging/releases/tag/v1.2.0</a></p>
 </div>
 </div>
 </div>
@@ -4043,7 +4046,7 @@ Boolean / String / Enumeration / Binary</p></td>
 <script>
 if (!hljs.initHighlighting.called) {
   hljs.initHighlighting.called = true
-  ;[].slice.call(document.querySelectorAll('pre.highlight > code')).forEach(function (el) { hljs.highlightBlock(el) })
+  ;[].slice.call(document.querySelectorAll('pre.highlight > code[data-lang]')).forEach(function (el) { hljs.highlightBlock(el) })
 }
 </script>
 <script type="text/x-mathjax-config">
