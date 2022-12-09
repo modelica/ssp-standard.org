@@ -1,9 +1,0 @@
-name,homepage_tool,vendor,homepage_vendor,short_description,license,import,export,supportet_SSP_versions
-SYNECT Model Management,n.a.,dSPACE,https://www.dspace.com/,SSP Add-On for SYNECT,Commercial,Yes,Yes,1
-OMSimulator,https://openmodelica.org/uncategorised/191-omsimulator,OpenModelica,https://openmodelica.org/,FMI & TLM based simulator,Free,Yes,Yes,"Final Draft, 1.0 in progress"
-Model.CONNECT,https://www.avl.com/web/guest/-/model-connect-,AVL,https://www.avl.com/,A model integration and co-simulation platform connecting virtual and real components,Commercial,Yes,Yes,1
-FMI Bench,https://pmsf.eu/products/fmibench/,PMSF,https://pmsf.eu/,Flexible FMI integration and customization workbench,Commercial,Yes,Yes,1
-easySSP,https://www.easy-ssp.com/,eXXcellent solutions,https://www.exxcellent.de/,"Cloud based SSP editor in a lightweight and innovative design, easy to use and expandable with powerful pro and customer specific features",Free + Commercial,Yes,Yes,1
-Simcenter System Architect (since release 2021.1),https://www.plm.automation.siemens.com/global/en/products/simcenter/simcenter-system-architect.html,Siemens,https://www.siemens.com,"Simcenter System Architect is a platform to support the process of architecture driven development of simulation models via model integration with execution/cosimulation capabilities",commercial,yes,no,1
-Simcenter Studio (since release 2021.2),https://www.plm.automation.siemens.com/global/en/products/simcenter/simcenter-studio.html,Siemens,https://www.siemens.com,"Simcenter Studio is an application for generating and evaluating system architectures during the early concept phase",commercial,yes,yes,1
-Dymola,https://www.3ds.com/products-services/catia/products/dymola/,Dassault Systèmes,https://www.3ds.com,Dymola is a model development and simulation tool for Modelica and FMI.,Commercial,Yes,Yes,1

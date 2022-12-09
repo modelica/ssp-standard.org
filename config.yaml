@@ -1,0 +1,37 @@
+baseURL: https://ssp-standard.org/
+title: System Structure and Parameterization
+theme: ma-hugo-theme
+params:
+  logo: /images/SSP_bare.svg
+  github: modelica/ssp-standard
+menu:
+  main:
+    - pageRef: tools
+      identifier: tools
+      name: Tools
+      url: /tools/
+      weight: 1
+
+    - pageRef: literature
+      identifier: literature
+      name: Literature
+      url: /literature/
+      weight: 2
+
+    - pageRef: "news"
+      identifier: "news"
+      name: "News"
+      url: "/news/"
+      weight: 3
+    
+    - pageRef: history
+      identifier: history
+      name: History
+      url: /history/
+      weight: 4
+    
+    - pageRef: faq
+      identifier: faq
+      name: FAQ
+      url: /faq/
+      weight: 5
