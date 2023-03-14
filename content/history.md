@@ -26,4 +26,4 @@ Jochen Köhler from ZF Friedrichshafen AG
 
 ## Initial project members
 
-Airbus, AVL, BMW, Bosch, Cybernet, Dassault Systèmes, DLR, dSpace, Esterel Technologies, ETAS, Global Crown, Honda, ITI, Maplesoft, Modelon, Open Source Modelica Consortium, PMSF, QTronic, Siemens, Simpack, Synopsis, TU Braunschweig, TWT, VI Grade, Volkswagen, ZF Friedrichshafen
+Airbus, AVL, BMW, Bosch, Cybernet, Dassault Systèmes, DLR, dSpace, ESI ITI, Esterel Technologies, ETAS, Global Crown, Honda, Maplesoft, Modelon, Open Source Modelica Consortium, PMSF, QTronic, Siemens, Simpack, Synopsys, TU Braunschweig, TWT, VI Grade, Volkswagen, ZF Friedrichshafen
