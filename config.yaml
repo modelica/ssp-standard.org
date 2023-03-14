@@ -4,6 +4,7 @@ theme: ma-hugo-theme
 params:
   logo: /images/SSP_bare.svg
   github: modelica/ssp-standard
+  email: map-ssp_projectlead@googlegroups.com
 menu:
   main:
     - pageRef: tools
