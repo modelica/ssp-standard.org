@@ -1,5 +1,6 @@
 ---
 title: FAQ
+type: faq
 ---
 
 ## What are the license and usage conditions for the SSP standard?
