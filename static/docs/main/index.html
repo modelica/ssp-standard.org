@@ -586,7 +586,7 @@ document.addEventListener('keydown', (event) => {
 <div id="header">
 <h1>System Structure and Parameterization</h1>
 <div class="details">
-<span id="revnumber">version 3312024,</span>
+<span id="revnumber">version 9e90b07,</span>
 <span id="revdate">2023-04-30</span>
 </div>
 <div id="toc" class="toc2">
@@ -2396,10 +2396,11 @@ This standard does not specify additional measures to deal with differing indepe
 </div>
 <div class="paragraph">
 <p>This optional element specifies the set of connectors of this model element, which represent the interface of the model element to the outside world.
-For components the set of connectors <strong>MUST</strong> match variables/ports of the underlying component implementation, e.g., for referenced FMI 2.0 FMUs, the name of a connector has to match the name attribute of the corresponding &lt;ScalarVariable&gt; element; for referenced FMUs that follow the OSI Sensor Model Packaging specification [OSMP120], the name of a connector of type Binary has to match the name attribute of the corresponding &lt;osmp:osmp-binary-variable&gt;.</p>
+For components the set of connectors <strong>MUST</strong> match variables/ports of the underlying component implementation, e.g., for referenced FMI 2.0 FMUs, the name of a connector has to match the name attribute of the corresponding &lt;ScalarVariable&gt; element; for referenced FMUs that follow the OSI Sensor Model Packaging specification [OSMP120], the name of a connector of type Binary has to match the name attribute of the corresponding &lt;osmp:osmp-binary-variable&gt;.
+For FMI 3.0 FMUs, the connector name has to match either the name of the corresponding variable element, or one of its &lt;Alias&gt; elements.</p>
 </div>
 <div class="paragraph">
-<p>Names of &lt;ScalarVariable&gt; elements of an FMU might follow the “Variable Naming Conventions” specification as defined by the FMI standard.
+<p>Names of variable elements of an FMU might follow the “Variable Naming Conventions” specification as defined by the FMI standard.
 Hence, several ScalarVariables might be grouped as a structure or an array.
 However, the name of a connector <strong>MUST</strong> match the name of a single &lt;ScalarVariable&gt;.</p>
 </div>
@@ -2430,7 +2431,7 @@ The same is true for variables/ports that are not referenced through a connector
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">name</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>This attribute gives the connector a name, which <strong>SHALL</strong> be unique within the given model element, and, for components, <strong>MUST</strong> match the name of a relevant variable/port in the underlying component implementation. In the case of referenced FMUs this <strong>MUST</strong> match the name of the relevant variable in the referenced FMU.</p>
+<p>This attribute gives the connector a name, which <strong>SHALL</strong> be unique within the given model element, and, for components, <strong>MUST</strong> match the name of a relevant variable/port in the underlying component implementation. In the case of referenced FMUs this <strong>MUST</strong> match the name of the relevant variable or alias in the referenced FMU.</p>
 </div>
 <div class="paragraph">
 <p>Note that there is no requirement that connectors have to be present for all variables/ports of an underlying component implementation. At least those connectors <strong>MUST</strong> be present which are referenced in connections inside the SSD.</p>
@@ -2445,7 +2446,7 @@ The same is true for variables/ports that are not referenced through a connector
 <p>For components this <strong>MUST</strong> match the related kind of the underlying component implementation. For referenced FMUs it <strong>MUST</strong> match the combination of variability and causality:</p>
 </div>
 <div class="paragraph">
-<p>For FMI 2.0 this means that the causality of the variable <strong>MUST</strong> match the kind of the connector (with the kind inout not being valid for either FMI 2.0 or 1.0).</p>
+<p>For FMI 2.0 and 3.0 this means that the causality of the variable <strong>MUST</strong> match the kind of the connector (with the kind inout not being valid for either FMI 3.0, 2.0, or 1.0).</p>
 </div>
 <div class="paragraph">
 <p>For FMI 1.0 this means that for connectors of kind input or output the causality of the variable <strong>MUST</strong> be input or output and the variability of the variable <strong>MUST</strong> be discrete or continuous (for outputs also constant and parameter are allowable). For connectors of kind parameter the causality of the FMI 1.0 variable <strong>MUST</strong> be input or internal and the variability <strong>MUST</strong> be parameter. For connectors of kind calculatedParameter the causality of the FMI 1.0 variable <strong>MUST</strong> be output and the variability <strong>MUST</strong> be parameter.</p>
