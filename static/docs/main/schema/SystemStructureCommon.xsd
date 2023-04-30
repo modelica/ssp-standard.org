@@ -116,6 +116,13 @@
         </xs:attribute>
     </xs:attributeGroup>
     
+    <xs:simpleType name="TGenericInteger">
+        <xs:restriction base="xs:integer">
+            <xs:maxInclusive value="18446744073709551615"/>
+            <xs:minInclusive value="-9223372036854775808"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
     <xs:complexType name="TEnumerations">
         <xs:sequence>
             <xs:element name="Enumeration" minOccurs="1" maxOccurs="unbounded" type="ssc:TEnumeration"/>
@@ -276,7 +283,79 @@
                     </xs:attribute>
                 </xs:complexType>
             </xs:element>
+            <xs:element name="Float64">
+                <xs:complexType>
+                    <xs:attribute name="unit" type="xs:string" use="optional">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">
+                                This attribute gives the unit of the entity and must
+                                reference one of the unit definitions provided in the Units
+                                element of the containing file.
+                                
+                                If a unit is not supplied, the unit is determined through
+                                default mechanisms: For FMU components, the unit of the
+                                underlying variable would be used, for systems the units
+                                of connected underlying connectors could be used if unambiguous.
+                                If a unit cannot be deduced unambinguously, the user should
+                                be informed of this error.
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:attribute>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="Float32">
+                <xs:complexType>
+                    <xs:attribute name="unit" type="xs:string" use="optional">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">
+                                This attribute gives the unit of the entity and must
+                                reference one of the unit definitions provided in the Units
+                                element of the containing file.
+                                
+                                If a unit is not supplied, the unit is determined through
+                                default mechanisms: For FMU components, the unit of the
+                                underlying variable would be used, for systems the units
+                                of connected underlying connectors could be used if unambiguous.
+                                If a unit cannot be deduced unambinguously, the user should
+                                be informed of this error.
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:attribute>
+                </xs:complexType>
+            </xs:element>
             <xs:element name="Integer">
+                <xs:complexType>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="Int8">
+                <xs:complexType>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="UInt8">
+                <xs:complexType>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="Int16">
+                <xs:complexType>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="UInt16">
+                <xs:complexType>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="Int32">
+                <xs:complexType>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="UInt32">
+                <xs:complexType>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="Int64">
+                <xs:complexType>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="UInt64">
                 <xs:complexType>
                 </xs:complexType>
             </xs:element>
@@ -408,8 +487,8 @@
                 <xs:annotation>
                     <xs:documentation xml:lang="en">
                         This element provides for a transformation of integer parameter values
-                        based on a mapping table and is valid for parameters of integer and 
-                        enumeration type.  Each mapping table entry is provided by a MapEntry
+                        based on a mapping table and is valid for parameters of all integer and 
+                        enumeration types.  Each mapping table entry is provided by a MapEntry
                         element.
                     </xs:documentation>
                 </xs:annotation>
@@ -417,7 +496,7 @@
                     <xs:sequence>
                         <xs:element name="MapEntry" minOccurs="1" maxOccurs="unbounded">
                             <xs:complexType>
-                                <xs:attribute name="source" type="xs:int" use="required">
+                                <xs:attribute name="source" type="ssc:TGenericInteger" use="required">
                                     <xs:annotation>
                                         <xs:documentation xml:lang="en">
                                             This attribute gives the value of the parameter in the
@@ -425,7 +504,7 @@
                                         </xs:documentation>
                                     </xs:annotation>
                                 </xs:attribute>
-                                <xs:attribute name="target" type="xs:int" use="required">
+                                <xs:attribute name="target" type="ssc:TGenericInteger" use="required">
                                     <xs:annotation>
                                         <xs:documentation xml:lang="en">
                                             This attribute gives the value of the parameter to use

@@ -586,8 +586,8 @@ document.addEventListener('keydown', (event) => {
 <div id="header">
 <h1>System Structure and Parameterization</h1>
 <div class="details">
-<span id="revnumber">version 4460f07,</span>
-<span id="revdate">2023-04-28</span>
+<span id="revnumber">version 3312024,</span>
+<span id="revdate">2023-04-30</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Contents</div>
@@ -648,11 +648,21 @@ document.addEventListener('keydown', (event) => {
 <li><a href="#_type_choice">4.5.1. Type Choice</a>
 <ul class="sectlevel4">
 <li><a href="#_real">4.5.1.1. Real</a></li>
-<li><a href="#_integer">4.5.1.2. Integer</a></li>
-<li><a href="#_boolean">4.5.1.3. Boolean</a></li>
-<li><a href="#_string">4.5.1.4. String</a></li>
-<li><a href="#_enumeration">4.5.1.5. Enumeration</a></li>
-<li><a href="#_binary">4.5.1.6. Binary</a></li>
+<li><a href="#_float64">4.5.1.2. Float64</a></li>
+<li><a href="#_float32">4.5.1.3. Float32</a></li>
+<li><a href="#_integer">4.5.1.4. Integer</a></li>
+<li><a href="#_int8">4.5.1.5. Int8</a></li>
+<li><a href="#_uint8">4.5.1.6. UInt8</a></li>
+<li><a href="#_int16">4.5.1.7. Int16</a></li>
+<li><a href="#_uint16">4.5.1.8. UInt16</a></li>
+<li><a href="#_int32">4.5.1.9. Int32</a></li>
+<li><a href="#_uint32">4.5.1.10. UInt32</a></li>
+<li><a href="#_int64">4.5.1.11. Int64</a></li>
+<li><a href="#_uint64">4.5.1.12. UInt64</a></li>
+<li><a href="#_boolean">4.5.1.13. Boolean</a></li>
+<li><a href="#_string">4.5.1.14. String</a></li>
+<li><a href="#_enumeration">4.5.1.15. Enumeration</a></li>
+<li><a href="#_binary">4.5.1.16. Binary</a></li>
 </ul>
 </li>
 <li><a href="#_transformation_choice">4.5.2. Transformation Choice</a>
@@ -718,11 +728,21 @@ document.addEventListener('keydown', (event) => {
 <li><a href="#_parameters">6.2. Parameters</a>
 <ul class="sectlevel3">
 <li><a href="#_real_2">6.2.1. Real</a></li>
-<li><a href="#_integer_2">6.2.2. Integer</a></li>
-<li><a href="#_boolean_2">6.2.3. Boolean</a></li>
-<li><a href="#_string_2">6.2.4. String</a></li>
-<li><a href="#_enumeration_2">6.2.5. Enumeration</a></li>
-<li><a href="#_binary_2">6.2.6. Binary</a></li>
+<li><a href="#_float64_2">6.2.2. Float64</a></li>
+<li><a href="#_float32_2">6.2.3. Float32</a></li>
+<li><a href="#_integer_2">6.2.4. Integer</a></li>
+<li><a href="#_int8_2">6.2.5. Int8</a></li>
+<li><a href="#_uint8_2">6.2.6. UInt8</a></li>
+<li><a href="#_int16_2">6.2.7. Int16</a></li>
+<li><a href="#_uint16_2">6.2.8. UInt16</a></li>
+<li><a href="#_int32_2">6.2.9. Int32</a></li>
+<li><a href="#_uint32_2">6.2.10. UInt32</a></li>
+<li><a href="#_int64_2">6.2.11. Int64</a></li>
+<li><a href="#_uint64_2">6.2.12. UInt64</a></li>
+<li><a href="#_boolean_2">6.2.13. Boolean</a></li>
+<li><a href="#_string_2">6.2.14. String</a></li>
+<li><a href="#_enumeration_2">6.2.15. Enumeration</a></li>
+<li><a href="#_binary_2">6.2.16. Binary</a></li>
 </ul>
 </li>
 </ul>
@@ -1729,7 +1749,9 @@ They are used inside elements to select one of multiple child elements.</p>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Real / Integer /<br>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Real / Float64 / Float32 /<br>
+Integer / Int8 / UInt8 / Int16 / UInt16 /<br>
+Int32 / UInt32 / Int64 / UInt64 /<br>
 Boolean / String / Enumeration / Binary</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Exactly one of these elements <strong>MUST</strong> be present to specify the type of the element. See below for details.</p></td>
 </tr>
@@ -1768,7 +1790,71 @@ If the attribute is not supplied, the unit is determined through default mechani
 </table>
 </div>
 <div class="sect4">
-<h5 id="_integer">4.5.1.2. Integer</h5>
+<h5 id="_float64">4.5.1.2. Float64</h5>
+<div class="paragraph">
+<p><span class="image"><img src="images/image12.png" alt="image" width="226" height="95"></span></p>
+</div>
+<div class="paragraph">
+<p>This type specifies that the connector in question represents an IEEE754 double precision floating point number.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 28%;">
+<col style="width: 72%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Attribute</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">unit</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This optional attribute gives the name of a unit. The name <strong>MUST</strong> match the name of a Unit entry in the Units XML element of the top-level element of the file.<br>
+If the attribute is not supplied, the unit is determined through default mechanisms: For FMU components, the unit of the underlying variable would be used, or no unit, if no unit is specified. For systems, the units of connected underlying connectors could be used if unambiguous. If a unit (or its absence) cannot be deduced unambinguously, the user should be informed of this error. Notwithstanding these mechanisms, unitless variables of type Float64 are supported.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect4">
+<h5 id="_float32">4.5.1.3. Float32</h5>
+<div class="paragraph">
+<p><span class="image"><img src="images/image12.png" alt="image" width="226" height="95"></span></p>
+</div>
+<div class="paragraph">
+<p>This type specifies that the connector in question represents an IEEE754 single precision floating point number.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 28%;">
+<col style="width: 72%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Attribute</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">unit</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This optional attribute gives the name of a unit. The name <strong>MUST</strong> match the name of a Unit entry in the Units XML element of the top-level element of the file.<br>
+If the attribute is not supplied, the unit is determined through default mechanisms: For FMU components, the unit of the underlying variable would be used, or no unit, if no unit is specified. For systems, the units of connected underlying connectors could be used if unambiguous. If a unit (or its absence) cannot be deduced unambinguously, the user should be informed of this error. Notwithstanding these mechanisms, unitless variables of type Float32 are supported.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect4">
+<h5 id="_integer">4.5.1.4. Integer</h5>
 <div class="paragraph">
 <p><span class="image"><img src="images/image13.png" alt="image" width="56" height="28"></span></p>
 </div>
@@ -1777,7 +1863,79 @@ If the attribute is not supplied, the unit is determined through default mechani
 </div>
 </div>
 <div class="sect4">
-<h5 id="_boolean">4.5.1.3. Boolean</h5>
+<h5 id="_int8">4.5.1.5. Int8</h5>
+<div class="paragraph">
+<p><span class="image"><img src="images/image13.png" alt="image" width="56" height="28"></span></p>
+</div>
+<div class="paragraph">
+<p>This type specifies that the connector in question represents a 8-bit signed integer number.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_uint8">4.5.1.6. UInt8</h5>
+<div class="paragraph">
+<p><span class="image"><img src="images/image13.png" alt="image" width="56" height="28"></span></p>
+</div>
+<div class="paragraph">
+<p>This type specifies that the connector in question represents a 8-bit unsigned integer number.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_int16">4.5.1.7. Int16</h5>
+<div class="paragraph">
+<p><span class="image"><img src="images/image13.png" alt="image" width="56" height="28"></span></p>
+</div>
+<div class="paragraph">
+<p>This type specifies that the connector in question represents a 16-bit signed integer number.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_uint16">4.5.1.8. UInt16</h5>
+<div class="paragraph">
+<p><span class="image"><img src="images/image13.png" alt="image" width="56" height="28"></span></p>
+</div>
+<div class="paragraph">
+<p>This type specifies that the connector in question represents a 16-bit unsigned integer number.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_int32">4.5.1.9. Int32</h5>
+<div class="paragraph">
+<p><span class="image"><img src="images/image13.png" alt="image" width="56" height="28"></span></p>
+</div>
+<div class="paragraph">
+<p>This type specifies that the connector in question represents a 32-bit signed integer number.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_uint32">4.5.1.10. UInt32</h5>
+<div class="paragraph">
+<p><span class="image"><img src="images/image13.png" alt="image" width="56" height="28"></span></p>
+</div>
+<div class="paragraph">
+<p>This type specifies that the connector in question represents a 32-bit unsigned integer number.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_int64">4.5.1.11. Int64</h5>
+<div class="paragraph">
+<p><span class="image"><img src="images/image13.png" alt="image" width="56" height="28"></span></p>
+</div>
+<div class="paragraph">
+<p>This type specifies that the connector in question represents a 64-bit signed integer number.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_uint64">4.5.1.12. UInt64</h5>
+<div class="paragraph">
+<p><span class="image"><img src="images/image13.png" alt="image" width="56" height="28"></span></p>
+</div>
+<div class="paragraph">
+<p>This type specifies that the connector in question represents a 64-bit unsigned integer number.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_boolean">4.5.1.13. Boolean</h5>
 <div class="paragraph">
 <p><span class="image"><img src="images/image14.png" alt="image" width="62" height="28"></span></p>
 </div>
@@ -1786,7 +1944,7 @@ If the attribute is not supplied, the unit is determined through default mechani
 </div>
 </div>
 <div class="sect4">
-<h5 id="_string">4.5.1.4. String</h5>
+<h5 id="_string">4.5.1.14. String</h5>
 <div class="paragraph">
 <p><span class="image"><img src="images/image15.png" alt="image" width="51" height="28"></span></p>
 </div>
@@ -1795,7 +1953,7 @@ If the attribute is not supplied, the unit is determined through default mechani
 </div>
 </div>
 <div class="sect4">
-<h5 id="_enumeration">4.5.1.5. Enumeration</h5>
+<h5 id="_enumeration">4.5.1.15. Enumeration</h5>
 <div class="paragraph">
 <p><span class="image"><img src="images/image16.png" alt="image" width="264" height="95"></span></p>
 </div>
@@ -1823,7 +1981,7 @@ The underlying type of the connector is the same as for Integer.</p>
 </table>
 </div>
 <div class="sect4">
-<h5 id="_binary">4.5.1.6. Binary</h5>
+<h5 id="_binary">4.5.1.16. Binary</h5>
 <div class="paragraph">
 <p><span class="image"><img src="images/image17.png" alt="image" width="319" height="114"></span></p>
 </div>
@@ -1903,7 +2061,7 @@ The underlying type of the connector is the same as for Integer.</p>
 </div>
 <div class="paragraph">
 <p>Note that conversions based on different units are performed, unless prevented by suppressUnitConversion, prior to the application of the linear transformation, i.e. the value of source is already converted to the target unit in the formula above.
-Linear transformations are only valid for connectors of Real type.</p>
+Linear transformations are only valid for connectors of Real, Float64 or Float32 type.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -1969,7 +2127,7 @@ In that case values not mapped by a mapping entry are kept unchanged.</p>
 <p><span class="image"><img src="images/image21.png" alt="image" width="546" height="155"></span></p>
 </div>
 <div class="paragraph">
-<p>This element provides for a transformation of integer values based on a mapping table and is valid for connectors of Integer or Enumeration type.
+<p>This element provides for a transformation of integer values based on a mapping table and is valid for connectors of all the integer types and Enumeration type.
 Each mapping table entry is provided by a MapEntry element.
 Mapping entries <strong>MUST</strong> be unambiguous, i.e. for a given source value at a maximum one entry specifying that source value <strong>MUST</strong> be present.
 The mapping does not have to be complete, i.e. partial mappings <strong>CAN</strong> be specified.
@@ -1979,6 +2137,11 @@ In that case values not mapped by a mapping entry are kept unchanged.</p>
 <p>When mapping to an Enumeration type, the target value <strong>MUST</strong> be a valid enumeration value for that type.
 When mapping from an Enumeration type, the source value <strong>MUST</strong> be a valid enumeration value for that type.
 This transformation can be applied between connectors of different Enumeration types, as long as all resulting target values are valid in the target Enumeration type.</p>
+</div>
+<div class="paragraph">
+<p>The target values provided in transformation entries <strong>MUST</strong> be limited to the value space of the target connector.
+The source values provided in transformation entries <strong>CAN</strong> exceed the value space of the source connector.
+Such entries are ignored in the mapping process.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -2309,7 +2472,9 @@ The same is true for variables/ports that are not referenced through a connector
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Real / Integer /<br>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Real / Float64 / Float32 /<br>
+Integer / Int8 / UInt8 / Int16 / UInt16 /<br>
+Int32 / UInt32 / Int64 / UInt64 /<br>
 Boolean / String / Enumeration / Binary</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Exactly one of these elements <strong>CAN</strong> be present to specify the type of the Connector. See 4.5.1 Type Choice for details.</p></td>
 </tr>
@@ -2320,7 +2485,7 @@ Boolean / String / Enumeration / Binary</p></td>
 </tbody>
 </table>
 <div class="paragraph">
-<p>The type of the Connector is identified by the presence of one of the XML child elements Real, Integer, Boolean, String, Enumeration, or Binary.</p>
+<p>The type of the Connector is identified by the presence of one of the XML child elements Real, Float64, Float32, Integer, Int8, UInt8, Int16, UInt16, Int32, UInt32, Int64, UInt64, Boolean, String, Enumeration, or Binary.</p>
 </div>
 <div class="sect4">
 <h5 id="_connectorgeometry">5.2.1.1. ConnectorGeometry</h5>
@@ -3571,7 +3736,10 @@ See section 5.2.3 for the semantic defintion of parameter bindings.</p>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Real / Integer / Boolean / String / Enumeration / Binary</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Real / Float64 / Float32 /<br>
+Integer / Int8 / UInt8 / Int16 / UInt16 /<br>
+Int32 / UInt32 / Int64 / UInt64 /<br>
+Boolean / String / Enumeration / Binary</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Exactly one of these elements <strong>MUST</strong> be present to specify the type of the parameter. See below for details on each type.</p></td>
 </tr>
 </tbody>
@@ -3608,7 +3776,69 @@ See section 5.2.3 for the semantic defintion of parameter bindings.</p>
 </table>
 </div>
 <div class="sect3">
-<h4 id="_integer_2">6.2.2. Integer</h4>
+<h4 id="_float64_2">6.2.2. Float64</h4>
+<div class="paragraph">
+<p><span class="image"><img src="images/image50.png" alt="image" width="231" height="149"></span></p>
+</div>
+<div class="paragraph">
+<p>This type specifies a parameter that represents an IEEE754 double precision floating point number.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 23%;">
+<col style="width: 77%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Attribute</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">value</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This required attribute specifies the value of the parameter.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">unit</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This optional attribute gives the name of the unit of the parameter. The name <strong>MUST</strong> match the name of a unit defined in the Units element in the ParameterSet root element.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_float32_2">6.2.3. Float32</h4>
+<div class="paragraph">
+<p><span class="image"><img src="images/image50.png" alt="image" width="231" height="149"></span></p>
+</div>
+<div class="paragraph">
+<p>This type specifies a parameter that represents an IEEE754 single precision floating point number.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 23%;">
+<col style="width: 77%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Attribute</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">value</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This required attribute specifies the value of the parameter.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">unit</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This optional attribute gives the name of the unit of the parameter. The name <strong>MUST</strong> match the name of a unit defined in the Units element in the ParameterSet root element.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_integer_2">6.2.4. Integer</h4>
 <div class="paragraph">
 <p><span class="image"><img src="images/image51.png" alt="image" width="222" height="95"></span></p>
 </div>
@@ -3635,7 +3865,223 @@ See section 5.2.3 for the semantic defintion of parameter bindings.</p>
 </table>
 </div>
 <div class="sect3">
-<h4 id="_boolean_2">6.2.3. Boolean</h4>
+<h4 id="_int8_2">6.2.5. Int8</h4>
+<div class="paragraph">
+<p><span class="image"><img src="images/image51.png" alt="image" width="222" height="95"></span></p>
+</div>
+<div class="paragraph">
+<p>This type specifies a parameter that represents a 8-bit signed integer.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 23%;">
+<col style="width: 77%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Attribute</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">value</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This required attribute specifies the value of the parameter.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_uint8_2">6.2.6. UInt8</h4>
+<div class="paragraph">
+<p><span class="image"><img src="images/image51.png" alt="image" width="222" height="95"></span></p>
+</div>
+<div class="paragraph">
+<p>This type specifies a parameter that represents a 8-bit unsigned integer.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 23%;">
+<col style="width: 77%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Attribute</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">value</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This required attribute specifies the value of the parameter.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_int16_2">6.2.7. Int16</h4>
+<div class="paragraph">
+<p><span class="image"><img src="images/image51.png" alt="image" width="222" height="95"></span></p>
+</div>
+<div class="paragraph">
+<p>This type specifies a parameter that represents a 16-bit signed integer.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 23%;">
+<col style="width: 77%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Attribute</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">value</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This required attribute specifies the value of the parameter.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_uint16_2">6.2.8. UInt16</h4>
+<div class="paragraph">
+<p><span class="image"><img src="images/image51.png" alt="image" width="222" height="95"></span></p>
+</div>
+<div class="paragraph">
+<p>This type specifies a parameter that represents a 16-bit unsigned integer.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 23%;">
+<col style="width: 77%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Attribute</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">value</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This required attribute specifies the value of the parameter.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_int32_2">6.2.9. Int32</h4>
+<div class="paragraph">
+<p><span class="image"><img src="images/image51.png" alt="image" width="222" height="95"></span></p>
+</div>
+<div class="paragraph">
+<p>This type specifies a parameter that represents a 32-bit signed integer.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 23%;">
+<col style="width: 77%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Attribute</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">value</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This required attribute specifies the value of the parameter.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_uint32_2">6.2.10. UInt32</h4>
+<div class="paragraph">
+<p><span class="image"><img src="images/image51.png" alt="image" width="222" height="95"></span></p>
+</div>
+<div class="paragraph">
+<p>This type specifies a parameter that represents a 32-bit unsigned integer.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 23%;">
+<col style="width: 77%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Attribute</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">value</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This required attribute specifies the value of the parameter.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_int64_2">6.2.11. Int64</h4>
+<div class="paragraph">
+<p><span class="image"><img src="images/image51.png" alt="image" width="222" height="95"></span></p>
+</div>
+<div class="paragraph">
+<p>This type specifies a parameter that represents a 64-bit signed integer.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 23%;">
+<col style="width: 77%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Attribute</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">value</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This required attribute specifies the value of the parameter.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_uint64_2">6.2.12. UInt64</h4>
+<div class="paragraph">
+<p><span class="image"><img src="images/image51.png" alt="image" width="222" height="95"></span></p>
+</div>
+<div class="paragraph">
+<p>This type specifies a parameter that represents a 64-bit unsigned integer.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 23%;">
+<col style="width: 77%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Attribute</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">value</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This required attribute specifies the value of the parameter.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_boolean_2">6.2.13. Boolean</h4>
 <div class="paragraph">
 <p><span class="image"><img src="images/image52.png" alt="image" width="255" height="95"></span></p>
 </div>
@@ -3662,7 +4108,7 @@ See section 5.2.3 for the semantic defintion of parameter bindings.</p>
 </table>
 </div>
 <div class="sect3">
-<h4 id="_string_2">6.2.4. String</h4>
+<h4 id="_string_2">6.2.14. String</h4>
 <div class="paragraph">
 <p><span class="image"><img src="images/image53.png" alt="image" width="233" height="95"></span></p>
 </div>
@@ -3689,7 +4135,7 @@ See section 5.2.3 for the semantic defintion of parameter bindings.</p>
 </table>
 </div>
 <div class="sect3">
-<h4 id="_enumeration_2">6.2.5. Enumeration</h4>
+<h4 id="_enumeration_2">6.2.15. Enumeration</h4>
 <div class="paragraph">
 <p><span class="image"><img src="images/image54.png" alt="image" width="264" height="149"></span></p>
 </div>
@@ -3731,7 +4177,7 @@ See section 5.2.3 for the semantic defintion of parameter bindings.</p>
 </table>
 </div>
 <div class="sect3">
-<h4 id="_binary_2">6.2.6. Binary</h4>
+<h4 id="_binary_2">6.2.16. Binary</h4>
 <div class="paragraph">
 <p><span class="image"><img src="images/image55.png" alt="image" width="319" height="168"></span></p>
 </div>
@@ -4002,7 +4448,9 @@ Any enumerations or units used in the DictionaryEntry elements <strong>MUST</str
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Real / Integer /<br>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Real / Float64 / Float32 /<br>
+Integer / Int8 / UInt8 / Int16 / UInt16 /<br>
+Int32 / UInt32 / Int64 / UInt64 /<br>
 Boolean / String / Enumeration / Binary</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Exactly one of these elements <strong>MUST</strong> be present to specify the type of the signal dictionary entry. See section 4.5.1 for details.</p></td>
 </tr>
