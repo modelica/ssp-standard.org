@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 2.0.18">
+<meta name="generator" content="Asciidoctor 2.0.20">
 <title>System Structure and Parameterization</title>
 <style>
 /* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
@@ -586,8 +586,8 @@ document.addEventListener('keydown', (event) => {
 <div id="header">
 <h1>System Structure and Parameterization</h1>
 <div class="details">
-<span id="revnumber">version 9e90b07,</span>
-<span id="revdate">2023-04-30</span>
+<span id="revnumber">version 4ba64bd,</span>
+<span id="revdate">2023-07-07</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Contents</div>
@@ -2440,19 +2440,24 @@ The same is true for variables/ports that are not referenced through a connector
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">kind</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>This attribute specifies the kind of the given connector, which indicates whether the connector is an input, an output, both (inout), a parameter or a calculated parameter (i.e. a parameter that is calculated by the component during initialization).</p>
+<p>This attribute specifies the kind of the given connector, which indicates whether the connector is an input, an output, both (inout), a constant, a parameter, a calculated parameter (i.e. a parameter that is calculated by the component during initialization), or a structural parameter (i.e. a parameter that can be set during (re-)configuration mode).</p>
 </div>
 <div class="paragraph">
-<p>For components this <strong>MUST</strong> match the related kind of the underlying component implementation. For referenced FMUs it <strong>MUST</strong> match the combination of variability and causality:</p>
+<p>For components this <strong>MUST</strong> match the related kind of the underlying component implementation.
+For referenced FMUs it <strong>MUST</strong> match the combination of variability and causality:</p>
 </div>
 <div class="paragraph">
 <p>For FMI 2.0 and 3.0 this means that the causality of the variable <strong>MUST</strong> match the kind of the connector (with the kind inout not being valid for either FMI 3.0, 2.0, or 1.0).</p>
 </div>
 <div class="paragraph">
-<p>For FMI 1.0 this means that for connectors of kind input or output the causality of the variable <strong>MUST</strong> be input or output and the variability of the variable <strong>MUST</strong> be discrete or continuous (for outputs also constant and parameter are allowable). For connectors of kind parameter the causality of the FMI 1.0 variable <strong>MUST</strong> be input or internal and the variability <strong>MUST</strong> be parameter. For connectors of kind calculatedParameter the causality of the FMI 1.0 variable <strong>MUST</strong> be output and the variability <strong>MUST</strong> be parameter.</p>
+<p>For FMI 1.0 this means that for connectors of kind input or output the causality of the variable <strong>MUST</strong> be input or output and the variability of the variable <strong>MUST</strong> be discrete or continuous (for outputs also constant and parameter are allowable).
+For connectors of kind parameter the causality of the FMI 1.0 variable <strong>MUST</strong> be input or internal and the variability <strong>MUST</strong> be parameter.
+For connectors of kind calculatedParameter the causality of the FMI 1.0 variable <strong>MUST</strong> be output and the variability <strong>MUST</strong> be parameter.
+For connectors of kind constant the causality of the FMI 1.0 variable <strong>MUST</strong> be output and the variability <strong>MUST</strong> be constant.</p>
 </div>
 <div class="paragraph">
-<p>For SignalDictionaryReferences, the kind of a given connector can additionally be inout, which indicates that the semantics of the connector are derived from the connections going to the connector. This can be used for example to allow a connector to function as both an input and output within the same SignalDictionaryReference.</p>
+<p>For SignalDictionaryReferences, the kind of a given connector can additionally be inout, which indicates that the semantics of the connector are derived from the connections going to the connector.
+This can be used for example to allow a connector to function as both an input and output within the same SignalDictionaryReference.</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -2770,7 +2775,7 @@ _</strong></p>
 A parameter binding applies a set of parameter values (a parameter set), supplied by a parameter source (for example a parameter file) to parametrize a component or system.</p>
 </div>
 <div class="paragraph">
-<p>For FMU components this allows the parametrization of the FMU&#8217;s parameters and start values of other variables.
+<p>For FMU components this allows the parametrization of the FMU&#8217;s parameters, structural parameters, and start values of other variables.
 For systems this allows the parametrization of complete (sub-)hierarchies of sub-systems and components using a hierarchical naming scheme.</p>
 </div>
 <div class="paragraph">
@@ -2814,14 +2819,16 @@ If this is not wanted, then it is up to the generating implementation to ensure 
 The standard allows such punning, because the ability to have a . in the name of systems or components allows for example the replacement of a monolithic component with a system of components, or vice-versa, while keeping parameter names identical.</em> ]</p>
 </div>
 <div class="paragraph">
-<p>More than one ParameterBinding can be supplied., In this case all of the parameters found will be used to parametrize the component, with parameter values in ParameterBinding sources appearing at a succeeding position in the element order taking priority over prior sources at the same hierarchy level, should a parameter be included in more than one ParameterBinding source.</p>
+<p>More than one ParameterBinding can be supplied.
+In this case all of the parameters found will be used to parametrize the component, with parameter values in ParameterBinding sources appearing at a succeeding position in the element order taking priority over prior sources at the same hierarchy level, should a parameter be included in more than one ParameterBinding source.</p>
 </div>
 <div class="paragraph">
 <p>When ParameterBinding sources on multiple levels of the hierarchy supply values for the same parameter, bindings at a higher hierarchy level take precedence over lower levels, i.e. bindings at a system level take precedence over bindings at a sub-system or component level.</p>
 </div>
 <div class="paragraph">
 <p>Parameter bindings for FMU components can be used to set any initial values in the FMU which are legal to change.
-It is assumed that the parameterization is applied prior to initializing for FMI 1.0, or before entering initialization mode for FMI 2.0.</p>
+It is assumed that the parameterization is applied prior to initializing for FMI 1.0, or before entering initialization mode for FMI 2.0/3.0.
+For structural parameters it is assumed that the parameterization is applied in configuration mode for FMI 3.0.</p>
 </div>
 <div class="paragraph">
 <p>This means that variables eligible for parameterization are those with:</p>
@@ -3109,7 +3116,7 @@ Note that source and destination in the following table indicate the resulting d
 </div>
 <div class="paragraph">
 <p>Implementations <strong>MUST NOT</strong> specify connections that are not of one of the allowed combinations in the following table.
-Implementations <strong>MUST</strong> ensure that data flow is specified unambiguously, including ensuring that not multiple connections with inbound data flow enter into a connector signifying an input, inout or parameter connector of an element, or a calculatedParameter or output connector of an enclosing system.</p>
+Implementations <strong>MUST</strong> ensure that data flow is specified unambiguously, including ensuring that not multiple connections with inbound data flow enter into a connector signifying an input, inout, parameter, or structuralParameter connector of an element, or a constant, calculatedParameter, or output connector of an enclosing system.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -3135,6 +3142,18 @@ Implementations <strong>MUST</strong> ensure that data flow is specified unambig
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">System</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">structuralParameter</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">System</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">calculatedParameter</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">System</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">structuralParameter</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">System</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">output</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">System</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">parameter</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">System</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">calculatedParameter</p></td>
@@ -3153,6 +3172,30 @@ Implementations <strong>MUST</strong> ensure that data flow is specified unambig
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">System</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">structuralParameter</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Element</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">structuralParameter</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">System</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">structuralParameter</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Element</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">parameter</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">System</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">structuralParameter</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Element</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">input</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">System</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">structuralParameter</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Element</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">inout</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">System</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">parameter</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Element</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">parameter</p></td>
@@ -3178,6 +3221,30 @@ Implementations <strong>MUST</strong> ensure that data flow is specified unambig
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">System</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">input</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Element</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">inout</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Element</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">constant</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Element</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">structuralParameter</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Element</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">constant</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Element</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">parameter</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Element</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">constant</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Element</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">input</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Element</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">constant</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Element</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">inout</p></td>
 </tr>
@@ -3219,13 +3286,31 @@ Implementations <strong>MUST</strong> ensure that data flow is specified unambig
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Element</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">constant</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">System</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">constant</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Element</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">constant</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">System</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">calculatedParameter</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Element</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">constant</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">System</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">output</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Element</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">calculatedParameter</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">System</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">calculatedParameter</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Element</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">calcualtedParameter</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">calculatedParameter</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">System</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">output</p></td>
 </tr>
