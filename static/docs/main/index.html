@@ -586,7 +586,7 @@ document.addEventListener('keydown', (event) => {
 <div id="header">
 <h1>System Structure and Parameterization</h1>
 <div class="details">
-<span id="revnumber">version 4672379,</span>
+<span id="revnumber">version f300704,</span>
 <span id="revdate">2023-11-10</span>
 </div>
 <div id="toc" class="toc2">
@@ -2440,7 +2440,7 @@ The same is true for variables/ports that are not referenced through a connector
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">kind</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>This attribute specifies the kind of the given connector, which indicates whether the connector is an input, an output, both (inout), a constant, a parameter, a calculated parameter (i.e. a parameter that is calculated by the component during initialization), or a structural parameter (i.e. a parameter that can be set during (re-)configuration mode).</p>
+<p>This attribute specifies the kind of the given connector, which indicates whether the connector is an input, an output, both (inout), a local variable, a constant, a parameter, a calculated parameter (i.e. a parameter that is calculated by the component during initialization), or a structural parameter (i.e. a parameter that can be set during (re-)configuration mode).</p>
 </div>
 <div class="paragraph">
 <p>For components this <strong>MUST</strong> match the related kind of the underlying component implementation.
@@ -2454,6 +2454,11 @@ For referenced FMUs it <strong>MUST</strong> match the combination of variabilit
 For connectors of kind parameter the causality of the FMI 1.0 variable <strong>MUST</strong> be input or internal and the variability <strong>MUST</strong> be parameter.
 For connectors of kind calculatedParameter the causality of the FMI 1.0 variable <strong>MUST</strong> be output and the variability <strong>MUST</strong> be parameter.
 For connectors of kind constant the causality of the FMI 1.0 variable <strong>MUST</strong> be output and the variability <strong>MUST</strong> be constant.</p>
+</div>
+<div class="paragraph">
+<p>Connectors of kind <code>local</code> are used to define variables of the model element.
+Such a variable is not intended to be used for connections.
+However, if it is connected, the semantics are same as for an <code>output</code>.</p>
 </div>
 <div class="paragraph">
 <p>For SignalDictionaryReferences, the kind of a given connector can additionally be inout, which indicates that the semantics of the connector are derived from the connections going to the connector.
@@ -3116,7 +3121,7 @@ Note that source and destination in the following table indicate the resulting d
 </div>
 <div class="paragraph">
 <p>Implementations <strong>MUST NOT</strong> specify connections that are not of one of the allowed combinations in the following table.
-Implementations <strong>MUST</strong> ensure that data flow is specified unambiguously, including ensuring that not multiple connections with inbound data flow enter into a connector signifying an input, inout, parameter, or structuralParameter connector of an element, or a constant, calculatedParameter, or output connector of an enclosing system.</p>
+Implementations <strong>MUST</strong> ensure that data flow is specified unambiguously, including ensuring that not multiple connections with inbound data flow enter into a connector signifying an input, inout, parameter, or structuralParameter connector of an element, or a local, constant, calculatedParameter, or output connector of an enclosing system.</p>
 </div>
 <div class="paragraph">
 <p>It is implementation-defined whether connections between connectors of different types are allowed, and to what extent conversions are performed.
@@ -3159,6 +3164,12 @@ It is also implementation-defined how and whether any error-handling at runtime 
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">System</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">structuralParameter</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">System</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">local</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">System</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">parameter</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">System</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">calculatedParameter</p></td>
@@ -3171,9 +3182,21 @@ It is also implementation-defined how and whether any error-handling at runtime 
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">System</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">parameter</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">System</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">local</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">System</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">input</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">System</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">output</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">System</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">input</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">System</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">local</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">System</p></td>
@@ -3285,6 +3308,18 @@ It is also implementation-defined how and whether any error-handling at runtime 
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Element</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">local</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Element</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">input</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Element</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">local</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Element</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">inout</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Element</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">inout</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Element</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">input</p></td>
@@ -3309,6 +3344,12 @@ It is also implementation-defined how and whether any error-handling at runtime 
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Element</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">constant</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">System</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">local</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Element</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">calculatedParameter</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">System</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">calculatedParameter</p></td>
@@ -3321,7 +3362,37 @@ It is also implementation-defined how and whether any error-handling at runtime 
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Element</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">calculatedParameter</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">System</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">local</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Element</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">output</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">System</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">output</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Element</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">output</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">System</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">local</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Element</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">local</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">System</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">output</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Element</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">local</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">System</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">local</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Element</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">inout</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">System</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">output</p></td>
 </tr>
@@ -3329,7 +3400,7 @@ It is also implementation-defined how and whether any error-handling at runtime 
 <td class="tableblock halign-left valign-top"><p class="tableblock">Element</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">inout</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">System</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">output</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">local</p></td>
 </tr>
 </tbody>
 </table>
