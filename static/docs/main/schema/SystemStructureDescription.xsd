@@ -457,6 +457,19 @@
                                                 </xs:documentation>
                                             </xs:annotation>
                                         </xs:attribute>
+                                        <xs:attribute name="startIndices" use="optional">
+                                            <xs:annotation>
+                                                <xs:documentation xml:lang="en">
+                                                    This optional attribute gives the list of indices of an
+                                                    array connector that this connection is restricted to.
+                                                    If not supplied this indicates that this connection
+                                                    applies to the whole connector, not just a single element.
+                                                </xs:documentation>
+                                            </xs:annotation>
+                                            <xs:simpleType>
+                                                <xs:list itemType="xs:unsignedLong"/>
+                                            </xs:simpleType>
+                                        </xs:attribute>
                                         <xs:attribute name="endElement" type="xs:string" use="optional">
                                             <xs:annotation>
                                                 <xs:documentation xml:lang="en">
@@ -477,6 +490,19 @@
                                                     element.
                                                 </xs:documentation>
                                             </xs:annotation>
+                                        </xs:attribute>
+                                        <xs:attribute name="endIndices" use="optional">
+                                            <xs:annotation>
+                                                <xs:documentation xml:lang="en">
+                                                    This optional attribute gives the list of indices of an
+                                                    array connector that this connection is restricted to.
+                                                    If not supplied this indicates that this connection
+                                                    applies to the whole connector, not just a single element.
+                                                </xs:documentation>
+                                            </xs:annotation>
+                                            <xs:simpleType>
+                                                <xs:list itemType="xs:unsignedLong"/>
+                                            </xs:simpleType>
                                         </xs:attribute>
                                         <xs:attribute name="suppressUnitConversion" type="xs:boolean" use="optional" default="false">
                                             <xs:annotation>
@@ -599,6 +625,16 @@
                                     be informed of this error. Equally, if the type of the connector
                                     differs from the type of the underlying FMU variable this
                                     constitutes an error.
+                                </xs:documentation>
+                            </xs:annotation>
+                        </xs:group>
+                        <xs:group ref="ssc:GDimensions">
+                            <xs:annotation>
+                                <xs:documentation xml:lang="en">
+                                    This optional sequence of elements specifies the dimensions of an
+                                    array connector.  If no dimension elements are present in a
+                                    connector, it is a scalar connector. The number of dimension
+                                    elements in a connector providesthe dimensionality of the array.
                                 </xs:documentation>
                             </xs:annotation>
                         </xs:group>
