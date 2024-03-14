@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 2.0.20">
+<meta name="generator" content="Asciidoctor 2.0.21">
 <title>System Structure and Parameterization</title>
 <style>
 /* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
@@ -586,8 +586,8 @@ document.addEventListener('keydown', (event) => {
 <div id="header">
 <h1>System Structure and Parameterization</h1>
 <div class="details">
-<span id="revnumber">version b884a8a,</span>
-<span id="revdate">2024-01-20</span>
+<span id="revnumber">version 03f4ee3,</span>
+<span id="revdate">2024-03-14</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Contents</div>
@@ -1247,6 +1247,12 @@ If use of a larger character set is needed, it is <strong>RECOMMENDED</strong> t
 This allows the bundling of multiple variants of a system structure definition referencing a similar set of packaged resources as one SSP.
 There <strong>MUST</strong> still be one SSD file named SystemStructure.ssd at the root of the ZIP archive which is deemed to be the default variant.
 Tools not supporting variant-containing SSPs <strong>MUST</strong> deal with the given SSP by ignoring all contained SSD files except for the SystemStructure.ssd default file.</p>
+</div>
+<div class="paragraph">
+<p>If the ZIP archive contains multiple SSD file entries at the root level, the <code>name</code> attribute of each such system structure definition <strong>MUST</strong> be different from any of the other root level system structure definitions.</p>
+</div>
+<div class="paragraph">
+<p> [ <em>Tools <strong>MAY</strong> want to be prepared to handle SSP archives that violate the unique name requirement, as this was not present in earlier releases of SSP, and manually generated SSP archives may inadvertantly violate this requirement.</em> ]</p>
 </div>
 <div class="paragraph">
 <p>Tools <strong>SHOULD</strong> use the name attribute of the root SystemStructureDescription element of the SSD files when presenting the system structure to the user, for example when selecting individual variant SSDs from an SSP.</p>
