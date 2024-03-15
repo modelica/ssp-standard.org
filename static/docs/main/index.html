@@ -586,8 +586,8 @@ document.addEventListener('keydown', (event) => {
 <div id="header">
 <h1>System Structure and Parameterization</h1>
 <div class="details">
-<span id="revnumber">version 03f4ee3,</span>
-<span id="revdate">2024-03-14</span>
+<span id="revnumber">version 8cedc9e,</span>
+<span id="revdate">2024-03-15</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Contents</div>
@@ -2535,7 +2535,8 @@ Non-mapped parameter values are not applied in this case.</p>
 <p class="tableblock">* Any variables of the system exposed through connectors of the system have the name of the connector as their name.
 * For all elements of the system, the hierarchical names of the variables of those elements are formed by prepending the element name and a dot to the hierarchical names of the variables in that element.</p>
 <p class="tableblock">[ _For example for a system A containing a system B which contains an exposed parameter named SP1 and an element C with a parameter P2, the hierarchical names of the parameters in system A are B.SP1 and B.C.P2 respectively.
-The hierarchical name of those parameters inside system B are SP1 and C.P2 respectively.</em> ]</p>
+The hierarchical name of those parameters inside system B are SP1 and C.P2 respectively, and the hierarchical name of P2 inside element C is just P2.</p>
+<p class="tableblock">Therefore a parameter binding on element C shall reference the parameter P2 using its local name P2, not the hierarchical name C.P2, which would be valid for a parameter binding on system B.</em> ]</p>
 <p class="tableblock">Note that the hierarchical names of parameters or other variables do not have to be unique: If two or more variables end up with the same hierarchical name (due to so-called punning), then any parameter values being applied to that name <strong>MUST</strong> be applied to all of them.
 If this is not wanted, then it is up to the generating implementation to ensure that no punning occurs, through proper choice of system and element names.</p>
 <p class="tableblock">[ <em>For example, for a system A containing a system B with component C and variable D, and system A also containing a component called B.C and variable D, both variables will have the hierarchical name A.B.C.D. If this is not wanted, then proper care should be taken in naming component B.C and system B/component C in non-conflicting ways.
