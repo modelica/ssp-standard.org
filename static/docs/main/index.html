@@ -586,8 +586,8 @@ document.addEventListener('keydown', (event) => {
 <div id="header">
 <h1>System Structure and Parameterization</h1>
 <div class="details">
-<span id="revnumber">version efc224e,</span>
-<span id="revdate">2024-04-26</span>
+<span id="revnumber">version a20fa79,</span>
+<span id="revdate">2024-05-08</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Contents</div>
@@ -2593,12 +2593,16 @@ This can be used for example to allow a connector to function as both an input a
 <td class="tableblock halign-left valign-top"><p class="tableblock">Real / Float64 / Float32 /<br>
 Integer / Int8 / UInt8 / Int16 / UInt16 /<br>
 Int32 / UInt32 / Int64 / UInt64 /<br>
-Boolean / String / Enumeration / Binary</p></td>
+Boolean / String / Enumeration / Binary / Clock</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Exactly one of these elements <strong>CAN</strong> be present to specify the type of the Connector. See <a href="#ssc_types">Section 4.5.1</a> for details.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Dimension</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">One or more of these optional elements specify the connector array dimensions, making the connector an array connector. See <a href="#ssc_dimensions">Section 4.5.3</a> for details.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Clock</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">One or more of these optional elements associate the connector to a clock of the given name, which must be defined on the element that contains this connector.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ConnectorGeometry</p></td>
@@ -2607,10 +2611,13 @@ Boolean / String / Enumeration / Binary</p></td>
 </tbody>
 </table>
 <div class="paragraph">
-<p>The type of the Connector is identified by the presence of one of the XML child elements Real, Float64, Float32, Integer, Int8, UInt8, Int16, UInt16, Int32, UInt32, Int64, UInt64, Boolean, String, Enumeration, or Binary.</p>
+<p>The type of the Connector is identified by the presence of one of the XML child elements Real, Float64, Float32, Integer, Int8, UInt8, Int16, UInt16, Int32, UInt32, Int64, UInt64, Boolean, String, Enumeration, Binary, or Clock.</p>
 </div>
 <div class="paragraph">
 <p>The dimensionality of the Connector is given by the presence of one or more Dimension elements.</p>
+</div>
+<div class="paragraph">
+<p>The association of a connector to a clock is given by the presence of one or more Clock elements.</p>
 </div>
 <div class="sect4">
 <h5 id="_connectorgeometry">5.2.1.1. ConnectorGeometry</h5>
@@ -3277,6 +3284,18 @@ Implementations <strong>MUST</strong> ensure that data flow is specified unambig
 <p>It is implementation-defined whether connections between connectors of different types are allowed, and to what extent conversions are performed.
 This includes type conversions that can be performed without data loss, e.g. converting from an output of type <code>Float32</code> to an input of type <code>Float64</code> or <code>Real</code>, as well as conversions that can potentially lead to data loss, e.g. converting from an output of type <code>Float64</code> to an input of type <code>Float32</code> or <code>Int8</code>.
 It is also implementation-defined how and whether any error-handling at runtime is performed in those cases.</p>
+</div>
+<div class="paragraph">
+<p>It is also implementation-defined whether and which connections between connectors that are associated to different clocks are allowed.</p>
+</div>
+<div class="paragraph">
+<p>The table below applies directly to connectors of type <code>Clock</code> with an <code>intervalVariability</code> of <code>triggered</code>.
+For connectors of type <code>Clock</code> with an <code>intervalVariability</code> that is not <code>triggered</code> the table applies with the following provisions:
+* The connector is treated as a connector of kind <code>output</code> for the purposes of determining permissible connections.
+* It is implementation-defined whether and which connections between two connectors of kind <code>input</code> with <code>intervalVariability</code> that is not <code>triggered</code> are allowed. Such connections are deemed to establish equality constraints on the clock ticks, where the resolution mechanism, including direction of resolution is implementation-defined.</p>
+</div>
+<div class="paragraph">
+<p>For all connections of an element connector of type <code>Clock</code> to a system connector of type <code>Clock</code>, the <code>intervalVariability</code> of the two connectors must be identical.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
