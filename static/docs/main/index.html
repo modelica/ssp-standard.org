@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 2.0.22">
+<meta name="generator" content="Asciidoctor 2.0.23">
 <title>System Structure and Parameterization</title>
 <style>
 /* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
@@ -586,8 +586,8 @@ document.addEventListener('keydown', (event) => {
 <div id="header">
 <h1>System Structure and Parameterization</h1>
 <div class="details">
-<span id="revnumber">version 47b8779,</span>
-<span id="revdate">2024-05-08</span>
+<span id="revnumber">version 666510f,</span>
+<span id="revdate">2024-07-05</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Contents</div>
@@ -3918,7 +3918,7 @@ Implementations <strong>MUST NOT</strong> specify an empty relative URI to indic
 <td class="tableblock halign-left valign-top"><p class="tableblock">implementation</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">When the referenced component is an FMU that contains multiple implementations [ <em>for example Co-Simulation and Model Exchange</em>], this optional attribute can be used to determine which FMU implementation should be employed.
 If the attribute is missing or uses the default value any, the importing tool is free to choose what kind of FMU implementation to use.
-If the value is CoSimulation or ModelExchange the corresponding FMU implementation <strong>MUST</strong> be used.
+If the value is CoSimulation, ModelExchange, or ScheduledExecution the corresponding FMU implementation <strong>MUST</strong> be used.
 It is an error if the specified type of FMU implementation is not present in the FMU.</p></td>
 </tr>
 </tbody>
