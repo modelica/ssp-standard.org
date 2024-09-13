@@ -586,7 +586,7 @@ document.addEventListener('keydown', (event) => {
 <div id="header">
 <h1>System Structure and Parameterization</h1>
 <div class="details">
-<span id="revnumber">version da838ec,</span>
+<span id="revnumber">version 1707986,</span>
 <span id="revdate">2024-09-13</span>
 </div>
 <div id="toc" class="toc2">
@@ -2708,13 +2708,19 @@ Boolean / String / Enumeration / Binary / Clock</p></td>
 </div>
 <div class="paragraph">
 <p>This optional XML element gives the geometry information of the connector.
-Note that x and y coordinates are in a special coordinate system, where 0,0 is the lower-left corner of the containing model element, and 1,1 is the upper-right corner of the model element, regardless of aspect ratio.</p>
+Note that x and y coordinates are in a normalized connector coordinate system, where 0,0 is the lower-left corner of the containing model element, and 1,1 is the upper-right corner of the model element, regardless of aspect ratio.</p>
 </div>
 <div class="paragraph">
-<p>For systems the placement of connectors for the inside and outside view of the system is identical, the special coordinate system is just translated to different actual coordinate systems, namely the one determined by the ElementGeometry for the outside view, and the one determined by SystemGeometry for the inside view.</p>
+<p>By default, the placement of connectors for a system&#8217;s inside and outside views is identical.
+The connector coordinate system is just translated to different actual coordinate systems, namely the one determined by ElementGeometry for the outside view and the one determined by SystemGeometry for the inside view.</p>
 </div>
 <div class="paragraph">
-<p>If defined, this ConnectorGeometry overrides any ConnectorGeometry of a System in a referenced SSD file or any port location defined by an FMU (as defined in the relevant FMI standards).</p>
+<p>For systems, optionally, different placement of connectors for the inside view of the system can be specified with the systemInnerX and systemInnerY coordinates.
+This enables preserving the inside system layout when integrating a system in a system structure and avoiding unintended changes to the position of the connectors on the inside view of the system when making layout changes on the outside view and vice versa.</p>
+</div>
+<div class="paragraph">
+<p>If defined, this ConnectorGeometry overrides any ConnectorGeometry of a System in a referenced SSD file or any port location defined by an FMU (as defined in the relevant FMI standards) for the x and y coordinates of the outside view.
+Any inside view is not overridden.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -2730,11 +2736,19 @@ Note that x and y coordinates are in a special coordinate system, where 0,0 is t
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Required attribute giving the x coordinate of the connector inside the special coordinate system.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Required attribute giving the x coordinate of the connector inside the connector coordinate system.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">y</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Required attribute giving the y coordinate of the connector inside the special coordinate system.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Required attribute giving the y coordinate of the connector inside the connector coordinate system.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">systemInnerX</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Optional attribute giving a separate x coordinate of the connector for the inside view of a system.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">systemInnerY</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Optional attribute giving a separate y coordinate of the connector for the inside view of a system.</p></td>
 </tr>
 </tbody>
 </table>
