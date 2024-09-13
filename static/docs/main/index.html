@@ -586,8 +586,8 @@ document.addEventListener('keydown', (event) => {
 <div id="header">
 <h1>System Structure and Parameterization</h1>
 <div class="details">
-<span id="revnumber">version 666510f,</span>
-<span id="revdate">2024-07-05</span>
+<span id="revnumber">version da838ec,</span>
+<span id="revdate">2024-09-13</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Contents</div>
@@ -2547,7 +2547,7 @@ At least those connectors <strong>MUST</strong> be present which are referenced 
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">kind</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>This attribute specifies the kind of the given connector, which indicates whether the connector is an input, an output, both (inout), a local variable, a constant, a parameter, a calculated parameter (i.e. a parameter that is calculated by the component during initialization), or a structural parameter (i.e. a parameter that can be set during (re-)configuration mode).</p>
+<p>This attribute specifies the kind of the given connector, which indicates whether the connector is an input, an output, both (inout), unspecified, a local variable, a constant, a parameter, a calculated parameter (i.e. a parameter that is calculated by the component during initialization), or a structural parameter (i.e. a parameter that can be set during (re-)configuration mode).</p>
 </div>
 <div class="paragraph">
 <p>For components this <strong>MUST</strong> match the related kind of the underlying component implementation.
@@ -2570,6 +2570,10 @@ However, if it is connected, the semantics are same as for an <code>output</code
 <div class="paragraph">
 <p>For SignalDictionaryReferences, the kind of a given connector can additionally be inout, which indicates that the semantics of the connector are derived from the connections going to the connector.
 This can be used for example to allow a connector to function as both an input and output within the same SignalDictionaryReference.</p>
+</div>
+<div class="paragraph">
+<p>Connectors of kind <code>unspecified</code> are used to define connectors for which the flow of information is either not yet specified, or is determined at runtime, for example for acausal connections of Modelica models.
+Such connectors can be connected to any other connector under the rules of the underlying modeling language.</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -2618,6 +2622,84 @@ Boolean / String / Enumeration / Binary / Clock</p></td>
 </div>
 <div class="paragraph">
 <p>The association of a connector to a clock is given by the presence of one or more Clock elements.</p>
+</div>
+<div class="paragraph">
+<p>When Modelica models are represented in SSP, built-in input and output connectors shall be mapped as follows:</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Modelica Type</th>
+<th class="tableblock halign-left valign-top">SSP Type</th>
+<th class="tableblock halign-left valign-top">SSP Kind</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">RealInput</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ssc:Real</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">input</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">RealOutput</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ssc:Real</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">output</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">IntegerInput</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ssc:Integer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">input</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">IntegerOutput</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ssc:Integer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">output</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">BooleanInput</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ssc:Boolean</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">input</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">BooleanOutput</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ssc:Boolean</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">output</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">StringInput</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ssc:String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">input</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">StringOutput</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ssc:String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">output</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Modelica connectors of more advanced types are currently mapped in the following way:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The connector type is ssc:Binary.</p>
+</li>
+<li>
+<p>The media type is <code>text/x-modelica</code> and the <code>path</code> parameter of the media type designates the path of the Modelica connector.</p>
+</li>
+<li>
+<p>Acausal Modelica connector types are mapped to connectors of kind unspecified.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><em>[ Note that the current opaque mapping of more advanced types to Binary connectors is a temporary solution, and a more detailed mapping may be provided in future versions of the standard supporting more complex data types. ]</em></p>
 </div>
 <div class="sect4">
 <h5 id="_connectorgeometry">5.2.1.1. ConnectorGeometry</h5>
@@ -3281,6 +3363,11 @@ Note that source and destination in the following table indicate the resulting d
 Implementations <strong>MUST</strong> ensure that data flow is specified unambiguously, including ensuring that not multiple connections with inbound data flow enter into a connector signifying an input, inout, parameter, or structuralParameter connector of an element, or a local, constant, calculatedParameter, or output connector of an enclosing system.</p>
 </div>
 <div class="paragraph">
+<p>For connectors of kind unspecified it is ultimately implementation-defined whether and how connections are allowed, as the exact semantics depend on the underlying modeling language.
+For the purposes of the following table, connectors of kind unspecified are treated as connectors of whatever kind is needed to make the connection allowed, i.e. they serve a wild-card role.
+The handling of conflicts that arise in transitive connections from conflicting wild-card assignments is implementation-defined.</p>
+</div>
+<div class="paragraph">
 <p>It is implementation-defined whether connections between connectors of different types are allowed, and to what extent conversions are performed.
 This includes type conversions that can be performed without data loss, e.g. converting from an output of type <code>Float32</code> to an input of type <code>Float64</code> or <code>Real</code>, as well as conversions that can potentially lead to data loss, e.g. converting from an output of type <code>Float64</code> to an input of type <code>Float32</code> or <code>Int8</code>.
 It is also implementation-defined how and whether any error-handling at runtime is performed in those cases.</p>
@@ -3878,8 +3965,10 @@ Inside the text attribute, newlines indicate paragraph breaks.</p>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">type</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Optional attribute giving the MIME type of the component, which defaults to <code>application/x-fmu-sharedlibrary</code> to indicate the type of the component.
-Valid further types are <code>application/x-ssp-definition</code> for system structure description files, and <code>application/x-ssp-package</code> for system structure package files.
-No further types are currently defined.</p></td>
+Valid further types are <code>application/x-ssp-definition</code> for system structure description files, <code>application/x-ssp-package</code> for system structure package files, and <code>text/x-modelica</code> for Modelica models.
+No further types are currently defined.
+For type <code>text/x-modelica</code>, a media type parameter <code>path</code> specifies the full path of the Modelica class.
+[ <em>Example: <code>type="text/x-modelica; path=Modelica.Mechanics.Rotational.Interface.Flange_A"</code>.</em> ]</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">source</p></td>
@@ -3902,7 +3991,7 @@ This mechanism can be used to instantiate an embedded system definition multiple
 </div>
 <div class="paragraph">
 <p>Note that implementations are only <strong>REQUIRED</strong> to support relative URIs as specified above, and that especially relative URIs that move beyond the baseURI (i.e. go up a level via <code>..</code>) are <strong>not required</strong> to be supported by implementations, and are in fact often not supported for security or other reasons.
-Implementations are also <strong>not required</strong> to support any absolute URIs and any specific URI schemes (but are of course allowed to support any and all kinds of URIs where this is considered useful).</p>
+Implementations are also <strong>not required</strong> to support any absolute URIs and any specific URI schemes, but are of course allowed to support any and all kinds of URIs where this is considered useful.</p>
 </div>
 <div class="paragraph">
 <p>If the source attribute is missing, this indicates that there is no provided source for the component, indicating a simulation architecture design without complete executable implementation.
