@@ -586,197 +586,191 @@ document.addEventListener('keydown', (event) => {
 <div id="header">
 <h1>System Structure and Parameterization</h1>
 <div class="details">
-<span id="revnumber">version 887b5fe,</span>
+<span id="revnumber">version 1707986,</span>
 <span id="revdate">2024-10-11</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Contents</div>
-<ul class="sectlevel0">
-<li><a href="#_what_is_new_in_ssp_2_0">What is new in SSP 2.0</a>
 <ul class="sectlevel1">
-<li><a href="#_fmi_3_0_related_updates">1. FMI 3.0 related updates</a></li>
-<li><a href="#_non_fmi_3_0_related_updates">2. Non-FMI 3.0 related updates</a></li>
-<li><a href="#_overview">3. Overview</a>
+<li><a href="#_overview">1. Overview</a>
 <ul class="sectlevel2">
-<li><a href="#_properties_and_guiding_ideas">3.1. Properties and Guiding Ideas</a></li>
-<li><a href="#_typical_use_cases">3.2. Typical Use cases</a>
+<li><a href="#_properties_and_guiding_ideas">1.1. Properties and Guiding Ideas</a></li>
+<li><a href="#_typical_use_cases">1.2. Typical Use cases</a>
 <ul class="sectlevel3">
-<li><a href="#_designing_a_simulation_structure">3.2.1. Designing a simulation structure</a></li>
-<li><a href="#_ssp_as_definition_of_component_interfaces_and_parameterization_as_template">3.2.2. SSP as definition of component interfaces and parameterization as template</a></li>
-<li><a href="#_ssp_as_central_parameterization_description_and_syntax_for_other_parameterization_databases">3.2.3. SSP as central parameterization description and syntax for other parameterization databases</a></li>
-<li><a href="#_ssp_as_particular_instances_of_ready_to_simulate_simulation_systems">3.2.4. SSP as particular instances of ready-to-simulate simulation systems</a></li>
-<li><a href="#_ssp_for_reuse_of_system_structure_elements_during_development">3.2.5. SSP for reuse of system structure elements during development</a></li>
+<li><a href="#_designing_a_simulation_structure">1.2.1. Designing a simulation structure</a></li>
+<li><a href="#_ssp_as_definition_of_component_interfaces_and_parameterization_as_template">1.2.2. SSP as definition of component interfaces and parameterization as template</a></li>
+<li><a href="#_ssp_as_central_parameterization_description_and_syntax_for_other_parameterization_databases">1.2.3. SSP as central parameterization description and syntax for other parameterization databases</a></li>
+<li><a href="#_ssp_as_particular_instances_of_ready_to_simulate_simulation_systems">1.2.4. SSP as particular instances of ready-to-simulate simulation systems</a></li>
+<li><a href="#_ssp_for_reuse_of_system_structure_elements_during_development">1.2.5. SSP for reuse of system structure elements during development</a></li>
 </ul>
 </li>
-<li><a href="#_feature_overview">3.3. Feature Overview</a></li>
-<li><a href="#_acknowledgements">3.4. Acknowledgements</a></li>
-<li><a href="#_changes_in_1_0_1">3.5. Changes in 1.0.1</a></li>
+<li><a href="#_feature_overview">1.3. Feature Overview</a></li>
+<li><a href="#_acknowledgements">1.4. Acknowledgements</a></li>
+<li><a href="#_changes_in_1_0_1">1.5. Changes in 1.0.1</a></li>
 </ul>
 </li>
-<li><a href="#_ssp_common_concepts">4. SSP Common Concepts</a>
+<li><a href="#_ssp_common_concepts">2. SSP Common Concepts</a>
 <ul class="sectlevel2">
-<li><a href="#_extensibility">4.1. Extensibility</a>
+<li><a href="#_extensibility">2.1. Extensibility</a>
 <ul class="sectlevel3">
-<li><a href="#_annotation_mechanism">4.1.1. Annotation Mechanism</a></li>
-<li><a href="#_extra_files_mechanism">4.1.2. Extra Files Mechanism</a></li>
-<li><a href="#_extension_namespaces">4.1.3. Extension Namespaces</a></li>
-<li><a href="#_mime_type_based_format_dispatch">4.1.4. MIME-type based format dispatch</a></li>
+<li><a href="#_annotation_mechanism">2.1.1. Annotation Mechanism</a></li>
+<li><a href="#_extra_files_mechanism">2.1.2. Extra Files Mechanism</a></li>
+<li><a href="#_extension_namespaces">2.1.3. Extension Namespaces</a></li>
+<li><a href="#_mime_type_based_format_dispatch">2.1.4. MIME-type based format dispatch</a></li>
 </ul>
 </li>
-<li><a href="#_versioning_and_layered_standards">4.2. Versioning and Layered Standards</a></li>
-<li><a href="#_content_addressing">4.3. Content addressing</a></li>
+<li><a href="#_versioning_and_layered_standards">2.2. Versioning and Layered Standards</a></li>
+<li><a href="#_content_addressing">2.3. Content addressing</a></li>
 </ul>
 </li>
-<li><a href="#Packaging">5. System Structure Package (SSP)</a></li>
-<li><a href="#SSC">6. Common Content (SSC)</a>
+<li><a href="#Packaging">3. System Structure Package (SSP)</a></li>
+<li><a href="#SSC">4. Common Content (SSC)</a>
 <ul class="sectlevel2">
-<li><a href="#_common_attributes">6.1. Common Attributes</a></li>
-<li><a href="#_common_xml_child_elements">6.2. Common XML Child Elements</a></li>
-<li><a href="#_top_level_attributes">6.3. Top-Level Attributes</a></li>
-<li><a href="#_top_level_xml_child_elements">6.4. Top-Level XML Child Elements</a>
+<li><a href="#_common_attributes">4.1. Common Attributes</a></li>
+<li><a href="#_common_xml_child_elements">4.2. Common XML Child Elements</a></li>
+<li><a href="#_top_level_attributes">4.3. Top-Level Attributes</a></li>
+<li><a href="#_top_level_xml_child_elements">4.4. Top-Level XML Child Elements</a>
 <ul class="sectlevel3">
-<li><a href="#_enumerations">6.4.1. Enumerations</a>
+<li><a href="#_enumerations">4.4.1. Enumerations</a>
 <ul class="sectlevel4">
-<li><a href="#_item">6.4.1.1. Item</a></li>
+<li><a href="#_item">4.4.1.1. Item</a></li>
 </ul>
 </li>
-<li><a href="#_units">6.4.2. Units</a>
+<li><a href="#_units">4.4.2. Units</a>
 <ul class="sectlevel4">
-<li><a href="#_baseunit">6.4.2.1. BaseUnit</a></li>
+<li><a href="#_baseunit">4.4.2.1. BaseUnit</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#_xml_element_groups">6.5. XML Element Groups</a>
+<li><a href="#_xml_element_groups">4.5. XML Element Groups</a>
 <ul class="sectlevel3">
-<li><a href="#ssc_types">6.5.1. Type Choice</a>
+<li><a href="#ssc_types">4.5.1. Type Choice</a>
 <ul class="sectlevel4">
-<li><a href="#_real">6.5.1.1. Real</a></li>
-<li><a href="#_float64">6.5.1.2. Float64</a></li>
-<li><a href="#_float32">6.5.1.3. Float32</a></li>
-<li><a href="#_integer">6.5.1.4. Integer</a></li>
-<li><a href="#_int8">6.5.1.5. Int8</a></li>
-<li><a href="#_uint8">6.5.1.6. UInt8</a></li>
-<li><a href="#_int16">6.5.1.7. Int16</a></li>
-<li><a href="#_uint16">6.5.1.8. UInt16</a></li>
-<li><a href="#_int32">6.5.1.9. Int32</a></li>
-<li><a href="#_uint32">6.5.1.10. UInt32</a></li>
-<li><a href="#_int64">6.5.1.11. Int64</a></li>
-<li><a href="#_uint64">6.5.1.12. UInt64</a></li>
-<li><a href="#_boolean">6.5.1.13. Boolean</a></li>
-<li><a href="#_string">6.5.1.14. String</a></li>
-<li><a href="#_enumeration">6.5.1.15. Enumeration</a></li>
-<li><a href="#_binary">6.5.1.16. Binary</a></li>
+<li><a href="#_real">4.5.1.1. Real</a></li>
+<li><a href="#_float64">4.5.1.2. Float64</a></li>
+<li><a href="#_float32">4.5.1.3. Float32</a></li>
+<li><a href="#_integer">4.5.1.4. Integer</a></li>
+<li><a href="#_int8">4.5.1.5. Int8</a></li>
+<li><a href="#_uint8">4.5.1.6. UInt8</a></li>
+<li><a href="#_int16">4.5.1.7. Int16</a></li>
+<li><a href="#_uint16">4.5.1.8. UInt16</a></li>
+<li><a href="#_int32">4.5.1.9. Int32</a></li>
+<li><a href="#_uint32">4.5.1.10. UInt32</a></li>
+<li><a href="#_int64">4.5.1.11. Int64</a></li>
+<li><a href="#_uint64">4.5.1.12. UInt64</a></li>
+<li><a href="#_boolean">4.5.1.13. Boolean</a></li>
+<li><a href="#_string">4.5.1.14. String</a></li>
+<li><a href="#_enumeration">4.5.1.15. Enumeration</a></li>
+<li><a href="#_binary">4.5.1.16. Binary</a></li>
 </ul>
 </li>
-<li><a href="#ssc_transformations">6.5.2. Transformation Choice</a>
+<li><a href="#ssc_transformations">4.5.2. Transformation Choice</a>
 <ul class="sectlevel4">
-<li><a href="#_lineartransformation">6.5.2.1. LinearTransformation</a></li>
-<li><a href="#_booleanmappingtransformation">6.5.2.2. BooleanMappingTransformation</a></li>
-<li><a href="#_integermappingtransformation">6.5.2.3. IntegerMappingTransformation</a></li>
-<li><a href="#_enumerationmappingtransformation">6.5.2.4. EnumerationMappingTransformation</a></li>
+<li><a href="#_lineartransformation">4.5.2.1. LinearTransformation</a></li>
+<li><a href="#_booleanmappingtransformation">4.5.2.2. BooleanMappingTransformation</a></li>
+<li><a href="#_integermappingtransformation">4.5.2.3. IntegerMappingTransformation</a></li>
+<li><a href="#_enumerationmappingtransformation">4.5.2.4. EnumerationMappingTransformation</a></li>
 </ul>
 </li>
-<li><a href="#ssc_dimensions">6.5.3. Dimension Sequence</a>
+<li><a href="#ssc_dimensions">4.5.3. Dimension Sequence</a>
 <ul class="sectlevel4">
-<li><a href="#_dimension">6.5.3.1. Dimension</a></li>
+<li><a href="#_dimension">4.5.3.1. Dimension</a></li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#SSD">7. System Structure Description (SSD)</a>
+<li><a href="#SSD">5. System Structure Description (SSD)</a>
 <ul class="sectlevel2">
-<li><a href="#_systemstructuredescription">7.1. SystemStructureDescription</a>
+<li><a href="#_systemstructuredescription">5.1. SystemStructureDescription</a>
 <ul class="sectlevel3">
-<li><a href="#_default_experiment">7.1.1. Default Experiment</a></li>
+<li><a href="#_default_experiment">5.1.1. Default Experiment</a></li>
 </ul>
 </li>
-<li><a href="#_common_model_element_type">7.2. Common Model Element Type</a>
+<li><a href="#_common_model_element_type">5.2. Common Model Element Type</a>
 <ul class="sectlevel3">
-<li><a href="#_connectors">7.2.1. Connectors</a>
+<li><a href="#_connectors">5.2.1. Connectors</a>
 <ul class="sectlevel4">
-<li><a href="#_connectorgeometry">7.2.1.1. ConnectorGeometry</a></li>
+<li><a href="#_connectorgeometry">5.2.1.1. ConnectorGeometry</a></li>
 </ul>
 </li>
-<li><a href="#_elementgeometry">7.2.2. ElementGeometry</a></li>
-<li><a href="#_parameterbindings">7.2.3. ParameterBindings</a>
+<li><a href="#_elementgeometry">5.2.2. ElementGeometry</a></li>
+<li><a href="#_parameterbindings">5.2.3. ParameterBindings</a>
 <ul class="sectlevel4">
-<li><a href="#_parametervalues">7.2.3.1. ParameterValues</a></li>
-<li><a href="#_parametermapping">7.2.3.2. ParameterMapping</a></li>
+<li><a href="#_parametervalues">5.2.3.1. ParameterValues</a></li>
+<li><a href="#_parametermapping">5.2.3.2. ParameterMapping</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#_system">7.3. System</a>
+<li><a href="#_system">5.3. System</a>
 <ul class="sectlevel3">
-<li><a href="#_elements">7.3.1. Elements</a></li>
-<li><a href="#_connections">7.3.2. Connections</a>
+<li><a href="#_elements">5.3.1. Elements</a></li>
+<li><a href="#_connections">5.3.2. Connections</a>
 <ul class="sectlevel4">
-<li><a href="#_allowed_connections">7.3.2.1. Allowed Connections</a></li>
-<li><a href="#_connectiongeometry">7.3.2.2. ConnectionGeometry</a></li>
+<li><a href="#_allowed_connections">5.3.2.1. Allowed Connections</a></li>
+<li><a href="#_connectiongeometry">5.3.2.2. ConnectionGeometry</a></li>
 </ul>
 </li>
-<li><a href="#_signaldictionaries">7.3.3. SignalDictionaries</a></li>
-<li><a href="#_systemgeometry">7.3.4. SystemGeometry</a></li>
-<li><a href="#_graphicalelements">7.3.5. GraphicalElements</a>
+<li><a href="#_signaldictionaries">5.3.3. SignalDictionaries</a></li>
+<li><a href="#_systemgeometry">5.3.4. SystemGeometry</a></li>
+<li><a href="#_graphicalelements">5.3.5. GraphicalElements</a>
 <ul class="sectlevel4">
-<li><a href="#_note">7.3.5.1. Note</a></li>
+<li><a href="#_note">5.3.5.1. Note</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#_component">7.4. Component</a></li>
-<li><a href="#_signaldictionaryreference">7.5. SignalDictionaryReference</a></li>
+<li><a href="#_component">5.4. Component</a></li>
+<li><a href="#_signaldictionaryreference">5.5. SignalDictionaryReference</a></li>
 </ul>
 </li>
-<li><a href="#SSV">8. System Structure Parameter Values (SSV)</a>
+<li><a href="#SSV">6. System Structure Parameter Values (SSV)</a>
 <ul class="sectlevel2">
-<li><a href="#_parameterset">8.1. ParameterSet</a></li>
-<li><a href="#_parameters">8.2. Parameters</a>
+<li><a href="#_parameterset">6.1. ParameterSet</a></li>
+<li><a href="#_parameters">6.2. Parameters</a>
 <ul class="sectlevel3">
-<li><a href="#_real_2">8.2.1. Real</a></li>
-<li><a href="#_float64_2">8.2.2. Float64</a></li>
-<li><a href="#_float32_2">8.2.3. Float32</a></li>
-<li><a href="#_integer_2">8.2.4. Integer</a></li>
-<li><a href="#_int8_2">8.2.5. Int8</a></li>
-<li><a href="#_uint8_2">8.2.6. UInt8</a></li>
-<li><a href="#_int16_2">8.2.7. Int16</a></li>
-<li><a href="#_uint16_2">8.2.8. UInt16</a></li>
-<li><a href="#_int32_2">8.2.9. Int32</a></li>
-<li><a href="#_uint32_2">8.2.10. UInt32</a></li>
-<li><a href="#_int64_2">8.2.11. Int64</a></li>
-<li><a href="#_uint64_2">8.2.12. UInt64</a></li>
-<li><a href="#_boolean_2">8.2.13. Boolean</a></li>
-<li><a href="#_string_2">8.2.14. String</a></li>
-<li><a href="#_enumeration_2">8.2.15. Enumeration</a></li>
-<li><a href="#_binary_2">8.2.16. Binary</a></li>
+<li><a href="#_real_2">6.2.1. Real</a></li>
+<li><a href="#_float64_2">6.2.2. Float64</a></li>
+<li><a href="#_float32_2">6.2.3. Float32</a></li>
+<li><a href="#_integer_2">6.2.4. Integer</a></li>
+<li><a href="#_int8_2">6.2.5. Int8</a></li>
+<li><a href="#_uint8_2">6.2.6. UInt8</a></li>
+<li><a href="#_int16_2">6.2.7. Int16</a></li>
+<li><a href="#_uint16_2">6.2.8. UInt16</a></li>
+<li><a href="#_int32_2">6.2.9. Int32</a></li>
+<li><a href="#_uint32_2">6.2.10. UInt32</a></li>
+<li><a href="#_int64_2">6.2.11. Int64</a></li>
+<li><a href="#_uint64_2">6.2.12. UInt64</a></li>
+<li><a href="#_boolean_2">6.2.13. Boolean</a></li>
+<li><a href="#_string_2">6.2.14. String</a></li>
+<li><a href="#_enumeration_2">6.2.15. Enumeration</a></li>
+<li><a href="#_binary_2">6.2.16. Binary</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#SSM">9. System Structure Parameter Mapping (SSM)</a>
+<li><a href="#SSM">7. System Structure Parameter Mapping (SSM)</a>
 <ul class="sectlevel2">
-<li><a href="#_parametermapping_2">9.1. ParameterMapping</a>
+<li><a href="#_parametermapping_2">7.1. ParameterMapping</a>
 <ul class="sectlevel3">
-<li><a href="#_mappingentry">9.1.1. MappingEntry</a></li>
+<li><a href="#_mappingentry">7.1.1. MappingEntry</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#SSB">10. System Structure Signal Dictionaries (SSB)</a>
+<li><a href="#SSB">8. System Structure Signal Dictionaries (SSB)</a>
 <ul class="sectlevel2">
-<li><a href="#_signaldictionary">10.1. SignalDictionary</a>
+<li><a href="#_signaldictionary">8.1. SignalDictionary</a>
 <ul class="sectlevel3">
-<li><a href="#_dictionaryentry">10.1.1. DictionaryEntry</a></li>
+<li><a href="#_dictionaryentry">8.1.1. DictionaryEntry</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#_literature">11. Literature</a></li>
-</ul>
-</li>
+<li><a href="#_literature">9. Literature</a></li>
 </ul>
 </div>
 </div>
@@ -916,72 +910,8 @@ The standard is comprised of a set of XML-based formats to describe a network of
 </div>
 </div>
 </div>
-<h1 id="_what_is_new_in_ssp_2_0" class="sect0">What is new in SSP 2.0</h1>
-<div class="openblock partintro">
-<div class="content">
-<div class="paragraph">
-<p>The SSP development group has provided this update to the SSP standard in reaction to the release of FMI 3.0 as well as to new end user requirements.
-Even though SSP 2.0 is seen as a major version update, SSP 1.0 artifacts are still seen as fully compliant to the SSP 2.0 release. Naturally, however, SSP 2.0 compliant artifacts are not necesarali compliant to the SSP 1.0 schema.</p>
-</div>
-<div class="paragraph">
-<p>The SSP 2.0 release is primarily focused on supporting the updates of FMI 3.0; however, a number of minor but significant changes related to supporting, for example, incremental development as well non-fmi components are introduced. An overview of the changes are provided in the two bulleted lists below: the first aggregating features related to FMI 3.0 and the second to non-FMI related new requirements.
-Many different advancements to the specification have been discussed; however, the SSP 2.0 specification has been deduced as a least-common denominator for the exchange of simulation packages that is able to provide value for both end-users and tool suppliers.</p>
-</div>
-</div>
-</div>
 <div class="sect1">
-<h2 id="_fmi_3_0_related_updates">1. FMI 3.0 related updates</h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p>Basic types, such as Float32.</p>
-</li>
-<li>
-<p>Scheduled execution (component implementation attribute).</p>
-</li>
-<li>
-<p>Clocked signals.</p>
-</li>
-<li>
-<p>Arrays. Support for expressing arrays in connectors in the SSD as well as in the SSV and SSB.</p>
-</li>
-<li>
-<p>The expression of annotations are aligned to that of FMI 3.0 and SSP Traceability.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_non_fmi_3_0_related_updates">2. Non-FMI 3.0 related updates</h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p>Optional inner view connector coordinates. This feature enables more advanced graphical editing of SSP models.</p>
-</li>
-<li>
-<p>Initial meta-data support from "SSP Traceability" project. First step in aligning SSP with SSP Traceability. Allows the end user to capture, for example, life-cycle information in the SSP package.</p>
-</li>
-<li>
-<p>Optional support for representing Modelica components and connectors in SSP. SSP is not FMI exclusive and SSP now nativly supports Modelica models as components.</p>
-</li>
-<li>
-<p>The component source is made optional to support the usage of system structure descriptions for simulation architecture design without available component implementations. Furthermore, connectors with kind="local" are added to the specification. This, for example, further enriches SSP for architecting purposes.</p>
-</li>
-<li>
-<p>General clarifications and bug fixes.</p>
-</li>
-<li>
-<p>Constant and structuralParameter are added as allowed connector kinds. This expansion further aligns SSP 2.0 to FMI and its constructs.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_overview">3. Overview</h2>
+<h2 id="_overview">1. Overview</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>SSP is a tool-independent format for the description, packaging and exchange of system structures and their parameterization.
@@ -998,7 +928,7 @@ Parameters can be derived from other parameters to be able to introduce dependen
 While SSP is closely aligned to FMI it can also be used with components of other formats than FMI.</p>
 </div>
 <div class="sect2">
-<h3 id="_properties_and_guiding_ideas">3.1. Properties and Guiding Ideas</h3>
+<h3 id="_properties_and_guiding_ideas">1.1. Properties and Guiding Ideas</h3>
 <div class="paragraph">
 <p>This section introduces the basic properties and guiding principles that underly the design of the SSP standard:</p>
 </div>
@@ -1006,7 +936,7 @@ While SSP is closely aligned to FMI it can also be used with components of other
 <p><em>Tool independence</em>: The core intent of SSP is to enable the exchange of partial and complete simulation systems between tools.
 In consequence any tool-specific data is not stored in the standard schema and will be lost during transfer between implementations.
 However specific data can be stored in customized annotations for reuse in the same tool.
-Additional common data for use across tools can also be standardized as layered standards (cf. <a href="#_annotation_mechanism">Section 4.1.1</a>).</p>
+Additional common data for use across tools can also be standardized as layered standards (cf. <a href="#_annotation_mechanism">Section 2.1.1</a>).</p>
 </div>
 <div class="paragraph">
 <p><em>Simplicity</em>: SSP is focused on the possibility to exchange complete or partial topologies and parameters between different tools as simply as possible, while retaining essential information.
@@ -1024,7 +954,7 @@ Hierarchical structures enable encapsulation and combination of small components
 </div>
 </div>
 <div class="sect2">
-<h3 id="_typical_use_cases">3.2. Typical Use cases</h3>
+<h3 id="_typical_use_cases">1.2. Typical Use cases</h3>
 <div class="paragraph">
 <p>To understand the value of SSP, five basic use cases are listed below.
 These use cases are driven by the idea of collaboration of different departments either in one organization or across organizations.
@@ -1039,7 +969,7 @@ Hence for every use case the most appropriate tool can be used and the result ca
 <p>Another strength of SSP is due to its simple syntax that users can easily write their own software to read, generate or manipulate SSP files and exchange them with other tools that support SSP.</p>
 </div>
 <div class="sect3">
-<h4 id="_designing_a_simulation_structure">3.2.1. Designing a simulation structure</h4>
+<h4 id="_designing_a_simulation_structure">1.2.1. Designing a simulation structure</h4>
 <div class="paragraph">
 <p>For the simulation of complex systems, first a design of this system should be created.
 From a simulation perspective, each component has to be described with its inputs and outputs and its required parameters.
@@ -1058,7 +988,7 @@ The mapping to the parameters of the components can be realized either using con
 </div>
 </div>
 <div class="sect3">
-<h4 id="_ssp_as_definition_of_component_interfaces_and_parameterization_as_template">3.2.2. SSP as definition of component interfaces and parameterization as template</h4>
+<h4 id="_ssp_as_definition_of_component_interfaces_and_parameterization_as_template">1.2.2. SSP as definition of component interfaces and parameterization as template</h4>
 <div class="paragraph">
 <p>The main result of the design of the complete simulation structure is the definition of all needed components and the used parameterization structure.
 Each component can be used as a design template for the implementation – including the wanted parameters.
@@ -1075,7 +1005,7 @@ Even traceability information can be retained this way.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_ssp_as_central_parameterization_description_and_syntax_for_other_parameterization_databases">3.2.3. SSP as central parameterization description and syntax for other parameterization databases</h4>
+<h4 id="_ssp_as_central_parameterization_description_and_syntax_for_other_parameterization_databases">1.2.3. SSP as central parameterization description and syntax for other parameterization databases</h4>
 <div class="paragraph">
 <p>A good system design can be used for various applications.
 The structure keeps the same for all these applications.
@@ -1087,7 +1017,7 @@ Through the URI-based addressing mechanism, tools can support direct access to s
 </div>
 </div>
 <div class="sect3">
-<h4 id="_ssp_as_particular_instances_of_ready_to_simulate_simulation_systems">3.2.4. SSP as particular instances of ready-to-simulate simulation systems</h4>
+<h4 id="_ssp_as_particular_instances_of_ready_to_simulate_simulation_systems">1.2.4. SSP as particular instances of ready-to-simulate simulation systems</h4>
 <div class="paragraph">
 <p>After implementation of all components and provisioning of the parameter settings for a particular system everything is in place for running simulations.
 All these entities can be stored in one single SSP package, which can be imported by the executing system for running the simulation.
@@ -1099,7 +1029,7 @@ The core SSP standard does not include these execution-specific settings, but la
 </div>
 </div>
 <div class="sect3">
-<h4 id="_ssp_for_reuse_of_system_structure_elements_during_development">3.2.5. SSP for reuse of system structure elements during development</h4>
+<h4 id="_ssp_for_reuse_of_system_structure_elements_during_development">1.2.5. SSP for reuse of system structure elements during development</h4>
 <div class="paragraph">
 <p>As an example, a system structure defined originally for software-in-the-loop testing can also be reused for hardware-in-the-loop testing.
 Where FMI enables the reuse of individual models across platforms, SSP enables the reuse of complete systems and subsystems, including their configurations, basic layouts, and parameters.</p>
@@ -1117,7 +1047,7 @@ There is an increasing desire to reuse environment models to provide proven, con
 </div>
 </div>
 <div class="sect2">
-<h3 id="_feature_overview">3.3. Feature Overview</h3>
+<h3 id="_feature_overview">1.3. Feature Overview</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -1149,7 +1079,7 @@ There is an increasing desire to reuse environment models to provide proven, con
 </div>
 </div>
 <div class="sect2">
-<h3 id="_acknowledgements">3.4. Acknowledgements</h3>
+<h3 id="_acknowledgements">1.4. Acknowledgements</h3>
 <div class="paragraph">
 <p>This standard was developed as part of the Modelica Association Project “System Structure and Parametrization” (MAP SSP).
 The following companies and persons were involved in the creation of the standard as direct contributors to the standard document:</p>
@@ -1214,7 +1144,7 @@ The following companies and persons were involved in the creation of the standar
 </div>
 </div>
 <div class="sect2">
-<h3 id="_changes_in_1_0_1">3.5. Changes in 1.0.1</h3>
+<h3 id="_changes_in_1_0_1">1.5. Changes in 1.0.1</h3>
 <div class="paragraph">
 <p>The following changes were performed as part of the 1.0.1 maintenance release:</p>
 </div>
@@ -1256,33 +1186,33 @@ The following companies and persons were involved in the creation of the standar
 </div>
 </div>
 <div class="sect1">
-<h2 id="_ssp_common_concepts">4. SSP Common Concepts</h2>
+<h2 id="_ssp_common_concepts">2. SSP Common Concepts</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_extensibility">4.1. Extensibility</h3>
+<h3 id="_extensibility">2.1. Extensibility</h3>
 <div class="paragraph">
 <p>The SSP standard allows the set of data and meta-data stored and transported via SSP file formats to be extended by tools and users through three extension mechanisms: Annotations, extra files and MIME type-based format dispatch.</p>
 </div>
 <div class="sect3">
-<h4 id="_annotation_mechanism">4.1.1. Annotation Mechanism</h4>
+<h4 id="_annotation_mechanism">2.1.1. Annotation Mechanism</h4>
 <div class="paragraph">
 <p>All XML-based file formats defined in the SSP standard allow optional ssc:Annotation elements to be inserted in all XML elements that represent entities of the underlying data model.
-This is achieved through the ssc:TAnnotations type defined in <a href="#_common_xml_child_elements">Section 6.2</a>.
-Each ssc:Annotation element contains a required type attribute, which contains the namespace for that annotation, as defined in <a href="#_extension_namespaces">Section 4.1.3</a>.
+This is achieved through the ssc:TAnnotations type defined in <a href="#_common_xml_child_elements">Section 4.2</a>.
+Each ssc:Annotation element contains a required type attribute, which contains the namespace for that annotation, as defined in <a href="#_extension_namespaces">Section 2.1.3</a>.
 The content of the ssc:Annotation element <strong>CAN</strong> be arbitrary XML data, and <strong>CAN</strong> make use of XML namespaces and XML schemas for combined validation where appropriate.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_extra_files_mechanism">4.1.2. Extra Files Mechanism</h4>
+<h4 id="_extra_files_mechanism">2.1.2. Extra Files Mechanism</h4>
 <div class="paragraph">
 <p>The System Structure Package (SSP) file format is a ZIP-based packaging format, and thus not XML-based.
-It offers a separate mechanism to include additional data and meta-data into the package format through the reserved extra/ ZIP entry prefix (i.e. top-level directory), as defined in <a href="#Packaging">Chapter 5</a>.
-Files are placed inside sub-directories under that top-level directory using the namespace as defined in <a href="#_extension_namespaces">Section 4.1.3</a> as part of the sub-directory name.
+It offers a separate mechanism to include additional data and meta-data into the package format through the reserved extra/ ZIP entry prefix (i.e. top-level directory), as defined in <a href="#Packaging">Chapter 3</a>.
+Files are placed inside sub-directories under that top-level directory using the namespace as defined in <a href="#_extension_namespaces">Section 2.1.3</a> as part of the sub-directory name.
 The content of files and further sub-directories placed in those sub-directories are unrestricted.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_extension_namespaces">4.1.3. Extension Namespaces</h4>
+<h4 id="_extension_namespaces">2.1.3. Extension Namespaces</h4>
 <div class="paragraph">
 <p>Both annotations and extra files extensions make use of a namespace mechanism based on reverse domain notation:
 The originator of a specification for additional data specifies a domain name under their control as the namespace for the additional data, in order to avoid conflicts due to name collisions.
@@ -1295,7 +1225,7 @@ All namespaces under both the <code>org.modelica</code> and <code>org.ssp-standa
 </div>
 </div>
 <div class="sect3">
-<h4 id="_mime_type_based_format_dispatch">4.1.4. MIME-type based format dispatch</h4>
+<h4 id="_mime_type_based_format_dispatch">2.1.4. MIME-type based format dispatch</h4>
 <div class="paragraph">
 <p>In all places where SSP file formats reference additional, potentially external, data, the reference not only caries a source specification (indicating where the data can be located, if it is not inlined), but also a MIME type attribute, specifying the file format of the data being referenced.
 The base standard specifies a minimum set of MIME types and related file formats (including specifically the SSP-defined file formats and FMI) that must be supported by implementations.</p>
@@ -1309,7 +1239,7 @@ The base standard specifies a minimum set of MIME types and related file formats
 </div>
 </div>
 <div class="sect2">
-<h3 id="_versioning_and_layered_standards">4.2. Versioning and Layered Standards</h3>
+<h3 id="_versioning_and_layered_standards">2.2. Versioning and Layered Standards</h3>
 <div class="paragraph">
 <p>The SSP standard uses semantic version numbers, as defined in [SV200], where the standard version consists of a triple of version numbers, consisting of major version, minor version, and patch version numbers [ <em>e.g. 1.2.3 for major version 1, minor version 2 and patch version 3</em> ].</p>
 </div>
@@ -1332,7 +1262,7 @@ It should never be necessary for an importing tool to know the patch version num
 <p>In order to enable the backward-compatible extension of the SSP standard in minor releases and between minor releases, MAP SSP will make extensive use of the layered standard mechanism to introduce new features in a fully backward-compatible and optional way.</p>
 </div>
 <div class="paragraph">
-<p>A layered standard defines extensions to the base SSP standard by specifying either standardized annotations, standardized extra files in SSP archives, and/or support for additional MIME types/file formats, as defined in <a href="#_extensibility">Section 4.1</a>.
+<p>A layered standard defines extensions to the base SSP standard by specifying either standardized annotations, standardized extra files in SSP archives, and/or support for additional MIME types/file formats, as defined in <a href="#_extensibility">Section 2.1</a>.
 A layered standard can include a single or combined set of extension mechanisms from this set.
 The layered standard is thus considered to be layered on top of the definitions and extensions mechanisms provided by this base standard.</p>
 </div>
@@ -1354,7 +1284,7 @@ The layered standard is thus considered to be layered on top of the definitions 
 </div>
 </div>
 <div class="sect2">
-<h3 id="_content_addressing">4.3. Content addressing</h3>
+<h3 id="_content_addressing">2.3. Content addressing</h3>
 <div class="paragraph">
 <p>All references between files using file formats defined in the SSP standard are expressed through URIs.
 Usually those references make use of relative URIs, where the base URI that those relative URIs are resolved against are specified in the SSP standard [ <em>e.g. for SSDs, relative URIs to other content are usually resolved against the URI of the SSD, but can optionally also be resolved against the URI of referenced components, e.g. in order to reference a file inside a referenced FMU.</em> ].</p>
@@ -1370,7 +1300,7 @@ Besides basic support for file-schema URIs, the set of schemas and transport mec
 </div>
 </div>
 <div class="sect1">
-<h2 id="Packaging">5. System Structure Package (SSP)</h2>
+<h2 id="Packaging">3. System Structure Package (SSP)</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>System Structure Package (file extension .ssp) files are specified to allow the packaging of System Structure Description (<code>*.ssd</code>) files together with related resources, like referenced FMUs, parameter files, etc.</p>
@@ -1406,7 +1336,7 @@ If use of a larger character set is needed, it is <strong>RECOMMENDED</strong> t
 <em>It should also be noted that Unicode normalization issues that affect cross filesystem/OS compatibility might need to be addressed, since those issues are not addressed in the ZIP specification.</em> ]</p>
 </div>
 <div class="paragraph">
-<p>The ZIP archive <strong>MUST</strong> contain an entry named SystemStructure.ssd at root level, containing a valid System Structure Description, as specified in <a href="#SSD">Chapter 7</a>.</p>
+<p>The ZIP archive <strong>MUST</strong> contain an entry named SystemStructure.ssd at root level, containing a valid System Structure Description, as specified in <a href="#SSD">Chapter 5</a>.</p>
 </div>
 <div class="paragraph">
 <p>Optionally the ZIP archive <strong>MAY</strong> contain multiple SSD file entries at root level, each with a different file name [ <em>e.g. SystemStructure.ssd, VarA.ssd, VarB.ssd</em> ].
@@ -1434,7 +1364,7 @@ Tools not supporting variant-containing SSPs <strong>MUST</strong> deal with the
 <div class="paragraph">
 <p>The ZIP archive <strong>MAY</strong> contain additional entries with the prefix <code>extra/</code> which can be used to store additional data and meta-data.
 In order to ensure uniqueness the extra files <strong>SHOULD</strong> be provided in sub-directories using a reverse domain name notation [ <em>cf. Java package names or Apple UTIs</em> ] of a domain that is controlled by the entity defining the semantics and content of the additional entries.
-The use of sub-directories beginning with <code>org.modelica</code> and <code>org.ssp-standard</code> is explicitly reserved for use by MAP SSP-defined layered standards (cf. <a href="#_versioning_and_layered_standards">Section 4.2</a>), i.e. other uses <strong>MUST NOT</strong> use sub-directory names beginning with these prefixes.</p>
+The use of sub-directories beginning with <code>org.modelica</code> and <code>org.ssp-standard</code> is explicitly reserved for use by MAP SSP-defined layered standards (cf. <a href="#_versioning_and_layered_standards">Section 2.2</a>), i.e. other uses <strong>MUST NOT</strong> use sub-directory names beginning with these prefixes.</p>
 </div>
 <div class="paragraph">
 <p>It is explicitly allowed for tools and users other than the original creator of an SSP to modify/add/delete entries in the <code>extra/</code> prefix without affecting the validity of SSP in all other aspects.
@@ -1456,14 +1386,14 @@ If documentation is provided an entry with the name <code>documentation/index.ht
 </div>
 </div>
 <div class="sect1">
-<h2 id="SSC">6. Common Content (SSC)</h2>
+<h2 id="SSC">4. Common Content (SSC)</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Common Structures and Attributes that are used across all XML Schemas are defined in the SystemStructureCommon.xsd Schema, which is imported by all other XML Schemas.
 All Types and AttributeGroups live in the <code><a href="http://ssp-standard.org/SSP1/SystemStructureCommon" class="bare">http://ssp-standard.org/SSP1/SystemStructureCommon</a></code> namespace, nicknamed <code>ssc</code>.</p>
 </div>
 <div class="sect2">
-<h3 id="_common_attributes">6.1. Common Attributes</h3>
+<h3 id="_common_attributes">4.1. Common Attributes</h3>
 <div class="paragraph">
 <p>All XML elements that correspond to an entity of the system model will have the following set of common XML attributes, as defined in the ssc:ABaseElement attribute group:</p>
 </div>
@@ -1494,7 +1424,7 @@ All Types and AttributeGroups live in the <code><a href="http://ssp-standard.org
 </table>
 </div>
 <div class="sect2">
-<h3 id="_common_xml_child_elements">6.2. Common XML Child Elements</h3>
+<h3 id="_common_xml_child_elements">4.2. Common XML Child Elements</h3>
 <div class="paragraph">
 <p>All XML elements that correspond to an entity of the system model will have the following set of common child elements:</p>
 </div>
@@ -1534,11 +1464,11 @@ For MAP-SSP-defined annotations, this <strong>MUST</strong> be a domain under th
 Annotations that are not defined by MAP SSP <strong>MUST NOT</strong> use these two prefixes,</p>
 </div>
 <div class="paragraph">
-<p>This mechanism can be used both for tool-specific annotations, as well as for layered standards (see <a href="#_versioning_and_layered_standards">Section 4.2</a>) and other agreed-upon extensions, and thus provides a generic extension mechanism.</p>
+<p>This mechanism can be used both for tool-specific annotations, as well as for layered standards (see <a href="#_versioning_and_layered_standards">Section 2.2</a>) and other agreed-upon extensions, and thus provides a generic extension mechanism.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_top_level_attributes">6.3. Top-Level Attributes</h3>
+<h3 id="_top_level_attributes">4.3. Top-Level Attributes</h3>
 <div class="paragraph">
 <p>Top-level attributes are optional meta-data attributes common to all top-level container elements of all defined file formats.</p>
 </div>
@@ -1585,7 +1515,7 @@ Annotations that are not defined by MAP SSP <strong>MUST NOT</strong> use these 
 </table>
 </div>
 <div class="sect2">
-<h3 id="_top_level_xml_child_elements">6.4. Top-Level XML Child Elements</h3>
+<h3 id="_top_level_xml_child_elements">4.4. Top-Level XML Child Elements</h3>
 <div class="paragraph">
 <p>Top-level elements of a defined file format may have the following set of common child elements.</p>
 </div>
@@ -1595,7 +1525,7 @@ This is intended to ensure the separate portability of individual files, with ea
 When processing information from multiple files, either from the same or separate system structures, it is up to the importing implementation to deal with any inconsistencies between files found.</p>
 </div>
 <div class="sect3">
-<h4 id="_enumerations">6.4.1. Enumerations</h4>
+<h4 id="_enumerations">4.4.1. Enumerations</h4>
 <div class="paragraph">
 <p><span class="image"><img src="images/image5.png" alt="image" width="397" height="47"></span></p>
 </div>
@@ -1652,7 +1582,7 @@ When processing information from multiple files, either from the same or separat
 </tbody>
 </table>
 <div class="sect4">
-<h5 id="_item">6.4.1.1. Item</h5>
+<h5 id="_item">4.4.1.1. Item</h5>
 <div class="paragraph">
 <p><span class="image"><img src="images/image7.png" alt="image" width="225" height="149"></span></p>
 </div>
@@ -1684,7 +1614,7 @@ When processing information from multiple files, either from the same or separat
 </div>
 </div>
 <div class="sect3">
-<h4 id="_units">6.4.2. Units</h4>
+<h4 id="_units">4.4.2. Units</h4>
 <div class="paragraph">
 <p><span class="image"><img src="images/image8.png" alt="image" width="315" height="47"></span></p>
 </div>
@@ -1741,7 +1671,7 @@ When processing information from multiple files, either from the same or separat
 </tbody>
 </table>
 <div class="sect4">
-<h5 id="_baseunit">6.4.2.1. BaseUnit</h5>
+<h5 id="_baseunit">4.4.2.1. BaseUnit</h5>
 <div class="paragraph">
 <p>This element defines the base unit of the given unit in SI units.
 This is completely aligned with the specification of base units in section 2.2.2 of the FMI 2.0 standard [FMI20].</p>
@@ -1807,13 +1737,13 @@ This is completely aligned with the specification of base units in section 2.2.2
 </div>
 </div>
 <div class="sect2">
-<h3 id="_xml_element_groups">6.5. XML Element Groups</h3>
+<h3 id="_xml_element_groups">4.5. XML Element Groups</h3>
 <div class="paragraph">
 <p>These XML element choices and sequences are common to multiple file formats.
 They are used inside elements to select one of multiple child elements, or provide common sequence content.</p>
 </div>
 <div class="sect3">
-<h4 id="ssc_types">6.5.1. Type Choice</h4>
+<h4 id="ssc_types">4.5.1. Type Choice</h4>
 <div class="paragraph">
 <p><span class="image"><img src="images/image11.png" alt="image" width="312" height="203"></span></p>
 </div>
@@ -1843,7 +1773,7 @@ Boolean / String / Enumeration / Binary</p></td>
 </tbody>
 </table>
 <div class="sect4">
-<h5 id="_real">6.5.1.1. Real</h5>
+<h5 id="_real">4.5.1.1. Real</h5>
 <div class="paragraph">
 <p><span class="image"><img src="images/image12.png" alt="image" width="226" height="95"></span></p>
 </div>
@@ -1875,7 +1805,7 @@ Notwithstanding these mechanisms, unitless variables of type Real are supported.
 </table>
 </div>
 <div class="sect4">
-<h5 id="_float64">6.5.1.2. Float64</h5>
+<h5 id="_float64">4.5.1.2. Float64</h5>
 <div class="paragraph">
 <p><span class="image"><img src="images/image12.png" alt="image" width="226" height="95"></span></p>
 </div>
@@ -1907,7 +1837,7 @@ Notwithstanding these mechanisms, unitless variables of type Float64 are support
 </table>
 </div>
 <div class="sect4">
-<h5 id="_float32">6.5.1.3. Float32</h5>
+<h5 id="_float32">4.5.1.3. Float32</h5>
 <div class="paragraph">
 <p><span class="image"><img src="images/image12.png" alt="image" width="226" height="95"></span></p>
 </div>
@@ -1939,7 +1869,7 @@ Notwithstanding these mechanisms, unitless variables of type Float32 are support
 </table>
 </div>
 <div class="sect4">
-<h5 id="_integer">6.5.1.4. Integer</h5>
+<h5 id="_integer">4.5.1.4. Integer</h5>
 <div class="paragraph">
 <p><span class="image"><img src="images/image13.png" alt="image" width="56" height="28"></span></p>
 </div>
@@ -1948,7 +1878,7 @@ Notwithstanding these mechanisms, unitless variables of type Float32 are support
 </div>
 </div>
 <div class="sect4">
-<h5 id="_int8">6.5.1.5. Int8</h5>
+<h5 id="_int8">4.5.1.5. Int8</h5>
 <div class="paragraph">
 <p><span class="image"><img src="images/image13.png" alt="image" width="56" height="28"></span></p>
 </div>
@@ -1957,7 +1887,7 @@ Notwithstanding these mechanisms, unitless variables of type Float32 are support
 </div>
 </div>
 <div class="sect4">
-<h5 id="_uint8">6.5.1.6. UInt8</h5>
+<h5 id="_uint8">4.5.1.6. UInt8</h5>
 <div class="paragraph">
 <p><span class="image"><img src="images/image13.png" alt="image" width="56" height="28"></span></p>
 </div>
@@ -1966,7 +1896,7 @@ Notwithstanding these mechanisms, unitless variables of type Float32 are support
 </div>
 </div>
 <div class="sect4">
-<h5 id="_int16">6.5.1.7. Int16</h5>
+<h5 id="_int16">4.5.1.7. Int16</h5>
 <div class="paragraph">
 <p><span class="image"><img src="images/image13.png" alt="image" width="56" height="28"></span></p>
 </div>
@@ -1975,7 +1905,7 @@ Notwithstanding these mechanisms, unitless variables of type Float32 are support
 </div>
 </div>
 <div class="sect4">
-<h5 id="_uint16">6.5.1.8. UInt16</h5>
+<h5 id="_uint16">4.5.1.8. UInt16</h5>
 <div class="paragraph">
 <p><span class="image"><img src="images/image13.png" alt="image" width="56" height="28"></span></p>
 </div>
@@ -1984,7 +1914,7 @@ Notwithstanding these mechanisms, unitless variables of type Float32 are support
 </div>
 </div>
 <div class="sect4">
-<h5 id="_int32">6.5.1.9. Int32</h5>
+<h5 id="_int32">4.5.1.9. Int32</h5>
 <div class="paragraph">
 <p><span class="image"><img src="images/image13.png" alt="image" width="56" height="28"></span></p>
 </div>
@@ -1993,7 +1923,7 @@ Notwithstanding these mechanisms, unitless variables of type Float32 are support
 </div>
 </div>
 <div class="sect4">
-<h5 id="_uint32">6.5.1.10. UInt32</h5>
+<h5 id="_uint32">4.5.1.10. UInt32</h5>
 <div class="paragraph">
 <p><span class="image"><img src="images/image13.png" alt="image" width="56" height="28"></span></p>
 </div>
@@ -2002,7 +1932,7 @@ Notwithstanding these mechanisms, unitless variables of type Float32 are support
 </div>
 </div>
 <div class="sect4">
-<h5 id="_int64">6.5.1.11. Int64</h5>
+<h5 id="_int64">4.5.1.11. Int64</h5>
 <div class="paragraph">
 <p><span class="image"><img src="images/image13.png" alt="image" width="56" height="28"></span></p>
 </div>
@@ -2011,7 +1941,7 @@ Notwithstanding these mechanisms, unitless variables of type Float32 are support
 </div>
 </div>
 <div class="sect4">
-<h5 id="_uint64">6.5.1.12. UInt64</h5>
+<h5 id="_uint64">4.5.1.12. UInt64</h5>
 <div class="paragraph">
 <p><span class="image"><img src="images/image13.png" alt="image" width="56" height="28"></span></p>
 </div>
@@ -2020,7 +1950,7 @@ Notwithstanding these mechanisms, unitless variables of type Float32 are support
 </div>
 </div>
 <div class="sect4">
-<h5 id="_boolean">6.5.1.13. Boolean</h5>
+<h5 id="_boolean">4.5.1.13. Boolean</h5>
 <div class="paragraph">
 <p><span class="image"><img src="images/image14.png" alt="image" width="62" height="28"></span></p>
 </div>
@@ -2029,7 +1959,7 @@ Notwithstanding these mechanisms, unitless variables of type Float32 are support
 </div>
 </div>
 <div class="sect4">
-<h5 id="_string">6.5.1.14. String</h5>
+<h5 id="_string">4.5.1.14. String</h5>
 <div class="paragraph">
 <p><span class="image"><img src="images/image15.png" alt="image" width="51" height="28"></span></p>
 </div>
@@ -2038,7 +1968,7 @@ Notwithstanding these mechanisms, unitless variables of type Float32 are support
 </div>
 </div>
 <div class="sect4">
-<h5 id="_enumeration">6.5.1.15. Enumeration</h5>
+<h5 id="_enumeration">4.5.1.15. Enumeration</h5>
 <div class="paragraph">
 <p><span class="image"><img src="images/image16.png" alt="image" width="264" height="95"></span></p>
 </div>
@@ -2067,7 +1997,7 @@ The name <strong>MUST</strong> match the name of an Enumeration entry in the Enu
 </table>
 </div>
 <div class="sect4">
-<h5 id="_binary">6.5.1.16. Binary</h5>
+<h5 id="_binary">4.5.1.16. Binary</h5>
 <div class="paragraph">
 <p><span class="image"><img src="images/image17.png" alt="image" width="319" height="114"></span></p>
 </div>
@@ -2102,7 +2032,7 @@ It should be noted that the implementation is <strong>not required</strong> to p
 </div>
 </div>
 <div class="sect3">
-<h4 id="ssc_transformations">6.5.2. Transformation Choice</h4>
+<h4 id="ssc_transformations">4.5.2. Transformation Choice</h4>
 <div class="paragraph">
 <p><span class="image"><img src="images/image18.png" alt="image" width="474" height="133"></span></p>
 </div>
@@ -2140,7 +2070,7 @@ It should be noted that the implementation is <strong>not required</strong> to p
 </tbody>
 </table>
 <div class="sect4">
-<h5 id="_lineartransformation">6.5.2.1. LinearTransformation</h5>
+<h5 id="_lineartransformation">4.5.2.1. LinearTransformation</h5>
 <div class="paragraph">
 <p><span class="image"><img src="images/image19.png" alt="image" width="323" height="187"></span></p>
 </div>
@@ -2175,7 +2105,7 @@ Linear transformations are only valid for connectors of Real, Float64 or Float32
 </table>
 </div>
 <div class="sect4">
-<h5 id="_booleanmappingtransformation">6.5.2.2. BooleanMappingTransformation</h5>
+<h5 id="_booleanmappingtransformation">4.5.2.2. BooleanMappingTransformation</h5>
 <div class="paragraph">
 <p><span class="image"><img src="images/image20.png" alt="image" width="579" height="155"></span></p>
 </div>
@@ -2210,7 +2140,7 @@ In that case values not mapped by a mapping entry are kept unchanged.</p>
 </table>
 </div>
 <div class="sect4">
-<h5 id="_integermappingtransformation">6.5.2.3. IntegerMappingTransformation</h5>
+<h5 id="_integermappingtransformation">4.5.2.3. IntegerMappingTransformation</h5>
 <div class="paragraph">
 <p><span class="image"><img src="images/image21.png" alt="image" width="546" height="155"></span></p>
 </div>
@@ -2255,7 +2185,7 @@ Such entries are ignored in the mapping process.</p>
 </table>
 </div>
 <div class="sect4">
-<h5 id="_enumerationmappingtransformation">6.5.2.4. EnumerationMappingTransformation</h5>
+<h5 id="_enumerationmappingtransformation">4.5.2.4. EnumerationMappingTransformation</h5>
 <div class="paragraph">
 <p><span class="image"><img src="images/image22.png" alt="image" width="588" height="155"></span></p>
 </div>
@@ -2296,7 +2226,7 @@ This transformation can be applied between connectors of different Enumeration t
 </div>
 </div>
 <div class="sect3">
-<h4 id="ssc_dimensions">6.5.3. Dimension Sequence</h4>
+<h4 id="ssc_dimensions">4.5.3. Dimension Sequence</h4>
 <div class="paragraph">
 <p><span class="image"><img src="images/image61.png" alt="image" width="535" height="153"></span></p>
 </div>
@@ -2324,7 +2254,7 @@ See below for details.</p></td>
 </tbody>
 </table>
 <div class="sect4">
-<h5 id="_dimension">6.5.3.1. Dimension</h5>
+<h5 id="_dimension">4.5.3.1. Dimension</h5>
 <div class="paragraph">
 <p><span class="image"><img src="images/image60.png" alt="image" width="295" height="149"></span></p>
 </div>
@@ -2377,7 +2307,7 @@ For those elements, it is considered an error if both attributes are present, or
 </div>
 </div>
 <div class="sect1">
-<h2 id="SSD">7. System Structure Description (SSD)</h2>
+<h2 id="SSD">5. System Structure Description (SSD)</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>A System Structure Description describes a nested hierarchy of interconnected (sub-)systems and atomic components.</p>
@@ -2388,7 +2318,7 @@ The file <strong>MUST</strong> use the UTF-8 encoding.
 All SSD-specific elements live in the <code><a href="http://ssp-standard.org/SSP1/SystemStructureDescription" class="bare">http://ssp-standard.org/SSP1/SystemStructureDescription</a></code> namespace, nicknamed <code>ssd</code>.</p>
 </div>
 <div class="sect2">
-<h3 id="_systemstructuredescription">7.1. SystemStructureDescription</h3>
+<h3 id="_systemstructuredescription">5.1. SystemStructureDescription</h3>
 <div class="paragraph">
 <p><span class="image"><img src="images/image23.png" alt="image" width="464" height="506"></span></p>
 </div>
@@ -2436,15 +2366,15 @@ For the current release this <strong>MUST</strong> be 1.0.</p></td>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">System</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">This required element specifies the root system of the model, see <a href="#_system">Section 7.3</a>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This required element specifies the root system of the model, see <a href="#_system">Section 5.3</a>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Enumerations</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">This optional element <strong>MUST</strong> contain definitions for all enumerations referenced in the system description file. See <a href="#_enumerations">Section 6.4.1</a> for its definition.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This optional element <strong>MUST</strong> contain definitions for all enumerations referenced in the system description file. See <a href="#_enumerations">Section 4.4.1</a> for its definition.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Units</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">This optional element <strong>MUST</strong> contain definitions for all units referenced in the system description file. See <a href="#_units">Section 6.4.2</a> for its definition.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This optional element <strong>MUST</strong> contain definitions for all units referenced in the system description file. See <a href="#_units">Section 4.4.2</a> for its definition.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">DefaultExperiment</p></td>
@@ -2453,13 +2383,13 @@ For the current release this <strong>MUST</strong> be 1.0.</p></td>
 </tbody>
 </table>
 <div class="paragraph">
-<p>The root system of the model is specified through the required System element, see <a href="#_system">Section 7.3</a>.</p>
+<p>The root system of the model is specified through the required System element, see <a href="#_system">Section 5.3</a>.</p>
 </div>
 <div class="paragraph">
-<p>Any enumerations and units referenced in the system description file <strong>MUST</strong> be provided through the optional Enumerations and Units elements, as described in <a href="#_enumerations">Section 6.4.1</a> and <a href="#_units">Section 6.4.2</a> respectively.</p>
+<p>Any enumerations and units referenced in the system description file <strong>MUST</strong> be provided through the optional Enumerations and Units elements, as described in <a href="#_enumerations">Section 4.4.1</a> and <a href="#_units">Section 4.4.2</a> respectively.</p>
 </div>
 <div class="sect3">
-<h4 id="_default_experiment">7.1.1. Default Experiment</h4>
+<h4 id="_default_experiment">5.1.1. Default Experiment</h4>
 <div class="paragraph">
 <p><span class="image"><img src="images/image24.png" alt="image" width="449" height="248"></span></p>
 </div>
@@ -2501,7 +2431,7 @@ For the current release this <strong>MUST</strong> be 1.0.</p></td>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_common_model_element_type">7.2. Common Model Element Type</h3>
+<h3 id="_common_model_element_type">5.2. Common Model Element Type</h3>
 <div class="paragraph">
 <p>System, Component and SignalDictionaryReference XML elements are subtypes of a common TElement base type, that contains attributes and XML elements common to all kinds of model elements:</p>
 </div>
@@ -2564,7 +2494,7 @@ See below for details.</p></td>
 </tbody>
 </table>
 <div class="sect3">
-<h4 id="_connectors">7.2.1. Connectors</h4>
+<h4 id="_connectors">5.2.1. Connectors</h4>
 <div class="paragraph">
 <p><span class="image"><img src="images/image26.png" alt="image" width="371" height="82"></span></p>
 </div>
@@ -2668,11 +2598,11 @@ Such connectors can be connected to any other connector under the rules of the u
 Integer / Int8 / UInt8 / Int16 / UInt16 /<br>
 Int32 / UInt32 / Int64 / UInt64 /<br>
 Boolean / String / Enumeration / Binary / Clock</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Exactly one of these elements <strong>CAN</strong> be present to specify the type of the Connector. See <a href="#ssc_types">Section 6.5.1</a> for details.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Exactly one of these elements <strong>CAN</strong> be present to specify the type of the Connector. See <a href="#ssc_types">Section 4.5.1</a> for details.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Dimension</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">One or more of these optional elements specify the connector array dimensions, making the connector an array connector. See <a href="#ssc_dimensions">Section 6.5.3</a> for details.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">One or more of these optional elements specify the connector array dimensions, making the connector an array connector. See <a href="#ssc_dimensions">Section 4.5.3</a> for details.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Clock</p></td>
@@ -2772,7 +2702,7 @@ Boolean / String / Enumeration / Binary / Clock</p></td>
 <p><em>[ Note that the current opaque mapping of more advanced types to Binary connectors is a temporary solution, and a more detailed mapping may be provided in future versions of the standard supporting more complex data types. ]</em></p>
 </div>
 <div class="sect4">
-<h5 id="_connectorgeometry">7.2.1.1. ConnectorGeometry</h5>
+<h5 id="_connectorgeometry">5.2.1.1. ConnectorGeometry</h5>
 <div class="paragraph">
 <p><span class="image"><img src="images/image28.png" alt="image" width="307" height="149"></span></p>
 </div>
@@ -2830,7 +2760,7 @@ Any inside view is not overridden.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_elementgeometry">7.2.2. ElementGeometry</h4>
+<h4 id="_elementgeometry">5.2.2. ElementGeometry</h4>
 <div class="paragraph">
 <p><span class="image"><img src="images/image29.png" alt="image" width="339" height="603"></span></p>
 </div>
@@ -3060,7 +2990,7 @@ _</strong></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameterbindings">7.2.3. ParameterBindings</h4>
+<h4 id="_parameterbindings">5.2.3. ParameterBindings</h4>
 <div class="paragraph">
 <p><span class="image"><img src="images/image32.png" alt="image" width="646" height="470"></span></p>
 </div>
@@ -3222,7 +3152,7 @@ See below for details.</p></td>
 </tbody>
 </table>
 <div class="sect4">
-<h5 id="_parametervalues">7.2.3.1. ParameterValues</h5>
+<h5 id="_parametervalues">5.2.3.1. ParameterValues</h5>
 <div class="paragraph">
 <p><span class="image"><img src="images/image33.png" alt="image" width="369" height="65"></span></p>
 </div>
@@ -3232,7 +3162,7 @@ In that case there <strong>SHOULD</strong> be a layered specification that defin
 </div>
 </div>
 <div class="sect4">
-<h5 id="_parametermapping">7.2.3.2. ParameterMapping</h5>
+<h5 id="_parametermapping">5.2.3.2. ParameterMapping</h5>
 <div class="paragraph">
 <p><span class="image"><img src="images/image34.png" alt="image" width="441" height="355"></span></p>
 </div>
@@ -3286,7 +3216,7 @@ In that case there <strong>SHOULD</strong> be a layered specification that defin
 </div>
 </div>
 <div class="sect2">
-<h3 id="_system">7.3. System</h3>
+<h3 id="_system">5.3. System</h3>
 <div class="paragraph">
 <p><span class="image"><img src="images/image35.png" alt="image" width="452" height="641"></span></p>
 </div>
@@ -3331,7 +3261,7 @@ In that case there <strong>SHOULD</strong> be a layered specification that defin
 </tbody>
 </table>
 <div class="sect3">
-<h4 id="_elements">7.3.1. Elements</h4>
+<h4 id="_elements">5.3.1. Elements</h4>
 <div class="paragraph">
 <p><span class="image"><img src="images/image36.png" alt="image" width="501" height="157"></span></p>
 </div>
@@ -3355,21 +3285,21 @@ In that case there <strong>SHOULD</strong> be a layered specification that defin
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Component</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">A component, see <a href="#_component">Section 7.4</a>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A component, see <a href="#_component">Section 5.4</a>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">SignalDictionaryReference</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">A reference to a signal dictionary, see <a href="#_signaldictionaryreference">Section 7.5</a>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A reference to a signal dictionary, see <a href="#_signaldictionaryreference">Section 5.5</a>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">System</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">A nested system, see <a href="#_system">Section 7.3</a>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A nested system, see <a href="#_system">Section 5.3</a>.</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect3">
-<h4 id="_connections">7.3.2. Connections</h4>
+<h4 id="_connections">5.3.2. Connections</h4>
 <div class="paragraph">
 <p><span class="image"><img src="images/image37.png" alt="image" width="314" height="37"></span></p>
 </div>
@@ -3381,7 +3311,7 @@ In that case there <strong>SHOULD</strong> be a layered specification that defin
 </div>
 <div class="paragraph">
 <p>This element specifies a connection between two connectors, either of the system or its directly contained elements.
-Note that only connections between certain kinds of connectors are allowed, as specified in <a href="#_allowed_connections">Section 7.3.2.1</a>.
+Note that only connections between certain kinds of connectors are allowed, as specified in <a href="#_allowed_connections">Section 5.3.2.1</a>.
 Note also that the terms start and end in the attribute names of the connector, like startElement or endConnector, do not denote directionality of the data flow implied by the connector.
 That is determined by the combination of the semantics of the actual connectors (variables/ports) connected and their kind attributes.</p>
 </div>
@@ -3437,7 +3367,7 @@ With suppressUnitConversion = true, the linear transformation is performed inste
 </tbody>
 </table>
 <div class="sect4">
-<h5 id="_allowed_connections">7.3.2.1. Allowed Connections</h5>
+<h5 id="_allowed_connections">5.3.2.1. Allowed Connections</h5>
 <div class="paragraph">
 <p>The following table specifies all allowed connections, depending on the owner of the connectors (connector of element or connector of the enclosing system) and the kind of the connectors being connected.
 Note that source and destination in the following table indicate the resulting data flow and are unrelated to the start and end designation of a connection, as described above.</p>
@@ -3762,7 +3692,7 @@ For connectors of type <code>Clock</code> with an <code>intervalVariability</cod
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">LinearTransformation / BooleanMappingTransformation / IntegerMappingTransformation / EnumerationMappingTransformation</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Specifies an optional transformation for the connection. If any, exactly one of these elements <strong>MUST</strong> be present to specify the type of the transformation.
-See <a href="#ssc_transformations">Section 6.5.2</a> for details.</p></td>
+See <a href="#ssc_transformations">Section 4.5.2</a> for details.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ConnectionGeometry</p></td>
@@ -3772,7 +3702,7 @@ See <a href="#ssc_transformations">Section 6.5.2</a> for details.</p></td>
 </table>
 </div>
 <div class="sect4">
-<h5 id="_connectiongeometry">7.3.2.2. ConnectionGeometry</h5>
+<h5 id="_connectiongeometry">5.3.2.2. ConnectionGeometry</h5>
 <div class="paragraph">
 <p><span class="image"><img src="images/image39.png" alt="image" width="348" height="149"></span></p>
 </div>
@@ -3812,7 +3742,7 @@ Note that x and y coordinates are in the coordinate system of the enclosing syst
 </div>
 </div>
 <div class="sect3">
-<h4 id="_signaldictionaries">7.3.3. SignalDictionaries</h4>
+<h4 id="_signaldictionaries">5.3.3. SignalDictionaries</h4>
 <div class="paragraph">
 <p>Signal dictionaries can be seen as a description of a collection of signals.
 Such collections can also be seen as a “signal bus” (like a CAN-bus in embedded systems).
@@ -3867,14 +3797,14 @@ For purposes of the resolution of relative URIs the base URI is the URI of the S
 </div>
 <div class="paragraph">
 <p>If the source attribute is missing, the signal dictionary <strong>MUST</strong> be provided inline as contents of the SignalDictionary element, which <strong>MUST</strong> be empty otherwise. For the default type <code>application/x-ssp-signal-dictionary</code> such inline content <strong>MUST</strong> be a SignalDictionary from the SystemStructureSignalDictionary namespace.
-See <a href="#SSB">Chapter 10</a> for details.</p>
+See <a href="#SSB">Chapter 8</a> for details.</p>
 </div></div></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect3">
-<h4 id="_systemgeometry">7.3.4. SystemGeometry</h4>
+<h4 id="_systemgeometry">5.3.4. SystemGeometry</h4>
 <div class="paragraph">
 <p><span class="image"><img src="images/image42.png" alt="image" width="293" height="257"></span></p>
 </div>
@@ -3968,7 +3898,7 @@ This common unit for coordinates is defined to allow a seamless integration of S
 </div>
 </div>
 <div class="sect3">
-<h4 id="_graphicalelements">7.3.5. GraphicalElements</h4>
+<h4 id="_graphicalelements">5.3.5. GraphicalElements</h4>
 <div class="paragraph">
 <p><span class="image"><img src="images/image43.png" alt="image" width="382" height="37"></span></p>
 </div>
@@ -3979,7 +3909,7 @@ This common unit for coordinates is defined to allow a seamless integration of S
 <p>Currently the only graphical element defined is the Note element, which allows for simple textual notes to be placed into the system diagram, but in the future more elements might be added as needed for exchange of graphical information.</p>
 </div>
 <div class="sect4">
-<h5 id="_note">7.3.5.1. Note</h5>
+<h5 id="_note">5.3.5.1. Note</h5>
 <div class="paragraph">
 <p><span class="image"><img src="images/image44.png" alt="image" width="232" height="311"></span></p>
 </div>
@@ -4027,7 +3957,7 @@ Inside the text attribute, newlines indicate paragraph breaks.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_component">7.4. Component</h3>
+<h3 id="_component">5.4. Component</h3>
 <div class="paragraph">
 <p><span class="image"><img src="images/image45.png" alt="image" width="470" height="588"></span></p>
 </div>
@@ -4098,7 +4028,7 @@ It is an error if the specified type of FMU implementation is not present in the
 </table>
 </div>
 <div class="sect2">
-<h3 id="_signaldictionaryreference">7.5. SignalDictionaryReference</h3>
+<h3 id="_signaldictionaryreference">5.5. SignalDictionaryReference</h3>
 <div class="paragraph">
 <p><span class="image"><img src="images/image46.png" alt="image" width="544" height="442"></span></p>
 </div>
@@ -4133,14 +4063,14 @@ If that lookup yields no match, the lookup is performed on the enclosing system,
 </div>
 </div>
 <div class="sect1">
-<h2 id="SSV">8. System Structure Parameter Values (SSV)</h2>
+<h2 id="SSV">6. System Structure Parameter Values (SSV)</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>A System Structure Parameter Values (abbreviated SSV) element provides parameter sets for a component or system.
 The XML element can be inlined with its parent element or referenced from the parent element and supplied as a separate file that is either included within an SSP package or specified as an external URL.</p>
 </div>
 <div class="paragraph">
-<p>For information on hierarchical naming structure and precedence rules, see <a href="#_parameterbindings">Section 7.2.3</a>.</p>
+<p>For information on hierarchical naming structure and precedence rules, see <a href="#_parameterbindings">Section 5.2.3</a>.</p>
 </div>
 <div class="paragraph">
 <p>An SSV file <strong>MUST</strong> be a well-formed XML 1.0 [XML10] file that conforms to the SystemStructureParameterValues XML Schema that is distributed as part of this standard.
@@ -4152,7 +4082,7 @@ All SSV-specific elements live in the <code><a href="http://ssp-standard.org/SSP
 Except for this file extension recommendation the filename is arbitrary and is independent of variant handling or the names of SSD files.</p>
 </div>
 <div class="sect2">
-<h3 id="_parameterset">8.1. ParameterSet</h3>
+<h3 id="_parameterset">6.1. ParameterSet</h3>
 <div class="paragraph">
 <p><span class="image"><img src="images/image47.png" alt="image" width="394" height="453"></span></p>
 </div>
@@ -4207,18 +4137,18 @@ See below for details.</p></td>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Enumerations</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">This optional element <strong>MUST</strong> contain definitions for all enumerations referenced in the parameter set.
-See <a href="#_enumerations">Section 6.4.1</a> for its definition.</p></td>
+See <a href="#_enumerations">Section 4.4.1</a> for its definition.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Units</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">This optional element <strong>MUST</strong> contain definitions for all units referenced in the parameter set.
-See <a href="#_units">Section 6.4.2</a> for its definition.</p></td>
+See <a href="#_units">Section 4.4.2</a> for its definition.</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_parameters">8.2. Parameters</h3>
+<h3 id="_parameters">6.2. Parameters</h3>
 <div class="paragraph">
 <p><span class="image"><img src="images/image48.png" alt="image" width="428" height="94"></span></p>
 </div>
@@ -4229,7 +4159,7 @@ If the list is empty, the parameter set <strong>SHALL</strong> not have any effe
 <div class="paragraph">
 <p>It is <strong>not required</strong> that all parameters included in the Parameters element correspond to parameters available in the components or systems the parameter set is applied to (through ParameterBinding elements in the system structure description).
 This allows the definition of large parameter data sets out of which only a subset is applied in a given case.
-See <a href="#_parameterbindings">Section 7.2.3</a> for the semantic defintion of parameter bindings.</p>
+See <a href="#_parameterbindings">Section 5.2.3</a> for the semantic defintion of parameter bindings.</p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="images/image49.png" alt="image" width="458" height="891"></span></p>
@@ -4282,7 +4212,7 @@ See below for details on each type.</p></td>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Dimension</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">One or more of these optional elements specify the parameter array dimensions, making the parameter an array parameter.
-See <a href="#ssc_dimensions">Section 6.5.3</a> for details.</p></td>
+See <a href="#ssc_dimensions">Section 4.5.3</a> for details.</p></td>
 </tr>
 </tbody>
 </table>
@@ -4290,7 +4220,7 @@ See <a href="#ssc_dimensions">Section 6.5.3</a> for details.</p></td>
 <p>The dimensionality of the parameter is given by the presence of one or more Dimension elements.</p>
 </div>
 <div class="sect3">
-<h4 id="_real_2">8.2.1. Real</h4>
+<h4 id="_real_2">6.2.1. Real</h4>
 <div class="paragraph">
 <p><span class="image"><img src="images/image50.png" alt="image" width="231" height="149"></span></p>
 </div>
@@ -4325,7 +4255,7 @@ The name <strong>MUST</strong> match the name of a unit defined in the Units ele
 </div>
 </div>
 <div class="sect3">
-<h4 id="_float64_2">8.2.2. Float64</h4>
+<h4 id="_float64_2">6.2.2. Float64</h4>
 <div class="paragraph">
 <p><span class="image"><img src="images/image50.png" alt="image" width="231" height="149"></span></p>
 </div>
@@ -4360,7 +4290,7 @@ The name <strong>MUST</strong> match the name of a unit defined in the Units ele
 </div>
 </div>
 <div class="sect3">
-<h4 id="_float32_2">8.2.3. Float32</h4>
+<h4 id="_float32_2">6.2.3. Float32</h4>
 <div class="paragraph">
 <p><span class="image"><img src="images/image50.png" alt="image" width="231" height="149"></span></p>
 </div>
@@ -4395,7 +4325,7 @@ The name <strong>MUST</strong> match the name of a unit defined in the Units ele
 </div>
 </div>
 <div class="sect3">
-<h4 id="_integer_2">8.2.4. Integer</h4>
+<h4 id="_integer_2">6.2.4. Integer</h4>
 <div class="paragraph">
 <p><span class="image"><img src="images/image51.png" alt="image" width="222" height="95"></span></p>
 </div>
@@ -4425,7 +4355,7 @@ The name <strong>MUST</strong> match the name of a unit defined in the Units ele
 </div>
 </div>
 <div class="sect3">
-<h4 id="_int8_2">8.2.5. Int8</h4>
+<h4 id="_int8_2">6.2.5. Int8</h4>
 <div class="paragraph">
 <p><span class="image"><img src="images/image51.png" alt="image" width="222" height="95"></span></p>
 </div>
@@ -4455,7 +4385,7 @@ The name <strong>MUST</strong> match the name of a unit defined in the Units ele
 </div>
 </div>
 <div class="sect3">
-<h4 id="_uint8_2">8.2.6. UInt8</h4>
+<h4 id="_uint8_2">6.2.6. UInt8</h4>
 <div class="paragraph">
 <p><span class="image"><img src="images/image51.png" alt="image" width="222" height="95"></span></p>
 </div>
@@ -4485,7 +4415,7 @@ The name <strong>MUST</strong> match the name of a unit defined in the Units ele
 </div>
 </div>
 <div class="sect3">
-<h4 id="_int16_2">8.2.7. Int16</h4>
+<h4 id="_int16_2">6.2.7. Int16</h4>
 <div class="paragraph">
 <p><span class="image"><img src="images/image51.png" alt="image" width="222" height="95"></span></p>
 </div>
@@ -4515,7 +4445,7 @@ The name <strong>MUST</strong> match the name of a unit defined in the Units ele
 </div>
 </div>
 <div class="sect3">
-<h4 id="_uint16_2">8.2.8. UInt16</h4>
+<h4 id="_uint16_2">6.2.8. UInt16</h4>
 <div class="paragraph">
 <p><span class="image"><img src="images/image51.png" alt="image" width="222" height="95"></span></p>
 </div>
@@ -4545,7 +4475,7 @@ The name <strong>MUST</strong> match the name of a unit defined in the Units ele
 </div>
 </div>
 <div class="sect3">
-<h4 id="_int32_2">8.2.9. Int32</h4>
+<h4 id="_int32_2">6.2.9. Int32</h4>
 <div class="paragraph">
 <p><span class="image"><img src="images/image51.png" alt="image" width="222" height="95"></span></p>
 </div>
@@ -4575,7 +4505,7 @@ The name <strong>MUST</strong> match the name of a unit defined in the Units ele
 </div>
 </div>
 <div class="sect3">
-<h4 id="_uint32_2">8.2.10. UInt32</h4>
+<h4 id="_uint32_2">6.2.10. UInt32</h4>
 <div class="paragraph">
 <p><span class="image"><img src="images/image51.png" alt="image" width="222" height="95"></span></p>
 </div>
@@ -4605,7 +4535,7 @@ The name <strong>MUST</strong> match the name of a unit defined in the Units ele
 </div>
 </div>
 <div class="sect3">
-<h4 id="_int64_2">8.2.11. Int64</h4>
+<h4 id="_int64_2">6.2.11. Int64</h4>
 <div class="paragraph">
 <p><span class="image"><img src="images/image51.png" alt="image" width="222" height="95"></span></p>
 </div>
@@ -4635,7 +4565,7 @@ The name <strong>MUST</strong> match the name of a unit defined in the Units ele
 </div>
 </div>
 <div class="sect3">
-<h4 id="_uint64_2">8.2.12. UInt64</h4>
+<h4 id="_uint64_2">6.2.12. UInt64</h4>
 <div class="paragraph">
 <p><span class="image"><img src="images/image51.png" alt="image" width="222" height="95"></span></p>
 </div>
@@ -4665,7 +4595,7 @@ The name <strong>MUST</strong> match the name of a unit defined in the Units ele
 </div>
 </div>
 <div class="sect3">
-<h4 id="_boolean_2">8.2.13. Boolean</h4>
+<h4 id="_boolean_2">6.2.13. Boolean</h4>
 <div class="paragraph">
 <p><span class="image"><img src="images/image52.png" alt="image" width="255" height="95"></span></p>
 </div>
@@ -4695,7 +4625,7 @@ The name <strong>MUST</strong> match the name of a unit defined in the Units ele
 </div>
 </div>
 <div class="sect3">
-<h4 id="_string_2">8.2.14. String</h4>
+<h4 id="_string_2">6.2.14. String</h4>
 <div class="paragraph">
 <p><span class="image"><img src="images/image53.png" alt="image" width="426" height="201"></span></p>
 </div>
@@ -4752,7 +4682,7 @@ The name <strong>MUST</strong> match the name of a unit defined in the Units ele
 </div>
 </div>
 <div class="sect3">
-<h4 id="_enumeration_2">8.2.15. Enumeration</h4>
+<h4 id="_enumeration_2">6.2.15. Enumeration</h4>
 <div class="paragraph">
 <p><span class="image"><img src="images/image54.png" alt="image" width="458" height="255"></span></p>
 </div>
@@ -4826,7 +4756,7 @@ If it is supplied, the name <strong>MUST</strong> match the name of an enumerati
 </div>
 </div>
 <div class="sect3">
-<h4 id="_binary_2">8.2.16. Binary</h4>
+<h4 id="_binary_2">6.2.16. Binary</h4>
 <div class="paragraph">
 <p><span class="image"><img src="images/image55.png" alt="image" width="451" height="274"></span></p>
 </div>
@@ -4892,7 +4822,7 @@ It should be noted that the implementation is <strong>not required</strong> to p
 </div>
 </div>
 <div class="sect1">
-<h2 id="SSM">9. System Structure Parameter Mapping (SSM)</h2>
+<h2 id="SSM">7. System Structure Parameter Mapping (SSM)</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>A parameter mapping describes a mapping between the parameters in a parameter source and the actual parameters of a system or component to which the parameters are to be applied.
@@ -4900,7 +4830,7 @@ The mapping maps the names of parameters in the source to the names of the param
 It can also optionally provide for transformations that are to be applied on the value of the parameters prior to them being applied.</p>
 </div>
 <div class="paragraph">
-<p>A parameter mapping can be provided either as a stand-alone XML file (an SSM file), which can be referenced from SSD files, or it can be embedded in an ssd:ParameterMapping element of the SSD directly (see <a href="#_parametermapping">Section 7.2.3.2</a>).</p>
+<p>A parameter mapping can be provided either as a stand-alone XML file (an SSM file), which can be referenced from SSD files, or it can be embedded in an ssd:ParameterMapping element of the SSD directly (see <a href="#_parametermapping">Section 5.2.3.2</a>).</p>
 </div>
 <div class="paragraph">
 <p>An SSM file <strong>MUST</strong> be a well-formed XML 1.0 [XML10] file that conforms to the SystemStructureParameterMapping XML Schema that is distributed as part of this standard.
@@ -4915,7 +4845,7 @@ Except for this file extension recommendation the filename is arbitrary and is i
 <p>The root element of an SSM file <strong>MUST</strong> be a ParameterMapping element, which contains an arbitrary number of MappingEntry elements.</p>
 </div>
 <div class="sect2">
-<h3 id="_parametermapping_2">9.1. ParameterMapping</h3>
+<h3 id="_parametermapping_2">7.1. ParameterMapping</h3>
 <div class="paragraph">
 <p><span class="image"><img src="images/image56.png" alt="image" width="418" height="291"></span></p>
 </div>
@@ -4948,7 +4878,7 @@ For the current release this <strong>MUST</strong> be 1.0.</p></td>
 </tbody>
 </table>
 <div class="sect3">
-<h4 id="_mappingentry">9.1.1. MappingEntry</h4>
+<h4 id="_mappingentry">7.1.1. MappingEntry</h4>
 <div class="paragraph">
 <p><span class="image"><img src="images/image57.png" alt="image" width="577" height="556"></span></p>
 </div>
@@ -5004,7 +4934,7 @@ In that case the specified transformation will be done after any unit conversion
 <td class="tableblock halign-left valign-top"><p class="tableblock">LinearTransformation / BooleanMappingTransformation / IntegerMappingTransformation / EnumerationMappingTransformation</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Specifies an optional transformation for the mapping.
 If any, exactly one of these elements <strong>MUST</strong> be present to specify the type of the transformation.
-See <a href="#ssc_transformations">Section 6.5.2</a> for details.</p></td>
+See <a href="#ssc_transformations">Section 4.5.2</a> for details.</p></td>
 </tr>
 </tbody>
 </table>
@@ -5013,13 +4943,13 @@ See <a href="#ssc_transformations">Section 6.5.2</a> for details.</p></td>
 </div>
 </div>
 <div class="sect1">
-<h2 id="SSB">10. System Structure Signal Dictionaries (SSB)</h2>
+<h2 id="SSB">8. System Structure Signal Dictionaries (SSB)</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>A signal dictionary is a collection of signals defined through its DictionaryEntry elements.</p>
 </div>
 <div class="paragraph">
-<p>A signal dictionary can be provided either as a stand-alone XML file (an SSB file), which can be referenced from SSD files, or it can be embedded in an ssd:SignalDictionary element of the SSD directly (see <a href="#_signaldictionaries">Section 7.3.3</a>).</p>
+<p>A signal dictionary can be provided either as a stand-alone XML file (an SSB file), which can be referenced from SSD files, or it can be embedded in an ssd:SignalDictionary element of the SSD directly (see <a href="#_signaldictionaries">Section 5.3.3</a>).</p>
 </div>
 <div class="paragraph">
 <p>An SSB file <strong>MUST</strong> be a well-formed XML 1.0 [XML10] file that conforms to the SystemStructureSignalDictionary XML Schema that is distributed as part of this standard.
@@ -5035,7 +4965,7 @@ Except for this file extension recommendation the filename is arbitrary and is i
 Any enumerations or units used in the DictionaryEntry elements <strong>MUST</strong> be declared within the Enumerations and Units child elements of the SignalDictionary.</p>
 </div>
 <div class="sect2">
-<h3 id="_signaldictionary">10.1. SignalDictionary</h3>
+<h3 id="_signaldictionary">8.1. SignalDictionary</h3>
 <div class="paragraph">
 <p><span class="image"><img src="images/image58.png" alt="image" width="408" height="399"></span></p>
 </div>
@@ -5097,7 +5027,7 @@ For the current release this <strong>MUST</strong> be 1.0.</p></td>
 </tbody>
 </table>
 <div class="sect3">
-<h4 id="_dictionaryentry">10.1.1. DictionaryEntry</h4>
+<h4 id="_dictionaryentry">8.1.1. DictionaryEntry</h4>
 <div class="paragraph">
 <p><span class="image"><img src="images/image59.png" alt="image" width="485" height="923"></span></p>
 </div>
@@ -5143,12 +5073,12 @@ Integer / Int8 / UInt8 / Int16 / UInt16 /<br>
 Int32 / UInt32 / Int64 / UInt64 /<br>
 Boolean / String / Enumeration / Binary</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Exactly one of these elements <strong>MUST</strong> be present to specify the type of the signal dictionary entry.
-See <a href="#ssc_types">Section 6.5.1</a> for details.</p></td>
+See <a href="#ssc_types">Section 4.5.1</a> for details.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Dimension</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">One or more of these optional elements define the signal dictionary entry array dimensions, making the signal dictionary entry an array signal dictionary entry.
-See <a href="#ssc_dimensions">Section 6.5.3</a> for details.</p></td>
+See <a href="#ssc_dimensions">Section 4.5.3</a> for details.</p></td>
 </tr>
 </tbody>
 </table>
@@ -5157,7 +5087,7 @@ See <a href="#ssc_dimensions">Section 6.5.3</a> for details.</p></td>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_literature">11. Literature</h2>
+<h2 id="_literature">9. Literature</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>[RFC2119] IETF: <strong>RFC 2119 - Key words for use in RFCs to Indicate Requirement Levels.</strong> IETF Best Current Practice BCP 14. 1997.<br>
