@@ -586,8 +586,8 @@ document.addEventListener('keydown', (event) => {
 <div id="header">
 <h1>System Structure and Parameterization</h1>
 <div class="details">
-<span id="revnumber">version 1707986,</span>
-<span id="revdate">2024-10-11</span>
+<span id="revnumber">version 0affca1,</span>
+<span id="revdate">2024-10-12</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Contents</div>
@@ -676,6 +676,13 @@ document.addEventListener('keydown', (event) => {
 <li><a href="#ssc_dimensions">4.5.3. Dimension Sequence</a>
 <ul class="sectlevel4">
 <li><a href="#_dimension">4.5.3.1. Dimension</a></li>
+</ul>
+</li>
+<li><a href="#ssc_metadata">4.5.4. MetaData Sequence</a>
+<ul class="sectlevel4">
+<li><a href="#_metadata">4.5.4.1. MetaData</a></li>
+<li><a href="#_content">4.5.4.2. Content</a></li>
+<li><a href="#_signature">4.5.4.3. Signature</a></li>
 </ul>
 </li>
 </ul>
@@ -2297,6 +2304,224 @@ For those elements, it is considered an error if both attributes are present, or
 <td class="tableblock halign-left valign-top"><p class="tableblock">sizeConnector</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>This attribute references another connector by name, that gives the size of this dimension of the array connector, e.g. a structural parameter or a constant of the underlying component that gives the dimension size.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="ssc_metadata">4.5.4. MetaData Sequence</h4>
+<div class="paragraph">
+<p><span class="image"><img src="images/SystemStructureCommon_GMetaData.png" alt="image" width="597" height="196"></span></p>
+</div>
+<div class="paragraph">
+<p>The MetaData element allows the specification of additional meta data for a given model element.
+Multiple (or no) MetaData elements may be present in a given model element.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33%;">
+<col style="width: 67%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Element</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MetaData</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">One or more instances of this element <strong>CAN</strong> be present to specify meta data related to the containing model element.
+See below for details.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect4">
+<h5 id="_metadata">4.5.4.1. MetaData</h5>
+<div class="paragraph">
+<p><span class="image"><img src="images/SystemStructureCommon_MetaData.png" alt="image" width="369" height="543"></span></p>
+</div>
+<div class="paragraph">
+<p>This element specifies a source of meta data related to the containing model element.</p>
+</div>
+<div class="paragraph">
+<p>The MetaData element is structured by the following subordinated elements.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33%;">
+<col style="width: 67%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Element</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Content</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">An instance of this element <strong>CAN</strong> be present to contain inlined content of the model element meta data.
+If it is present, then the attribute <code>source</code> of the MetaData element <strong>MUST NOT</strong> be present.
+See below for details.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Signature</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">One or more instances of this element <strong>CAN</strong> be present to specify digital signature information on the meta data referenced by the enclosing MetaData element.
+It is left unspecified what types of signatures are used and/or available for now.
+See below for details.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>The following XML attributes are specified for the MetaData element:</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 28%;">
+<col style="width: 72%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Attribute</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">kind</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>This attribute indicates the kind of model element meta data that is referenced, i.e. what role it plays in relation to the model element being described.
+The kind can be <code>general</code> or <code>quality</code>, indicating general meta data or quality related meta data, respectively.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">type</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>This mandatory attribute specifies the MIME type of the meta data, which does not have a default value.
+If no specific MIME type can be indicated, then the type <code>application/octet-stream</code> is to be used.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">source</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Optional attribute indicating the source of the meta data as a URI (cf. RFC 3986).
+For purposes of the resolution of relative URIs the base URI is the URI of the SSD, if the sourceBase attribute is not specified or is specified as <code>SSD</code>, and the URI of the containing model element (e.g. component) if the base attribute is specified as <code>component</code>.</p>
+</div>
+<div class="paragraph">
+<p>This allows the specification of meta data sources that reside inside the component (for example an FMU) through relative URIs.</p>
+</div>
+<div class="paragraph">
+<p>If the source attribute is missing, the meta data <strong>MUST</strong> be provided inline as contents of a Content element, which <strong>MUST NOT</strong> be present otherwise.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sourceBase</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Defines the base the source URI is resolved against:
+If the attribute is missing or is specified as <code>SSD</code>, the source is resolved against the URI of the SSD, if the attribute is specified as <code>component</code> the URI is resolved against the (resolved) URI of the model element (e.g. component) source.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect4">
+<h5 id="_content">4.5.4.2. Content</h5>
+<div class="paragraph">
+<p><span class="image"><img src="images/SystemStructureCommon_Content.png" alt="image" width="377" height="306"></span></p>
+</div>
+<div class="paragraph">
+<p>This element specifies the inlined content of the model element meta data.</p>
+</div>
+<div class="paragraph">
+<p>When this element is present, its contents <strong>MUST</strong> be an <code>srmd:SimulationResourceMetaData</code> element as specified by the SRMD schema of the SSP Traceability Specification, if the type attribute of the enclosing MetaData element is <code>application/x-srmd-meta-data</code>, or any other valid XML content if the type attribute references another MIME type.
+In that case there <strong>SHOULD</strong> be a layered specification that defines how embedding the content works for that MIME type.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_signature">4.5.4.3. Signature</h5>
+<div class="paragraph">
+<p><span class="image"><img src="images/SystemStructureCommon_Signature.png" alt="image" width="423" height="534"></span></p>
+</div>
+<div class="paragraph">
+<p>This element specifies digital signature information on the data or meta data referenced by the enclosing element:
+If the Signature element is contained within a MetaData element, it refers to the meta data referenced by the MetaData element.
+If the Signature element is contained within any other element, it refers to the content of that element.</p>
+</div>
+<div class="paragraph">
+<p>The Signature element is structured by the following subordinated elements.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33%;">
+<col style="width: 67%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Element</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Content</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">An instance of this element <strong>CAN</strong> be present to contain inlined content of the signature.
+If it is present, then the attribute <code>source</code> of the Signature element <strong>MUST NOT</strong> be present.
+See below for details.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>The following XML attributes are specified for the Signature element:</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 28%;">
+<col style="width: 72%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Attribute</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">role</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>This mandatory attribute specifies the role this signature has in the overall process.
+It indicates whether the digital signature is intended to just convey the authenticity of the information (value <code>authenticity</code>), or whether a claim for suitability of the information for certain purposes is made (value <code>suitability</code>).
+In the latter case, the digital signature format should include detailed information about what suitability claims are being made.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">type</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>This mandatory attribute specifies the MIME type of the signature, which does not have a default value.
+If no specific MIME type can be indicated, then the type <code>application/octet-stream</code> is to be used.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">source</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Optional attribute indicating the source of the signature as a URI (cf. RFC 3986).
+For purposes of the resolution of relative URIs the base URI is the URI of the SSD, if the sourceBase attribute is not specified or is specified as <code>SSD</code>, the URI of the containing model element (e.g. component) if the base attribute is specified as <code>component</code>, or the URI of the meta data source if the sourceBase attribute is specified as <code>metaData</code>.</p>
+</div>
+<div class="paragraph">
+<p>This allows the specification of signature sources that reside inside the component (for example an FMU), or the meta data through relative URIs.</p>
+</div>
+<div class="paragraph">
+<p>If the source attribute is missing, the signature <strong>MUST</strong> be provided inline as contents of a Content element, which <strong>MUST NOT</strong> be present otherwise.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sourceBase</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Defines the base the source URI is resolved against:
+If the attribute is missing or is specified as <code>SSD</code>, the source is resolved against the URI of the SSD, if the attribute is specified as <code>component</code> the URI is resolved against the (resolved) URI of the model element (e.g. component) source, or if the attribute is specified as <code>metaData</code> the URI is resolved against the (resolved) URI of the meta data source.
+The value <code>metaData</code> is only valid if the Signature element is contained within a MetaData element.</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -4084,7 +4309,7 @@ Except for this file extension recommendation the filename is arbitrary and is i
 <div class="sect2">
 <h3 id="_parameterset">6.1. ParameterSet</h3>
 <div class="paragraph">
-<p><span class="image"><img src="images/image47.png" alt="image" width="394" height="453"></span></p>
+<p><span class="image"><img src="images/SystemStructureParameterValues_ParameterSet.png" alt="image" width="405" height="574"></span></p>
 </div>
 <div class="paragraph">
 <p>The ParameterSet element contains parameter and meta data information.
@@ -4847,7 +5072,7 @@ Except for this file extension recommendation the filename is arbitrary and is i
 <div class="sect2">
 <h3 id="_parametermapping_2">7.1. ParameterMapping</h3>
 <div class="paragraph">
-<p><span class="image"><img src="images/image56.png" alt="image" width="418" height="291"></span></p>
+<p><span class="image"><img src="images/SystemStructureParameterMapping_ParameterMapping.png" alt="image" width="450" height="412"></span></p>
 </div>
 <div class="paragraph">
 <p>This element describes a parameter mapping, which consists of multiple mapping entries, each describing one parameter mapping (see next section).
@@ -4967,7 +5192,7 @@ Any enumerations or units used in the DictionaryEntry elements <strong>MUST</str
 <div class="sect2">
 <h3 id="_signaldictionary">8.1. SignalDictionary</h3>
 <div class="paragraph">
-<p><span class="image"><img src="images/image58.png" alt="image" width="408" height="399"></span></p>
+<p><span class="image"><img src="images/SystemStructureSignalDictionary_SignalDictionary.png" alt="image" width="438" height="520"></span></p>
 </div>
 <div class="paragraph">
 <p>This element describes a signal dictionary, which consists of one or more dictionary entries, each describing one signal in the signal dictionary (see next section).</p>
