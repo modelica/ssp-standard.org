@@ -586,7 +586,7 @@ document.addEventListener('keydown', (event) => {
 <div id="header">
 <h1>System Structure and Parameterization</h1>
 <div class="details">
-<span id="revnumber">version 792ff6e,</span>
+<span id="revnumber">version 2520192,</span>
 <span id="revdate">2024-10-25</span>
 </div>
 <div id="toc" class="toc2">
@@ -1903,7 +1903,8 @@ They are used inside elements to select one of multiple child elements, or provi
 Integer / Int8 / UInt8 / Int16 / UInt16 /<br>
 Int32 / UInt32 / Int64 / UInt64 /<br>
 Boolean / String / Enumeration / Binary</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Exactly one of these elements <strong>MUST</strong> be present to specify the type of the element. See below for details.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Exactly one of these elements <strong>MUST</strong> be present to specify the type of the element.
+See below for details.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1929,12 +1930,13 @@ Boolean / String / Enumeration / Binary</p></td>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">unit</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">This optional attribute gives the name of a unit. The name <strong>MUST</strong> match the name of a Unit entry in the Units XML element of the top-level element of the file.<br>
-If the attribute is not supplied, the unit is determined through default mechanisms:
+<td class="tableblock halign-left valign-top"><p class="tableblock">This optional attribute gives the name of a unit.
+The name <strong>MUST</strong> match the name of a Unit entry in the Units XML element of the top-level element of the file.</p>
+<p class="tableblock">If the attribute is not supplied, the unit is determined through default mechanisms:
 For FMU components, the unit of the underlying variable would be used, or no unit, if no unit is specified.
-For systems, the units of connected underlying connectors could be used if unambiguous.<br>
-If a unit (or its absence) cannot be deduced unambinguously, the user should be informed of this error.<br>
-Notwithstanding these mechanisms, unitless variables of type Real are supported.</p></td>
+For systems, the units of connected underlying connectors could be used if unambiguous.</p>
+<p class="tableblock">If a unit (or its absence) cannot be deduced unambinguously, the user should be informed of this error.</p>
+<p class="tableblock">Notwithstanding these mechanisms, unitless variables of type Real are supported.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1961,12 +1963,13 @@ Notwithstanding these mechanisms, unitless variables of type Real are supported.
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">unit</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">This optional attribute gives the name of a unit. The name <strong>MUST</strong> match the name of a Unit entry in the Units XML element of the top-level element of the file.<br>
-If the attribute is not supplied, the unit is determined through default mechanisms:
+<td class="tableblock halign-left valign-top"><p class="tableblock">This optional attribute gives the name of a unit.
+The name <strong>MUST</strong> match the name of a Unit entry in the Units XML element of the top-level element of the file.</p>
+<p class="tableblock">If the attribute is not supplied, the unit is determined through default mechanisms:
 For FMU components, the unit of the underlying variable would be used, or no unit, if no unit is specified.
-For systems, the units of connected underlying connectors could be used if unambiguous.<br>
-If a unit (or its absence) cannot be deduced unambinguously, the user should be informed of this error.<br>
-Notwithstanding these mechanisms, unitless variables of type Float64 are supported.</p></td>
+For systems, the units of connected underlying connectors could be used if unambiguous.</p>
+<p class="tableblock">If a unit (or its absence) cannot be deduced unambinguously, the user should be informed of this error.</p>
+<p class="tableblock">Notwithstanding these mechanisms, unitless variables of type Float64 are supported.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1993,12 +1996,13 @@ Notwithstanding these mechanisms, unitless variables of type Float64 are support
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">unit</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">This optional attribute gives the name of a unit. The name <strong>MUST</strong> match the name of a Unit entry in the Units XML element of the top-level element of the file.<br>
-If the attribute is not supplied, the unit is determined through default mechanisms:
+<td class="tableblock halign-left valign-top"><p class="tableblock">This optional attribute gives the name of a unit.
+The name <strong>MUST</strong> match the name of a Unit entry in the Units XML element of the top-level element of the file.</p>
+<p class="tableblock">If the attribute is not supplied, the unit is determined through default mechanisms:
 For FMU components, the unit of the underlying variable would be used, or no unit, if no unit is specified.
-For systems, the units of connected underlying connectors could be used if unambiguous.<br>
-If a unit (or its absence) cannot be deduced unambinguously, the user should be informed of this error.<br>
-Notwithstanding these mechanisms, unitless variables of type Float32 are supported.</p></td>
+For systems, the units of connected underlying connectors could be used if unambiguous.</p>
+<p class="tableblock">If a unit (or its absence) cannot be deduced unambinguously, the user should be informed of this error.</p>
+<p class="tableblock">Notwithstanding these mechanisms, unitless variables of type Float32 are supported.</p></td>
 </tr>
 </tbody>
 </table>
@@ -2230,11 +2234,13 @@ Linear transformations are only valid for connectors of Real, Float64 or Float32
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">factor</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">This attribute specifies an optional factor value to use in a linear transformation. The default is 1.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This attribute specifies an optional factor value to use in a linear transformation.
+The default is 1.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">offset</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">This attribute specifies an optional offset value to use in a transformation. The default is 0.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This attribute specifies an optional offset value to use in a transformation.
+The default is 0.</p></td>
 </tr>
 </tbody>
 </table>
@@ -2744,11 +2750,13 @@ If it is 1.0 the file <strong>MUST</strong> also conform fully to the 1.0 standa
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Enumerations</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">This optional element <strong>MUST</strong> contain definitions for all enumerations referenced in the system description file. See <a href="#_enumerations">Section 4.4.1</a> for its definition.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This optional element <strong>MUST</strong> contain definitions for all enumerations referenced in the system description file.
+See <a href="#_enumerations">Section 4.4.1</a> for its definition.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Units</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">This optional element <strong>MUST</strong> contain definitions for all units referenced in the system description file. See <a href="#_units">Section 4.4.2</a> for its definition.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This optional element <strong>MUST</strong> contain definitions for all units referenced in the system description file.
+See <a href="#_units">Section 4.4.2</a> for its definition.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">DefaultExperiment</p></td>
@@ -2972,11 +2980,13 @@ Such connectors can be connected to any other connector under the rules of the u
 Integer / Int8 / UInt8 / Int16 / UInt16 /<br>
 Int32 / UInt32 / Int64 / UInt64 /<br>
 Boolean / String / Enumeration / Binary / Clock</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Exactly one of these elements <strong>CAN</strong> be present to specify the type of the Connector. See <a href="#ssc_types">Section 4.5.1</a> for details.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Exactly one of these elements <strong>CAN</strong> be present to specify the type of the Connector.
+See <a href="#ssc_types">Section 4.5.1</a> for details.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Dimension</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">One or more of these optional elements specify the connector array dimensions, making the connector an array connector. See <a href="#ssc_dimensions">Section 4.5.3</a> for details.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">One or more of these optional elements specify the connector array dimensions, making the connector an array connector.
+See <a href="#ssc_dimensions">Section 4.5.3</a> for details.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Clock</p></td>
@@ -2984,7 +2994,8 @@ Boolean / String / Enumeration / Binary / Clock</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ConnectorGeometry</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">This optional element defines the geometry information of the connector. See below for details.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This optional element defines the geometry information of the connector.
+See below for details.</p></td>
 </tr>
 </tbody>
 </table>
@@ -3779,9 +3790,18 @@ It is also implementation-defined how and whether any error-handling at runtime 
 </div>
 <div class="paragraph">
 <p>The table below applies directly to connectors of type <code>Clock</code> with an <code>intervalVariability</code> of <code>triggered</code>.
-For connectors of type <code>Clock</code> with an <code>intervalVariability</code> that is not <code>triggered</code> the table applies with the following provisions:
-* The connector is treated as a connector of kind <code>output</code> for the purposes of determining permissible connections.
-* It is implementation-defined whether and which connections between two connectors of kind <code>input</code> with <code>intervalVariability</code> that is not <code>triggered</code> are allowed. Such connections are deemed to establish equality constraints on the clock ticks, where the resolution mechanism, including direction of resolution is implementation-defined.</p>
+For connectors of type <code>Clock</code> with an <code>intervalVariability</code> that is not <code>triggered</code> the table applies with the following provisions:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The connector is treated as a connector of kind <code>output</code> for the purposes of determining permissible connections.</p>
+</li>
+<li>
+<p>It is implementation-defined whether and which connections between two connectors of kind <code>input</code> with <code>intervalVariability</code> that is not <code>triggered</code> are allowed.
+Such connections are deemed to establish equality constraints on the clock ticks, where the resolution mechanism, including direction of resolution is implementation-defined.</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
 <p>For all connections of an element connector of type <code>Clock</code> to a system connector of type <code>Clock</code>, the <code>intervalVariability</code> of the two connectors must be identical.</p>
@@ -4079,7 +4099,8 @@ For connectors of type <code>Clock</code> with an <code>intervalVariability</cod
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">LinearTransformation / BooleanMappingTransformation / IntegerMappingTransformation / EnumerationMappingTransformation</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Specifies an optional transformation for the connection. If any, exactly one of these elements <strong>MUST</strong> be present to specify the type of the transformation.
+<td class="tableblock halign-left valign-top"><p class="tableblock">Specifies an optional transformation for the connection.
+If any, exactly one of these elements <strong>MUST</strong> be present to specify the type of the transformation.
 See <a href="#ssc_transformations">Section 4.5.2</a> for details.</p></td>
 </tr>
 <tr>
@@ -4184,7 +4205,8 @@ No further types are currently defined, but can of course be added at a later da
 For purposes of the resolution of relative URIs the base URI is the URI of the SSD.</p>
 </div>
 <div class="paragraph">
-<p>If the source attribute is missing, the signal dictionary <strong>MUST</strong> be provided inline as contents of the SignalDictionary element, which <strong>MUST</strong> be empty otherwise. For the default type <code>application/x-ssp-signal-dictionary</code> such inline content <strong>MUST</strong> be a SignalDictionary from the SystemStructureSignalDictionary namespace.
+<p>If the source attribute is missing, the signal dictionary <strong>MUST</strong> be provided inline as contents of the SignalDictionary element, which <strong>MUST</strong> be empty otherwise.
+For the default type <code>application/x-ssp-signal-dictionary</code> such inline content <strong>MUST</strong> be a SignalDictionary from the SystemStructureSignalDictionary namespace.
 See <a href="#SSB">Chapter 8</a> for details.</p>
 </div></div></td>
 </tr>
@@ -4438,7 +4460,8 @@ It is an error if the specified type of FMU implementation is not present in the
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">dictionary</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>This required attribute gives the name of the signal dictionary that is to be referenced. Name lookups occur in hierarchical fashion, i.e. the name is first looked up in the system that contains a signal dictionary reference.
+<p>This required attribute gives the name of the signal dictionary that is to be referenced.
+Name lookups occur in hierarchical fashion, i.e. the name is first looked up in the system that contains a signal dictionary reference.
 If that lookup yields no match, the lookup is performed on the enclosing system, etc., until a match is found.</p>
 </div>
 <div class="paragraph">
@@ -5299,8 +5322,8 @@ Through its optional GTransformationChoice element a transformation can be speci
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">suppressUnitConversion</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">This optional attribute specifies whether automatic conversions between parameter source and its target are performed using unit information potentially available for both value and target definitions.
-If this attribute is supplied and its value is true, then the environment will not perform any automatic unit conversions, otherwise automatic unit conversions can be performed.<br>
-This is also important in conjunction with the optional linear transformation supplied via the LinearTransformation element: With suppressUnitConversion = true, the linear transformation is performed instead of any unit conversions, whereas otherwise the linear transformation is performed in addition to any unit conversions.
+If this attribute is supplied and its value is true, then the environment will not perform any automatic unit conversions, otherwise automatic unit conversions can be performed.</p>
+<p class="tableblock">This is also important in conjunction with the optional linear transformation supplied via the LinearTransformation element: With suppressUnitConversion = true, the linear transformation is performed instead of any unit conversions, whereas otherwise the linear transformation is performed in addition to any unit conversions.
 In that case the specified transformation will be done after any unit conversions have been performed on the value.</p></td>
 </tr>
 </tbody>
