@@ -586,7 +586,7 @@ document.addEventListener('keydown', (event) => {
 <div id="header">
 <h1>System Structure and Parameterization</h1>
 <div class="details">
-<span id="revnumber">version 6cdd1f4,</span>
+<span id="revnumber">version 1e04553,</span>
 <span id="revdate">2024-10-25</span>
 </div>
 <div id="toc" class="toc2">
@@ -2541,10 +2541,7 @@ If no specific MIME type can be indicated, then the type <code>application/octet
 <td class="tableblock halign-left valign-top"><p class="tableblock">source</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Optional attribute indicating the source of the meta data as a URI (cf. RFC 3986).
-For purposes of the resolution of relative URIs the base URI is the URI of the SSD, if the sourceBase attribute is not specified or is specified as <code>SSD</code>, and the URI of the containing model element (e.g. component) if the base attribute is specified as <code>component</code>.</p>
-</div>
-<div class="paragraph">
-<p>This allows the specification of meta data sources that reside inside the component (for example an FMU) through relative URIs.</p>
+The base URI for the resolution of relative URIs is determined by the sourceBase attribute.</p>
 </div>
 <div class="paragraph">
 <p>If the source attribute is missing, the meta data <strong>MUST</strong> be provided inline as contents of a Content element, which <strong>MUST NOT</strong> be present otherwise.</p>
@@ -2553,8 +2550,17 @@ For purposes of the resolution of relative URIs the base URI is the URI of the S
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">sourceBase</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Defines the base the source URI is resolved against:
-If the attribute is missing or is specified as <code>SSD</code>, the source is resolved against the URI of the SSD, if the attribute is specified as <code>component</code> the URI is resolved against the (resolved) URI of the model element (e.g. component) source.</p>
+<p>Defines the base the source URI is resolved against:</p>
+</div>
+<div class="paragraph">
+<p>If the attribute is missing or is specified as <code>file</code>, the source is resolved against the URI of the containing file.</p>
+</div>
+<div class="paragraph">
+<p>If the containing model element has a source attribute, the sourceBase attribute can be specified as <code>resource</code>.
+In this case the URI is resolved against the (resolved) source URI of the containing model element.</p>
+</div>
+<div class="paragraph">
+<p>The last option allows the specification of meta data sources that reside inside a resource (for example an FMU) through relative URIs.</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -2640,10 +2646,7 @@ If no specific MIME type can be indicated, then the type <code>application/octet
 <td class="tableblock halign-left valign-top"><p class="tableblock">source</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Optional attribute indicating the source of the signature as a URI (cf. RFC 3986).
-For purposes of the resolution of relative URIs the base URI is the URI of the SSD, if the sourceBase attribute is not specified or is specified as <code>SSD</code>, the URI of the containing model element (e.g. component) if the base attribute is specified as <code>component</code>, or the URI of the meta data source if the sourceBase attribute is specified as <code>metaData</code>.</p>
-</div>
-<div class="paragraph">
-<p>This allows the specification of signature sources that reside inside the component (for example an FMU), or the meta data through relative URIs.</p>
+The base URI for the resolution of relative URIs is determined by the sourceBase attribute.</p>
 </div>
 <div class="paragraph">
 <p>If the source attribute is missing, the signature <strong>MUST</strong> be provided inline as contents of a Content element, which <strong>MUST NOT</strong> be present otherwise.</p>
@@ -2652,9 +2655,21 @@ For purposes of the resolution of relative URIs the base URI is the URI of the S
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">sourceBase</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Defines the base the source URI is resolved against:
-If the attribute is missing or is specified as <code>SSD</code>, the source is resolved against the URI of the SSD, if the attribute is specified as <code>component</code> the URI is resolved against the (resolved) URI of the model element (e.g. component) source, or if the attribute is specified as <code>metaData</code> the URI is resolved against the (resolved) URI of the meta data source.
-The value <code>metaData</code> is only valid if the Signature element is contained within a MetaData element.</p>
+<p>Defines the base the source URI is resolved against:</p>
+</div>
+<div class="paragraph">
+<p>If the attribute is missing or is specified as <code>file</code>, the source is resolved against the URI of the containing file.</p>
+</div>
+<div class="paragraph">
+<p>If the containing model element has a source attribute, the sourceBase attribute can be specified as <code>resource</code>.
+In this case the URI is resolved against the (resolved) source URI of the containing model element.</p>
+</div>
+<div class="paragraph">
+<p>If the Signature element is contained within a MetaData element, the sourceBase attribute can be specified as <code>metaData</code>.
+In this case the URI is resolved against the (resolved) URI of the meta data source.</p>
+</div>
+<div class="paragraph">
+<p>The last two options allow the specification of signature sources that reside inside a resource (for example an FMU), or the meta data through relative URIs.</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -3460,10 +3475,7 @@ No further types are currently defined, but can of course be added at a later da
 <td class="tableblock halign-left valign-top"><p class="tableblock">source</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Optional attribute indicating the source of the parameters as a URI (cf. RFC 3986).
-For purposes of the resolution of relative URIs the base URI is the URI of the SSD, if the sourceBase attribute is not specified or is specified as SSD, and the URI of the referenced component if the base attribute is specified as component.</p>
-</div>
-<div class="paragraph">
-<p>This allows the specification of parameter sources that reside inside the component (for example an FMU) through relative URIs.</p>
+The base URI for the resolution of relative URIs is determined by the sourceBase attribute.</p>
 </div>
 <div class="paragraph">
 <p>If the source attribute is missing, the parameter set <strong>MUST</strong> be provided inline as contents of a ParameterValues element, which <strong>MUST NOT</strong> be present otherwise.</p>
@@ -3471,8 +3483,18 @@ For purposes of the resolution of relative URIs the base URI is the URI of the S
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">sourceBase</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Defines the base the source URI is resolved against:
-If the attribute is missing or is specified as SSD, the source is resolved against the URI of the SSD, if the attribute is specified as component the URI is resolved against the (resolved) URI of the component source.</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Defines the base the source URI is resolved against:</p>
+</div>
+<div class="paragraph">
+<p>If the attribute is missing or is specified as <code>SSD</code>, the source is resolved against the URI of the containing file.</p>
+</div>
+<div class="paragraph">
+<p>If the attribute is specified as <code>component</code> the URI is resolved against the (resolved) source URI of the component.</p>
+</div>
+<div class="paragraph">
+<p>The last option allows the specification of parameter sources that reside inside a resource (for example an FMU) through relative URIs.</p>
+</div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">prefix</p></td>
@@ -3549,10 +3571,7 @@ No further types are currently defined, but can of course be added at a later da
 <td class="tableblock halign-left valign-top"><p class="tableblock">source</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Optional attribute indicating the source of the parameter mapping as a URI (cf. RFC 3986).
-For purposes of the resolution of relative URIs the base URI is the URI of the SSD, if the sourceBase attribute is not specified or is specified as SSD, and the URI of the referenced component if the base attribute is specified as component.</p>
-</div>
-<div class="paragraph">
-<p>This allows the specification of parameter mapping sources that reside inside the component (for example an FMU) through relative URIs.</p>
+The base URI for the resolution of relative URIs is determined by the sourceBase attribute.</p>
 </div>
 <div class="paragraph">
 <p>If the source attribute is missing, the parameter mapping <strong>MUST</strong> be provided inline as contents of the ParameterMapping element, which <strong>MUST</strong> be empty otherwise.</p>
@@ -3560,8 +3579,18 @@ For purposes of the resolution of relative URIs the base URI is the URI of the S
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">sourceBase</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Defines the base the source URI is resolved against:
-If the attribute is missing or is specified as SSD, the source is resolved against the URI of the SSD, if the attribute is specified as component the URI is resolved against the (resolved) URI of the component source.</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Defines the base the source URI is resolved against:</p>
+</div>
+<div class="paragraph">
+<p>If the attribute is missing or is specified as <code>SSD</code>, the source is resolved against the URI of the containing file.</p>
+</div>
+<div class="paragraph">
+<p>If the attribute is specified as <code>component</code> the URI is resolved against the (resolved) source URI of the component.</p>
+</div>
+<div class="paragraph">
+<p>The last option allows the specification of parameter mapping sources that reside inside a resource (for example an FMU) through relative URIs.</p>
+</div></div></td>
 </tr>
 </tbody>
 </table>
