@@ -586,8 +586,8 @@ document.addEventListener('keydown', (event) => {
 <div id="header">
 <h1>System Structure and Parameterization</h1>
 <div class="details">
-<span id="revnumber">version 0affca1,</span>
-<span id="revdate">2024-10-12</span>
+<span id="revnumber">version 0cf1aaa,</span>
+<span id="revdate">2024-10-25</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Contents</div>
@@ -606,7 +606,8 @@ document.addEventListener('keydown', (event) => {
 </li>
 <li><a href="#_feature_overview">1.3. Feature Overview</a></li>
 <li><a href="#_acknowledgements">1.4. Acknowledgements</a></li>
-<li><a href="#_changes_in_1_0_1">1.5. Changes in 1.0.1</a></li>
+<li><a href="#_changes_in_2_0_0">1.5. Changes in 2.0.0</a></li>
+<li><a href="#_changes_in_1_0_1">1.6. Changes in 1.0.1</a></li>
 </ul>
 </li>
 <li><a href="#_ssp_common_concepts">2. SSP Common Concepts</a>
@@ -1061,7 +1062,7 @@ There is an increasing desire to reuse environment models to provide proven, con
 <p>Hierarchical (multi-level) description of systems of connected components</p>
 </li>
 <li>
-<p>Use of different kind of components: FMUs and external SSPs/SSDs, extensible to other models</p>
+<p>Use of different kind of components: FMUs, external SSPs/SSDs, Modelica models, extensible to other models</p>
 </li>
 <li>
 <p>Binding of parameters both at component and system-level, including automatic unit-transformations and name-mapping</p>
@@ -1082,6 +1083,12 @@ There is an increasing desire to reuse environment models to provide proven, con
 <li>
 <p>URI references to all resources: Integration with other systems via URIs and usage of subsystems in a read-only manner</p>
 </li>
+<li>
+<p>Packaging of additional meta-data and digital signatures for traceability</p>
+</li>
+<li>
+<p>Extensibility for additional features and tool-specific data via layered standards</p>
+</li>
 </ul>
 </div>
 </div>
@@ -1097,10 +1104,13 @@ The following companies and persons were involved in the creation of the standar
 <p>Christian Bertsch, Bosch</p>
 </li>
 <li>
+<p>Thomas Beutlich</p>
+</li>
+<li>
 <p>Dag Brück, Dassault Systèmes</p>
 </li>
 <li>
-<p>Markus Deppe, dSpace</p>
+<p>Markus Deppe, dSPACE</p>
 </li>
 <li>
 <p>Hans-Martin Heinkel, Bosch</p>
@@ -1110,6 +1120,12 @@ The following companies and persons were involved in the creation of the standar
 </li>
 <li>
 <p>Jan-Niklas Jäschke, TLK-Thermo</p>
+</li>
+<li>
+<p>Robert Hällqvist, SAAB Group</p>
+</li>
+<li>
+<p>Ulrich Kiffmeier, dSPACE</p>
 </li>
 <li>
 <p>Jochen Köhler, ZF Friedrichshafen</p>
@@ -1136,6 +1152,9 @@ The following companies and persons were involved in the creation of the standar
 <p>Klaus Schuch, AVL</p>
 </li>
 <li>
+<p>Daniel Weil, Dassault Systèmes</p>
+</li>
+<li>
 <p>Karl Wernersson, Dassault Systèmes</p>
 </li>
 <li>
@@ -1151,7 +1170,112 @@ The following companies and persons were involved in the creation of the standar
 </div>
 </div>
 <div class="sect2">
-<h3 id="_changes_in_1_0_1">1.5. Changes in 1.0.1</h3>
+<h3 id="_changes_in_2_0_0">1.5. Changes in 2.0.0</h3>
+<div class="paragraph">
+<p>This major release of the SSP standard provides support for FMI 3.0, as well as other enhancements in response to new end-user requirements for architectural design, traceability, incremental development, and support of Modelica models as components.</p>
+</div>
+<div class="paragraph">
+<p>SSP 2.0 is a major version release, however all SSP 1.0 conforming artifacts remain fully conforming to SSP 2.0.
+SSP 2.0 conforming artifacts are only conforming to the SSP 1.0 standard if they use a 1.0 version number and only use features available in SSP 1.0.</p>
+</div>
+<div class="paragraph">
+<p>The following changes were performed as part of the 2.0.0 major release:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Support for FMI 3.0</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Support for the new basic data types: Float32/64, and [U]Int8/16/32/64.
+The binary data type was already supported in SSP 1.0.</p>
+</li>
+<li>
+<p>Support for the new scheduled execution implementation kind in the component implementation attribute.</p>
+</li>
+<li>
+<p>Support for clocks as a new connector kind, and clocked variables/connectors.</p>
+</li>
+<li>
+<p>Support for arrays in connectors and connections in the SSD, as well as in the SSV and SSB file formats.</p>
+</li>
+<li>
+<p>Support for structural parameters with the new connector kind <code>structuralParameter</code>.</p>
+</li>
+<li>
+<p>Support for the redesigned alias variable handling in FMI 3.0.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Architectural design features</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The component source attribute is now optional to support the usage of system structure descriptions for simulation architecture design without available component implementations.</p>
+</li>
+<li>
+<p>New connector kinds <code>local</code>, and <code>constant</code> are added to the specification, to support more encompassing interface specifications for components, and further parameter propagation.</p>
+</li>
+<li>
+<p>Support for optional inner view connector coordinates, in addition to the outer view connector coordinates.
+This feature enables more advanced graphical editing of SSP models.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Traceability and meta-data features</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Integration of the <code>MetaData</code> element developed as part of the SSP Traceability layered standard into the core standard, supporting the integration of arbitrary meta-data and digital signatures into the SSP file formats.</p>
+</li>
+<li>
+<p>Support for mixed content in annotations, as in FMI 3.0 and the SSP Traceability layered standard.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Support for Modelica</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Support in the core standard for Modelica models as components</p>
+</li>
+<li>
+<p>Support for the mapping of complex Modelica types in interfaces to binary connectors in SSP</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>General clarifications and bug fixes</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Fix missing type of Connector name attribute in <a href="https://github.com/modelica/ssp-standard/pull/4" class="bare">https://github.com/modelica/ssp-standard/pull/4</a></p>
+</li>
+<li>
+<p>Clarify type conversion handling in <a href="https://github.com/modelica/ssp-standard/pull/21" class="bare">https://github.com/modelica/ssp-standard/pull/21</a></p>
+</li>
+<li>
+<p>Clarify uniqueness of root SSDs in <a href="https://github.com/modelica/ssp-standard/pull/23" class="bare">https://github.com/modelica/ssp-standard/pull/23</a></p>
+</li>
+<li>
+<p>Clarify hierarchical parameter name resolution in <a href="https://github.com/modelica/ssp-standard/pull/27" class="bare">https://github.com/modelica/ssp-standard/pull/27</a></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_changes_in_1_0_1">1.6. Changes in 1.0.1</h3>
 <div class="paragraph">
 <p>The following changes were performed as part of the 1.0.1 maintenance release:</p>
 </div>
