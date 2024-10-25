@@ -586,7 +586,7 @@ document.addEventListener('keydown', (event) => {
 <div id="header">
 <h1>System Structure and Parameterization</h1>
 <div class="details">
-<span id="revnumber">version 86eb74f,</span>
+<span id="revnumber">version 6cdd1f4,</span>
 <span id="revdate">2024-10-25</span>
 </div>
 <div id="toc" class="toc2">
@@ -932,7 +932,7 @@ The standard is comprised of a set of XML-based formats to describe a network of
 This description is tool neutral and is intended to be used primarly as an exchange format of simulation system descriptions between different tools.</p>
 </div>
 <div class="paragraph">
-<p>SSP can be seen as an extension to the FMI (Functional Mockup Interface) standard [FMI20].
+<p>SSP can be seen as an extension to the FMI (Functional Mockup Interface) standard [FMI30].
 FMI describes a tool independent standard to exchange single simulation models.
 Using SSP, complete systems consisting of multiple interconnected simulation models can be defined with the desired signal flow and also with the wanted parameterization of each single model as well as the parameters for the complete system.
 This system topology can include hierarchies of sub-systems for proper structuring of the overall system.
@@ -990,7 +990,6 @@ This can be done using SSP by defining the wrapper of this component with an emp
 </div>
 <div class="paragraph">
 <p>The interaction of the components is defined by the connections.
-Connections in SSP are always causal.
 Connections can be made directly between components or via signal dictionaries.
 A signal dictionary is a collection of signals similar to a bus concept (e.g. like a CAN bus).
 During the design phase of a system, a signal dictionary can be a good way to predefine the available signal connections.</p>
@@ -1810,7 +1809,7 @@ When processing information from multiple files, either from the same or separat
 <h5 id="_baseunit">4.4.2.1. BaseUnit</h5>
 <div class="paragraph">
 <p>This element defines the base unit of the given unit in SI units.
-This is completely aligned with the specification of base units in section 2.2.2 of the FMI 2.0 standard [FMI20].</p>
+This is completely aligned with the specification of base units in section 2.4.3 of the FMI 3.0 standard [FMI30] and section 2.2.2 of the FMI 2.0 standard [FMI20].</p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="images/image10.png" alt="image" width="263" height="771"></span></p>
@@ -2138,7 +2137,7 @@ The name <strong>MUST</strong> match the name of an Enumeration entry in the Enu
 <p><span class="image"><img src="images/image17.png" alt="image" width="319" height="114"></span></p>
 </div>
 <div class="paragraph">
-<p>This type specifies that the connector in question represents a length-terminated binary data type, like the binary type defined for the FMI 3.0 standard, or substitute types like the binary type defined via the OSI Sensor Model Packaging specification [OSMP120].</p>
+<p>This type specifies that the connector in question represents a length-terminated binary data type, like the binary type defined for the FMI 3.0 standard, or substitute types like the binary type defined via the OSI Sensor Model Packaging specification [OSMP150].</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -2445,8 +2444,8 @@ For those elements, it is considered an error if both attributes are present, or
 <p><span class="image"><img src="images/SystemStructureCommon_GMetaData.png" alt="image" width="597" height="196"></span></p>
 </div>
 <div class="paragraph">
-<p>The MetaData element allows the specification of additional meta data for a given model element.
-Multiple (or no) MetaData elements may be present in a given model element.</p>
+<p>The group GMetaData allows the specification of additional meta data and signatures for a given model element.
+Multiple (or no) MetaData and Signature elements may be present in a given model element.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -2463,6 +2462,11 @@ Multiple (or no) MetaData elements may be present in a given model element.</p>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">MetaData</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">One or more instances of this element <strong>CAN</strong> be present to specify meta data related to the containing model element.
+See below for details.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Signature</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">One or more instances of this element <strong>CAN</strong> be present to specify signatures related to the containing model element.
 See below for details.</p></td>
 </tr>
 </tbody>
@@ -2751,7 +2755,7 @@ For the current release this <strong>MUST</strong> be either 1.0 or 2.0.</p></td
 <p>This element contains information of a default simulation setup that is supplied with the system definition for informational purposes.</p>
 </div>
 <div class="paragraph">
-<p>[ <em>Note that in contrast to FMI 2.0 only start and stop time are specified here, since values like step size or tolerance depend on the specific solver or master algorithms employed and are hence not specified in this global element.</em>
+<p>[ <em>Note that in contrast to FMI 2.0/3.0 only start and stop time are specified here, since values like step size or tolerance depend on the specific solver or master algorithms employed and are hence not specified in this global element.</em>
 <em>Additional solver or master algorithm specific information can be supplied through the annotation mechanism, or using a future layered standard.</em> ]</p>
 </div>
 <div class="paragraph">
@@ -2854,13 +2858,13 @@ See below for details.</p></td>
 </div>
 <div class="paragraph">
 <p>This optional element specifies the set of connectors of this model element, which represent the interface of the model element to the outside world.
-For components the set of connectors <strong>MUST</strong> match variables/ports of the underlying component implementation, e.g., for referenced FMI 2.0 FMUs, the name of a connector has to match the name attribute of the corresponding &lt;ScalarVariable&gt; element; for referenced FMUs that follow the OSI Sensor Model Packaging specification [OSMP120], the name of a connector of type Binary has to match the name attribute of the corresponding &lt;osmp:osmp-binary-variable&gt;.
+For components the set of connectors <strong>MUST</strong> match variables/ports of the underlying component implementation, e.g., for referenced FMI 2.0 FMUs, the name of a connector has to match the name attribute of the corresponding &lt;ScalarVariable&gt; element; for referenced FMUs that follow the OSI Sensor Model Packaging specification [OSMP150], the name of a connector of type Binary has to match the name attribute of the corresponding &lt;osmp:osmp-binary-variable&gt;.
 For FMI 3.0 FMUs, the connector name has to match either the name of the corresponding variable element, or one of its &lt;Alias&gt; elements.</p>
 </div>
 <div class="paragraph">
 <p>Names of variable elements of an FMU might follow the “Variable Naming Conventions” specification as defined by the FMI standard.
-Hence, several ScalarVariables might be grouped as a structure or an array.
-However, the name of a connector <strong>MUST</strong> match the name of a single &lt;ScalarVariable&gt;.</p>
+Hence, several variables might be grouped as a structure or an array.
+However, the name of a connector <strong>MUST</strong> match the name of a single variable.</p>
 </div>
 <div class="paragraph">
 <p>Note that there is no requirement that connectors have to be present for all variables/ports of an underlying component implementation.
@@ -3422,7 +3426,7 @@ For structural parameters it is assumed that the parameterization is applied in 
 <p>either causality = "input" or a start value for FMI 1.0</p>
 </li>
 <li>
-<p>variability != "constant" and initial = "exact" or "approx" for FMI 2.0</p>
+<p>variability != "constant" and initial = "exact" or "approx" for FMI 2.0/3.0</p>
 </li>
 </ul>
 </div>
@@ -5460,12 +5464,16 @@ See <a href="#ssc_dimensions">Section 4.5.3</a> for details.</p></td>
 <a href="http://www.w3.org/TR/2008/REC-xml-20081126/" class="bare">http://www.w3.org/TR/2008/REC-xml-20081126/</a></p>
 </div>
 <div class="paragraph">
-<p>[FMI20] Modelica Association: <strong>Functional Mock-up Interface for Model Exchange and Co-Simulation, Version 2.0.3.</strong> 2021.<br>
-<a href="https://github.com/modelica/fmi-standard/releases/download/v2.0.3/FMI-Specification-2.0.3.pdf" class="bare">https://github.com/modelica/fmi-standard/releases/download/v2.0.3/FMI-Specification-2.0.3.pdf</a></p>
+<p>[FMI20] Modelica Association: <strong>Functional Mock-up Interface for Model Exchange and Co-Simulation, Version 2.0.4.</strong> 2022.<br>
+<a href="https://github.com/modelica/fmi-standard/releases/download/v2.0.4/FMI-Specification-2.0.4.pdf" class="bare">https://github.com/modelica/fmi-standard/releases/download/v2.0.4/FMI-Specification-2.0.4.pdf</a></p>
 </div>
 <div class="paragraph">
-<p>[OSMP120] ASAM e.V.: <strong>OSI Sensor Model Packaging Version 1.2.0.</strong> 2021.<br>
-<a href="https://github.com/OpenSimulationInterface/osi-sensor-model-packaging/releases/tag/v1.2.0" class="bare">https://github.com/OpenSimulationInterface/osi-sensor-model-packaging/releases/tag/v1.2.0</a></p>
+<p>[FMI30] Modelica Association: <strong>Functional Mock-up Interface Specification, Version 3.0.1.</strong> 2023.<br>
+<a href="https://fmi-standard.org/docs/3.0.1/" class="bare">https://fmi-standard.org/docs/3.0.1/</a></p>
+</div>
+<div class="paragraph">
+<p>[OSMP150] ASAM e.V.: <strong>OSI Sensor Model Packaging Version 1.5.0.</strong> 2024.<br>
+<a href="https://github.com/OpenSimulationInterface/osi-sensor-model-packaging/releases/tag/v1.5.0" class="bare">https://github.com/OpenSimulationInterface/osi-sensor-model-packaging/releases/tag/v1.5.0</a></p>
 </div>
 </div>
 </div>
