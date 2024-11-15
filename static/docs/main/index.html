@@ -586,8 +586,8 @@ document.addEventListener('keydown', (event) => {
 <div id="header">
 <h1>System Structure and Parameterization</h1>
 <div class="details">
-<span id="revnumber">version 9127c01,</span>
-<span id="revdate">2024-11-08</span>
+<span id="revnumber">version cdbd838,</span>
+<span id="revdate">2024-11-15</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Contents</div>
@@ -683,7 +683,11 @@ document.addEventListener('keydown', (event) => {
 <ul class="sectlevel4">
 <li><a href="#_metadata">4.5.4.1. MetaData</a></li>
 <li><a href="#_content">4.5.4.2. Content</a></li>
-<li><a href="#_signature">4.5.4.3. Signature</a></li>
+</ul>
+</li>
+<li><a href="#ssc_signature">4.5.5. Signature Sequence</a>
+<ul class="sectlevel4">
+<li><a href="#_signature">4.5.5.1. Signature</a></li>
 </ul>
 </li>
 </ul>
@@ -2447,11 +2451,11 @@ For those elements, it is considered an error if both attributes are present, or
 <div class="sect3">
 <h4 id="ssc_metadata">4.5.4. MetaData Sequence</h4>
 <div class="paragraph">
-<p><span class="image"><img src="images/SystemStructureCommon_GMetaData.png" alt="image" width="597" height="196"></span></p>
+<p><span class="image"><img src="images/SystemStructureCommon_GMetaData.png" alt="image" width="690" height="197"></span></p>
 </div>
 <div class="paragraph">
-<p>The group GMetaData allows the specification of additional meta data and signatures for a given model element.
-Multiple (or no) MetaData and Signature elements may be present in a given model element.</p>
+<p>The group GMetaData allows the specification of additional meta data for a given model element.
+Multiple (or no) MetaData elements may be present in a given model element.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -2470,17 +2474,12 @@ Multiple (or no) MetaData and Signature elements may be present in a given model
 <td class="tableblock halign-left valign-top"><p class="tableblock">One or more instances of this element <strong>CAN</strong> be present to specify meta data related to the containing model element.
 See below for details.</p></td>
 </tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Signature</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">One or more instances of this element <strong>CAN</strong> be present to specify signatures related to the containing model element.
-See below for details.</p></td>
-</tr>
 </tbody>
 </table>
 <div class="sect4">
 <h5 id="_metadata">4.5.4.1. MetaData</h5>
 <div class="paragraph">
-<p><span class="image"><img src="images/SystemStructureCommon_MetaData.png" alt="image" width="369" height="543"></span></p>
+<p><span class="image"><img src="images/SystemStructureCommon_MetaData.png" alt="image" width="462" height="479"></span></p>
 </div>
 <div class="paragraph">
 <p>This element specifies a source of meta data related to the containing model element.</p>
@@ -2575,7 +2574,7 @@ In this case the URI is resolved against the (resolved) source URI of the contai
 <div class="sect4">
 <h5 id="_content">4.5.4.2. Content</h5>
 <div class="paragraph">
-<p><span class="image"><img src="images/SystemStructureCommon_Content.png" alt="image" width="377" height="306"></span></p>
+<p><span class="image"><img src="images/SystemStructureCommon_Content.png" alt="image" width="372" height="191"></span></p>
 </div>
 <div class="paragraph">
 <p>This element specifies the inlined content of the model element meta data.</p>
@@ -2585,10 +2584,39 @@ In this case the URI is resolved against the (resolved) source URI of the contai
 In that case there <strong>SHOULD</strong> be a layered specification that defines how embedding the content works for that MIME type.</p>
 </div>
 </div>
-<div class="sect4">
-<h5 id="_signature">4.5.4.3. Signature</h5>
+</div>
+<div class="sect3">
+<h4 id="ssc_signature">4.5.5. Signature Sequence</h4>
 <div class="paragraph">
-<p><span class="image"><img src="images/SystemStructureCommon_Signature.png" alt="image" width="423" height="534"></span></p>
+<p><span class="image"><img src="images/SystemStructureCommon_GSignature.png" alt="image" width="652" height="133"></span></p>
+</div>
+<div class="paragraph">
+<p>The group GSignature allows the specification of digital signatures for a given model element.
+Multiple (or no) Signature elements may be present in a given model element.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33%;">
+<col style="width: 67%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Element</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Signature</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">One or more instances of this element <strong>CAN</strong> be present to specify signatures related to the containing model element.
+See below for details.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect4">
+<h5 id="_signature">4.5.5.1. Signature</h5>
+<div class="paragraph">
+<p><span class="image"><img src="images/SystemStructureCommon_Signature.png" alt="image" width="423" height="419"></span></p>
 </div>
 <div class="paragraph">
 <p>This element specifies digital signature information on the data or meta data referenced by the enclosing element:
@@ -2699,7 +2727,7 @@ All SSD-specific elements live in the <code><a href="http://ssp-standard.org/SSP
 <div class="sect2">
 <h3 id="_systemstructuredescription">5.1. SystemStructureDescription</h3>
 <div class="paragraph">
-<p><span class="image"><img src="images/image23.png" alt="image" width="464" height="506"></span></p>
+<p><span class="image"><img src="images/SystemStructureDescription_SystemStructureDescription.png" alt="image" width="475" height="693"></span></p>
 </div>
 <div class="paragraph">
 <p>The root element of an SSD file <strong>MUST</strong> be a SystemStructureDescription element, which gives overall information about the system hierarchy described in this SSD file, including common meta-data, and acts as a bracket for the root system and its unit and enumeration definitions.</p>
@@ -2818,7 +2846,7 @@ See <a href="#_units">Section 4.4.2</a> for its definition.</p></td>
 <p>System, Component and SignalDictionaryReference XML elements are subtypes of a common TElement base type, that contains attributes and XML elements common to all kinds of model elements:</p>
 </div>
 <div class="paragraph">
-<p><span class="image"><img src="images/image25.png" alt="image" width="379" height="280"></span></p>
+<p><span class="image"><img src="images/SystemStructureDescription_TElement.png" alt="image" width="391" height="466"></span></p>
 </div>
 <div class="paragraph">
 <p>The following XML attributes are specified for the TElement type:</p>
@@ -3377,7 +3405,7 @@ _</strong></p>
 <div class="sect3">
 <h4 id="_parameterbindings">5.2.3. ParameterBindings</h4>
 <div class="paragraph">
-<p><span class="image"><img src="images/image32.png" alt="image" width="646" height="470"></span></p>
+<p><span class="image"><img src="images/SystemStructureDescription_ParameterBindings.png" alt="image" width="746" height="719"></span></p>
 </div>
 <div class="paragraph">
 <p>The ParameterBindings element provides the parameter bindings for a component or system, where each binding is specified in a ParameterBinding element.
@@ -3556,7 +3584,7 @@ In that case there <strong>SHOULD</strong> be a layered specification that defin
 <div class="sect4">
 <h5 id="_parametermapping">5.2.3.2. ParameterMapping</h5>
 <div class="paragraph">
-<p><span class="image"><img src="images/image34.png" alt="image" width="441" height="355"></span></p>
+<p><span class="image"><img src="images/SystemStructureDescription_ParameterMapping.png" alt="image" width="473" height="541"></span></p>
 </div>
 <div class="paragraph">
 <p>This element provides a parameter mapping, which specifies how the parameter names and values provided in the parameter source are to be mapped to the parameters of the component or system in question.
@@ -3617,7 +3645,7 @@ In that case there <strong>SHOULD</strong> be a layered specification that defin
 <div class="sect2">
 <h3 id="_system">5.3. System</h3>
 <div class="paragraph">
-<p><span class="image"><img src="images/image35.png" alt="image" width="452" height="641"></span></p>
+<p><span class="image"><img src="images/SystemStructureDescription_System.png" alt="image" width="463" height="827"></span></p>
 </div>
 <div class="paragraph">
 <p>This element describes a system, which can contain components, signal dictionary references and other systems as elements, connectors as an interface to the outside world, and connections connecting the connectors of itself and of its elements to one another.</p>
@@ -4168,7 +4196,7 @@ When a large number of signals have to be handled, signal dictionaries can help 
 <p>This optional element provides the set of defined signal dictionaries for the system.</p>
 </div>
 <div class="paragraph">
-<p><span class="image"><img src="images/image41.png" alt="image" width="415" height="336"></span></p>
+<p><span class="image"><img src="images/SystemStructureDescription_SignalDictionary.png" alt="image" width="447" height="522"></span></p>
 </div>
 <div class="paragraph">
 <p>A signal dictionary is a collection of signals which can be accessed in different systems at different levels of the hierarchy through signal dictionary references referencing the signal dictionary.</p>
@@ -4369,7 +4397,7 @@ Inside the text attribute, newlines indicate paragraph breaks.</p>
 <div class="sect2">
 <h3 id="_component">5.4. Component</h3>
 <div class="paragraph">
-<p><span class="image"><img src="images/image45.png" alt="image" width="470" height="588"></span></p>
+<p><span class="image"><img src="images/SystemStructureDescription_Component.png" alt="image" width="481" height="879"></span></p>
 </div>
 <div class="paragraph">
 <p>A component is an atomic element of a system (i.e. its internal structure is not specified).</p>
@@ -4440,7 +4468,7 @@ It is an error if the specified type of FMU implementation is not present in the
 <div class="sect2">
 <h3 id="_signaldictionaryreference">5.5. SignalDictionaryReference</h3>
 <div class="paragraph">
-<p><span class="image"><img src="images/image46.png" alt="image" width="544" height="442"></span></p>
+<p><span class="image"><img src="images/SystemStructureDescription_SignalDictionaryReference.png" alt="image" width="555" height="733"></span></p>
 </div>
 <div class="paragraph">
 <p>A signal dictionary reference is an element of a system that references a signal dictionary, i.e. it is the place-holder of the signal dictionary that allows access to the contents of the signal dictionary through its connectors, which <strong>MUST</strong> reference signal dictionary entries.</p>
@@ -4495,7 +4523,7 @@ Except for this file extension recommendation the filename is arbitrary and is i
 <div class="sect2">
 <h3 id="_parameterset">6.1. ParameterSet</h3>
 <div class="paragraph">
-<p><span class="image"><img src="images/SystemStructureParameterValues_ParameterSet.png" alt="image" width="405" height="574"></span></p>
+<p><span class="image"><img src="images/SystemStructureParameterValues_ParameterSet.png" alt="image" width="405" height="639"></span></p>
 </div>
 <div class="paragraph">
 <p>The ParameterSet element contains parameter and meta data information.
@@ -5259,7 +5287,7 @@ Except for this file extension recommendation the filename is arbitrary and is i
 <div class="sect2">
 <h3 id="_parametermapping_2">7.1. ParameterMapping</h3>
 <div class="paragraph">
-<p><span class="image"><img src="images/SystemStructureParameterMapping_ParameterMapping.png" alt="image" width="450" height="412"></span></p>
+<p><span class="image"><img src="images/SystemStructureParameterMapping_ParameterMapping.png" alt="image" width="450" height="477"></span></p>
 </div>
 <div class="paragraph">
 <p>This element describes a parameter mapping, which consists of multiple mapping entries, each describing one parameter mapping (see next section).
@@ -5380,7 +5408,7 @@ Any enumerations or units used in the DictionaryEntry elements <strong>MUST</str
 <div class="sect2">
 <h3 id="_signaldictionary">8.1. SignalDictionary</h3>
 <div class="paragraph">
-<p><span class="image"><img src="images/SystemStructureSignalDictionary_SignalDictionary.png" alt="image" width="438" height="520"></span></p>
+<p><span class="image"><img src="images/SystemStructureSignalDictionary_SignalDictionary.png" alt="image" width="438" height="585"></span></p>
 </div>
 <div class="paragraph">
 <p>This element describes a signal dictionary, which consists of one or more dictionary entries, each describing one signal in the signal dictionary (see next section).</p>
