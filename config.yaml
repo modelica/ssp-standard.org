@@ -2,9 +2,10 @@ baseURL: https://ssp-standard.org/
 title: System Structure and Parameterization
 theme: ma-hugo-theme
 params:
-  logo: /images/SSP_bare.svg
+  logo: /images/ma-logos/dark/SSP-bare.svg
   github: modelica/ssp-standard
   email: map-ssp_projectlead@googlegroups.com
+  darkMode: true
 menu:
   main:
     - pageRef: tools
