@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" vc:minVersion="1.1"
+    xmlns:stmd="http://ssp-standard.org/SSPTraceability1/SimulationTaskMetaData"
+    xmlns:stc="http://ssp-standard.org/SSPTraceability1/SSPTraceabilityCommon"
+    xmlns:ssc="http://ssp-standard.org/SSP1/SystemStructureCommon"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    targetNamespace="http://ssp-standard.org/SSPTraceability1/SimulationTaskMetaData"
+    elementFormDefault="qualified">
+
+    <xs:import namespace="http://ssp-standard.org/SSP1/SystemStructureCommon" schemaLocation="ssp-standard/schema/SystemStructureCommon.xsd"/>
+    <xs:import namespace="http://ssp-standard.org/SSPTraceability1/SSPTraceabilityCommon" schemaLocation="STC.xsd"/>
+    <xs:import namespace="http://www.w3.org/1999/xlink" schemaLocation="https://www.w3.org/XML/2008/06/xlink.xsd"/>
+
+    <xs:element name="SimulationTaskMetaData">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">
+                This element specifies the structure of the Credible Simulation Process.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="GeneralInformation" type="stc:GeneralInformationType" minOccurs="0"/>
+                <xs:element name="AnalysisPhase" minOccurs="0">
+                    <xs:annotation>
+                        <xs:documentation xml:lang="en">
+                            This element specifies the Analysis Phase of the overall Simulation Task.
+                        </xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="AnalyzeSimulationTaskAndObjectives" type="stc:StepType" minOccurs="0">
+                                <xs:annotation>
+                                    <xs:documentation xml:lang="en">
+                                        Contains information and a description of the engineering task of the
+                                        higher-level engineering process as well as the general requirements
+                                        and objectives, e.g., KPI and other criteria for the simulation task.
+                                    </xs:documentation>
+                                </xs:annotation>
+                            </xs:element>
+                            <xs:element name="VerifyAnalysis" type="stc:StepType" minOccurs="0">
+                                <xs:annotation>
+                                    <xs:documentation xml:lang="en">
+                                        In this step the outputs and credibility documentation of step before
+                                        are verified and the result is documented.
+                                    </xs:documentation>
+                                </xs:annotation>
+                            </xs:element>
+                            <xs:group ref="stc:GPhaseCommon"/>
+                        </xs:sequence>
+                        <xs:attributeGroup ref="ssc:ABaseElement"/>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="RequirementsPhase" minOccurs="0">
+                    <xs:annotation>
+                        <xs:documentation xml:lang="en">
+                            This element specifies the Requirements Phase of the overall Simulation Task.
+                        </xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="DefineModelRequirements" type="stc:StepType" minOccurs="0">
+                                <xs:annotation>
+                                    <xs:documentation xml:lang="en">
+                                        In this step the requirements of the simulation task are broken down
+                                        into the individual requirements for the simulation models.
+                                    </xs:documentation>
+                                </xs:annotation>
+                            </xs:element>
+                            <xs:element name="DefineParameterRequirements" type="stc:StepType" minOccurs="0">
+                                <xs:annotation>
+                                    <xs:documentation xml:lang="en">
+                                        In this step the requirements of the simulation task are broken down
+                                        into the individual requirements for the parameters.
+                                    </xs:documentation>
+                                </xs:annotation>
+                            </xs:element>
+                            <xs:element name="DefineSimulationEnvironmentRequirements" type="stc:StepType" minOccurs="0">
+                                <xs:annotation>
+                                    <xs:documentation xml:lang="en">
+                                        In this step the requirements of the simulation task are broken down
+                                        into the individual requirements for the simulation environment.
+                                    </xs:documentation>
+                                </xs:annotation>
+                            </xs:element>
+                            <xs:element name="DefineSimulationIntegrationRequirements" type="stc:StepType" minOccurs="0">
+                                <xs:annotation>
+                                    <xs:documentation xml:lang="en">
+                                        In this step the requirements of the simulation task are broken down
+                                        into the individual requirements for the simulation integration elements.
+                                    </xs:documentation>
+                                </xs:annotation>
+                            </xs:element>
+                            <xs:element name="DefineTestCaseRequirements" type="stc:StepType" minOccurs="0">
+                                <xs:annotation>
+                                    <xs:documentation xml:lang="en">
+                                        In this step the requirements of the simulation task are broken down
+                                        into the individual requirements for the test cases.
+                                    </xs:documentation>
+                                </xs:annotation>
+                            </xs:element>
+                            <xs:element name="DefineQualityAssuranceRequirements" type="stc:StepType" minOccurs="0">
+                                <xs:annotation>
+                                    <xs:documentation xml:lang="en">
+                                        In this step the requirements for the quality assurance are specified,
+                                        including company and domain-specific quality assurance requirements or
+                                        requirements for quality standards such as ASPICE or ASIL.
+                                    </xs:documentation>
+                                </xs:annotation>
+                            </xs:element>
+                            <xs:element name="VerifyRequirements" type="stc:StepType" minOccurs="0">
+                                <xs:annotation>
+                                    <xs:documentation xml:lang="en">
+                                        In this step the outputs and credibility documentation of all steps
+                                        before are verified and the result is documented.
+                                    </xs:documentation>
+                                </xs:annotation>
+                            </xs:element>
+                            <xs:group ref="stc:GPhaseCommon"/>
+                        </xs:sequence>
+                        <xs:attributeGroup ref="ssc:ABaseElement"/>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="DesignPhase" minOccurs="0">
+                    <xs:annotation>
+                        <xs:documentation xml:lang="en">
+                            This element specifies the Specification Phase of the overall Simulation Task.
+                        </xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="DefineModelDesignSpecification" type="stc:StepType" minOccurs="0">
+                                <xs:annotation>
+                                    <xs:documentation xml:lang="en">
+                                        In this step the design specification for the simulation model is
+                                        derived from the requirements.
+                                    </xs:documentation>
+                                </xs:annotation>
+                            </xs:element>
+                            <xs:element name="DefineParameterDesignSpecification" type="stc:StepType" minOccurs="0">
+                                <xs:annotation>
+                                    <xs:documentation xml:lang="en">
+                                        In this step the design specification for the parameters is derived
+                                        from the requirements.
+                                    </xs:documentation>
+                                </xs:annotation>
+                            </xs:element>
+                            <xs:element name="DefineSimulationEnvironmentDesignSpecification" type="stc:StepType" minOccurs="0">
+                                <xs:annotation>
+                                    <xs:documentation xml:lang="en">
+                                        In this step the design specification for the simulation environment is
+                                        derived from the requirements. This can also be seen as the designi
+                                        specification for the architecture of the simulation environment
+                                        (structure, interfaces, modules, workflow and data flow).
+                                    </xs:documentation>
+                                </xs:annotation>
+                            </xs:element>
+                            <xs:element name="DefineSimulationIntegrationDesignSpecification" type="stc:StepType" minOccurs="0">
+                                <xs:annotation>
+                                    <xs:documentation xml:lang="en">
+                                        In this step the design specification for the simulation integration is
+                                        derived from the requirements. It is defined how the models and their
+                                        parametrization are implemented in the simulation environment, how the
+                                        elements interact with each other, and how tests and simulation are
+                                        initialized, performed and evaluated.
+                                    </xs:documentation>
+                                </xs:annotation>
+                            </xs:element>
+                            <xs:element name="DefineTestCaseDesignSpecification" type="stc:StepType" minOccurs="0">
+                                <xs:annotation>
+                                    <xs:documentation xml:lang="en">
+                                        In this step the design specifications for the test cases are derived
+                                        from the requirements.
+                                    </xs:documentation>
+                                </xs:annotation>
+                            </xs:element>
+                            <xs:element name="DefineQualityAssuranceDesignSpecification" type="stc:StepType" minOccurs="0">
+                                <xs:annotation>
+                                    <xs:documentation xml:lang="en">
+                                        In this process step the requirements of the quality assurance are
+                                        transformed into design specifications, including company and
+                                        domain-specific quality assurance requirements or requirements for
+                                        quality standards such as ASPICE or ASIL.
+                                    </xs:documentation>
+                                </xs:annotation>
+                            </xs:element>
+                            <xs:element name="VerifyDesignSpecification" type="stc:StepType" minOccurs="0">
+                                <xs:annotation>
+                                    <xs:documentation xml:lang="en">
+                                        In this step the outputs and credibility documentation of all steps
+                                        before are verified and the result is documented.
+                                    </xs:documentation>
+                                </xs:annotation>
+                            </xs:element>
+                            <xs:group ref="stc:GPhaseCommon"/>
+                        </xs:sequence>
+                        <xs:attributeGroup ref="ssc:ABaseElement"/>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="ImplementationPhase" minOccurs="0">
+                    <xs:annotation>
+                        <xs:documentation xml:lang="en">
+                            This element specifies the Implementation and Validation Phase of the
+                            overall Simulation Task.
+                        </xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="ImplementModel" type="stc:StepType" minOccurs="0">
+                                <xs:annotation>
+                                    <xs:documentation xml:lang="en">
+                                        In this step the simulation sub-models are implemented and integrated
+                                        to the simulation model. Quality assurance is performed, both
+                                        individually for the sub-models and in their interaction as simulation
+                                        model.
+                                    </xs:documentation>
+                                </xs:annotation>
+                            </xs:element>
+                            <xs:element name="ImplementParameter" type="stc:StepType" minOccurs="0">
+                                <xs:annotation>
+                                    <xs:documentation xml:lang="en">
+                                        In step the parameter structures, the infrastructure for handling
+                                        different parameter sets and the processing of material data to model
+                                        parameters is implemented. Necessary infrastructure for quality
+                                        assurance of data and parameters is implemented and quality assurance
+                                        performed.
+                                    </xs:documentation>
+                                </xs:annotation>
+                            </xs:element>
+                            <xs:element name="ImplementSimulationEnvironment" type="stc:StepType" minOccurs="0">
+                                <xs:annotation>
+                                    <xs:documentation xml:lang="en">
+                                        In this step the simulation environment modules, workflow and data flow
+                                        are implemented and integrated to the simulation environment. Quality
+                                        assurance is performed, both individually for the modules and in their
+                                        interaction.
+                                    </xs:documentation>
+                                </xs:annotation>
+                            </xs:element>
+                            <xs:element name="ImplementTestCase" type="stc:StepType" minOccurs="0">
+                                <xs:annotation>
+                                    <xs:documentation xml:lang="en">
+                                        In this step the test cases are implemented and quality assurance is
+                                        performed.
+                                    </xs:documentation>
+                                </xs:annotation>
+                            </xs:element>
+                            <xs:element name="IntegrateSimulation" type="stc:StepType" minOccurs="0">
+                                <xs:annotation>
+                                    <xs:documentation xml:lang="en">
+                                        In this step the models with their parametrization and tests (or the
+                                        optimization or analysis functionality) are integrated in the simulation
+                                        environment. Integration tests are implemented and performed according
+                                        to the specific quality design specifications.
+                                    </xs:documentation>
+                                </xs:annotation>
+                            </xs:element>
+                            <xs:element name="AssureSimulationSetupQuality" type="stc:StepType" minOccurs="0">
+                                <xs:annotation>
+                                    <xs:documentation xml:lang="en">
+                                        In this step quality assurance (i.e., tests) for the simulation
+                                        environment with integrated models and parametrization is performed. 
+                                        Quality information about models and simulation environment according
+                                        to the criticality of the decision of the simulation task is provided.
+                                    </xs:documentation>
+                                </xs:annotation>
+                            </xs:element>
+                            <xs:element name="DeriveSimulationSetupQualityVerdict" type="stc:StepType" minOccurs="0">
+                                <xs:annotation>
+                                    <xs:documentation xml:lang="en">
+                                        In this step an assessment of the quality of the simulation setup and
+                                        according models, test cases, parametrization and simulation environment
+                                        is carried out (according to the criticality of the simulation task).
+                                    </xs:documentation>
+                                </xs:annotation>
+                            </xs:element>
+                            <xs:group ref="stc:GPhaseCommon"/>
+                        </xs:sequence>
+                        <xs:attributeGroup ref="ssc:ABaseElement"/>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="ExecutionPhase" minOccurs="0">
+                    <xs:annotation>
+                        <xs:documentation xml:lang="en">
+                            This element specifies the Execution Phase of the overall Simulation Task.
+                        </xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="ExecuteSimulation" type="stc:StepType" minOccurs="0">
+                                <xs:annotation>
+                                    <xs:documentation xml:lang="en">
+                                        In this step the simulation itself as well as simulations relevant for
+                                        the following evaluation and quality assurance are carried out.
+                                    </xs:documentation>
+                                </xs:annotation>
+                            </xs:element>
+                            <xs:group ref="stc:GPhaseCommon"/>
+                        </xs:sequence>
+                        <xs:attributeGroup ref="ssc:ABaseElement"/>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="EvaluationPhase" minOccurs="0">
+                    <xs:annotation>
+                        <xs:documentation xml:lang="en">
+                            This element specifies the Evaluation Phase of the overall Simulation Task.
+                        </xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="EvaluateSimulationResults" type="stc:StepType" minOccurs="0">
+                                <xs:annotation>
+                                    <xs:documentation xml:lang="en">
+                                        In this step the post processing of simulation results and for the
+                                        quality of results is performed. That often means the visualization of
+                                        simulation results according to the simulation task requirements.
+                                    </xs:documentation>
+                                </xs:annotation>
+                            </xs:element>
+                            <xs:element name="AssureSimulationQuality" type="stc:StepType" minOccurs="0">
+                                <xs:annotation>
+                                    <xs:documentation xml:lang="en">
+                                        In this step quality assurance for the simulation task and result is
+                                        performed. Quality information about the simulation experiments is
+                                        provided, according to the criticality of the decision of the simulation
+                                        task.
+                                    </xs:documentation>
+                                </xs:annotation>
+                            </xs:element>
+                            <xs:element name="DeriveSimulationQualityVerdict" type="stc:StepType" minOccurs="0">
+                                <xs:annotation>
+                                    <xs:documentation xml:lang="en">
+                                        In this step an assessment of the quality of the simulation task and
+                                        result is carried out.
+                                    </xs:documentation>
+                                </xs:annotation>
+                            </xs:element>
+                            <xs:group ref="stc:GPhaseCommon"/>
+                        </xs:sequence>
+                        <xs:attributeGroup ref="ssc:ABaseElement"/>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="FulfillmentPhase" minOccurs="0">
+                    <xs:annotation>
+                        <xs:documentation xml:lang="en">
+                            This element specifies the Fulfillment Phase of the overall Simulation Task.
+                        </xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="DecideSimulationObjectiveFulfillment" type="stc:StepType" minOccurs="0">
+                                <xs:annotation>
+                                    <xs:documentation xml:lang="en">
+                                        In this step the decision is made whether the requirements and
+                                        objectives of the simulation task have been fulfilled. This is done in
+                                        coordination with the higher-level process (Simulation-based Decision
+                                        Process).
+                                    </xs:documentation>
+                                </xs:annotation>
+                            </xs:element>
+                            <xs:group ref="stc:GPhaseCommon"/>
+                        </xs:sequence>
+                        <xs:attributeGroup ref="ssc:ABaseElement"/>
+                    </xs:complexType>
+                </xs:element>
+                <xs:group ref="stc:GElementCommon"/>
+            </xs:sequence>
+            <xs:attribute name="version" use="required">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">
+                        Version of STMD format, 1.0.0 for this release.
+                    </xs:documentation>
+                </xs:annotation>
+                <xs:simpleType>
+                    <xs:restriction base="xs:normalizedString">
+                        <xs:pattern value="[0-9]+[.][0-9]+([.][0-9]+)?(-.*)?"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:attribute>
+            <xs:attribute name="name" type="xs:string" use="required">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">
+                        This attribute gives the simulation task a name, which can be used
+                        for purposes of presenting the simulation task to the user, e.g.
+                        when selecting individual variant STMDs from an SSP.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+            <xs:attributeGroup ref="ssc:ABaseElement"/>
+            <xs:attributeGroup ref="ssc:ATopLevelMetaData"/>
+            <xs:attribute name="GUID" type="xs:string" use="required">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">
+                        GUID identifier of this STMD file. Must be globally unique and MUST
+                        change, whenever a new file with differing information is written.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
