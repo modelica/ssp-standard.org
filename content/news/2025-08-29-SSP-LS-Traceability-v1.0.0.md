@@ -9,10 +9,12 @@ The SSP Project is happy to announce the release of the first layered standard o
 
 The [System Structure & Parameterization (SSP) standard](https://ssp-standard.org/) has established itself as a format for the exchange of composite system simulation models and simulation model architectures.
 
-Layered standards are exentions to the core SSP standard for special applications.
-SSP-LS-Traceability defines support for the exchange of simulation traceability and credibility information alongside simulation artefacts inside SSP packages and formats. It also defines generic formats for the exchange of keyword value pair meta data, which can be used to exchange arbitrary simulation meta data, as exemplified by the [MIC Core](https://mic-core.org/) common meta data specification. 
+Layered standards are extensions to the core SSP standard for special applications.
+SSP-LS-Traceability defines support for the exchange of simulation traceability and credibility information alongside simulation artefacts inside SSP packages and formats.
 
-The release [v1.0.0](https://github.com/modelica/ssp-ls-traceability/releases) is available on Github.
+It also defines generic formats for the exchange of keyword value pair meta data, which can be used to exchange arbitrary simulation meta data, as exemplified by the [MIC Core](https://mic-core.org/) common meta data specification.
+
+The release [v1.0.0](https://github.com/modelica/ssp-ls-traceability/releases) is available on GitHub.
 
 ## About the Modelica Association
 
@@ -42,3 +44,8 @@ SSP Project Leader: Jochen Köhler, ZF Friedrichshafen
 SSP Deputy Project Leader: Pierre R. Mai, PMSF
 
 SSP Project Members: Altair Engineering Inc., U.S.A.; AVL List GmbH, Austria; Robert Bosch GmbH, Germany; Dassault Systèmes, France, Germany, and Sweden; dSPACE GmbH, Germany; eXXcellent solutions GmbH, Germany; PMSF, Germany; Saab AB, Sweden; ZF Friedrichshafen, Germany
+
+## Downloads
+
+- [SSP_LS_Traceability_1.0_Press_Release.docx](/publications/Press/SSP_LS_Traceability_1.0_Press_Release.docx)
+- [SSP_LS_Traceability_1.0_Press_Release.pdf](/publications/Press/SSP_LS_Traceability_1.0_Press_Release.pdf)
