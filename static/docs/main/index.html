@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 2.0.23">
+<meta name="generator" content="Asciidoctor 2.0.26">
 <title>System Structure and Parameterization</title>
 <style>
 /* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
@@ -586,8 +586,8 @@ document.addEventListener('keydown', (event) => {
 <div id="header">
 <h1>System Structure and Parameterization</h1>
 <div class="details">
-<span id="revnumber">version 2ad515a,</span>
-<span id="revdate">2024-12-20</span>
+<span id="revnumber">version 456e0e4,</span>
+<span id="revdate">2025-11-17</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Contents</div>
@@ -2418,7 +2418,7 @@ It is considered an error if both attributes are present.</p>
 </div>
 <div class="paragraph">
 <p>For signal dictionary and parameter value elements, only the size attribute can be used and therefore <strong>MUST</strong> be present on the element, indicating a fixed size.
-For those elements, it is considered an error if both attributes are present, or the size attribute is not present.</p>
+For those elements, it is considered an error if the sizeConnector attribute is present.</p>
 </div>
 <div class="paragraph">
 <p>The following XML attributes are specified for the Dimension element:</p>
@@ -4655,6 +4655,7 @@ See below for details on each type.</p></td>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Dimension</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">One or more of these optional elements specify the parameter array dimensions, making the parameter an array parameter.
+The dimensions of the parameter array must be fixed.
 See <a href="#ssc_dimensions">Section 4.5.3</a> for details.</p></td>
 </tr>
 </tbody>
@@ -5595,6 +5596,6 @@ MathJax.Hub.Register.StartupHook("AsciiMath Jax Ready", function () {
   })
 })
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 </body>
 </html>
