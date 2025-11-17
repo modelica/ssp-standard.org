@@ -586,7 +586,7 @@ document.addEventListener('keydown', (event) => {
 <div id="header">
 <h1>System Structure and Parameterization</h1>
 <div class="details">
-<span id="revnumber">version 456e0e4,</span>
+<span id="revnumber">version 23f6aea,</span>
 <span id="revdate">2025-11-17</span>
 </div>
 <div id="toc" class="toc2">
@@ -846,7 +846,7 @@ document.addEventListener('keydown', (event) => {
 <p><strong>License of this document</strong></p>
 </div>
 <div class="paragraph">
-<p>Copyright © 2016 – 2024 Modelica Association Project “SSP”</p>
+<p>Copyright © 2016 – 2025 Modelica Association Project “SSP”</p>
 </div>
 <div class="paragraph">
 <p>This document is provided “as is” without any warranty.
@@ -915,7 +915,7 @@ Modelica Association shall not be held responsible for identifying such patent r
 </div>
 <div class="paragraph">
 <p>This document defines the SSP standard as a tool-independent format for the description, packaging and exchange of system structures and their parameterization.
-The standard is comprised of a set of XML-based formats to describe a network of component models with their signal flow and parametrization, as well as a ZIP-based packaging format for efficient distribution of entire systems, including any referenced models and other resources.</p>
+The standard is comprised of a set of XML-based formats to describe a network of component models with their signal flow and parameterization, as well as a ZIP-based packaging format for efficient distribution of entire systems, including any referenced models and other resources.</p>
 </div>
 <div style="page-break-after: always;"></div>
 <div class="paragraph">
@@ -924,7 +924,7 @@ The standard is comprised of a set of XML-based formats to describe a network of
 <div class="ulist">
 <ul>
 <li>
-<p>The key words <strong>MUST</strong>, <strong>MUST NOT</strong>, <strong>REQUIRED</strong>, <strong>SHALL</strong>, <strong>SHALL NOT</strong>, <strong>SHOULD</strong>, <strong>SHOULD NOT</strong>, <strong>RECOMMENDED</strong>, <strong>MAY</strong>, and <strong>OPTIONAL</strong> in this document are to be interpreted as described in RFC 2119 [RFC2119].</p>
+<p>The key words <strong>MUST</strong>, <strong>MUST NOT</strong>, <strong>REQUIRED</strong>, <strong>SHALL</strong>, <strong>SHALL NOT</strong>, <strong>SHOULD</strong>, <strong>SHOULD NOT</strong>, <strong>RECOMMENDED</strong>, <strong>MAY</strong>, and <strong>OPTIONAL</strong> in this document are to be interpreted as described in RFC 2119 [<a href="#RFC2119">[RFC2119]</a>].</p>
 </li>
 <li>
 <p>Non-normative text is given in square brackets in italic font: [ <em>especially examples are defined in this style.</em> ].</p>
@@ -938,11 +938,11 @@ The standard is comprised of a set of XML-based formats to describe a network of
 <div class="sectionbody">
 <div class="paragraph">
 <p>SSP is a tool-independent format for the description, packaging and exchange of system structures and their parameterization.
-The standard is comprised of a set of XML-based formats to describe a network of component models with their signal flow and parametrization, as well as a ZIP-based packaging format for efficient distribution of entire systems, including any referenced models and other resources.
-This description is tool neutral and is intended to be used primarly as an exchange format of simulation system descriptions between different tools.</p>
+The standard is comprised of a set of XML-based formats to describe a network of component models with their signal flow and parameterization, as well as a ZIP-based packaging format for efficient distribution of entire systems, including any referenced models and other resources.
+This description is tool neutral and is intended to be used primarily as an exchange format of simulation system descriptions between different tools.</p>
 </div>
 <div class="paragraph">
-<p>SSP can be seen as an extension to the FMI (Functional Mockup Interface) standard [FMI30].
+<p>SSP can be seen as an extension to the FMI (Functional Mockup Interface) standard [<a href="#FMI30">[FMI30]</a>].
 FMI describes a tool independent standard to exchange single simulation models.
 Using SSP, complete systems consisting of multiple interconnected simulation models can be defined with the desired signal flow and also with the wanted parameterization of each single model as well as the parameters for the complete system.
 This system topology can include hierarchies of sub-systems for proper structuring of the overall system.
@@ -1032,7 +1032,7 @@ Even traceability information can be retained this way.</p>
 <p>A good system design can be used for various applications.
 The structure keeps the same for all these applications.
 The parameter settings are used to differentiate the applications.
-Therefore a good parametrization concept is important to facilitate this reuse.
+Therefore a good parameterization concept is important to facilitate this reuse.
 SSP supports the creation of a central parameterization structure for entire systems.
 The SSP parameter data model can be used to integrate parameters from various sources, including external parameter databases, which can export their parameter data as SSV data sets.
 Through the URI-based addressing mechanism, tools can support direct access to such databases from system structure descriptions.</p>
@@ -1109,7 +1109,7 @@ There is an increasing desire to reuse environment models to provide proven, con
 <div class="sect2">
 <h3 id="_acknowledgements">1.4. Acknowledgements</h3>
 <div class="paragraph">
-<p>This standard was developed as part of the Modelica Association Project “System Structure and Parametrization” (MAP SSP).
+<p>This standard was developed as part of the Modelica Association Project “System Structure and Parameterization” (MAP SSP).
 The following companies and persons were involved in the creation of the standard as direct contributors to the standard document:</p>
 </div>
 <div class="ulist">
@@ -1383,7 +1383,7 @@ The base standard specifies a minimum set of MIME types and related file formats
 <div class="sect2">
 <h3 id="_versioning_and_layered_standards">2.2. Versioning and Layered Standards</h3>
 <div class="paragraph">
-<p>The SSP standard uses semantic version numbers, as defined in [SV200], where the standard version consists of a triple of version numbers, consisting of major version, minor version, and patch version numbers [ <em>e.g. 1.2.3 for major version 1, minor version 2 and patch version 3</em> ].</p>
+<p>The SSP standard uses semantic version numbers, as defined in [<a href="#SV200">[SV200]</a>], where the standard version consists of a triple of version numbers, consisting of major version, minor version, and patch version numbers [ <em>e.g. 1.2.3 for major version 1, minor version 2 and patch version 3</em> ].</p>
 </div>
 <div class="ulist">
 <ul>
@@ -1448,7 +1448,7 @@ Besides basic support for file-schema URIs, the set of schemas and transport mec
 <p>System Structure Package (file extension .ssp) files are specified to allow the packaging of System Structure Description (<code>*.ssd</code>) files together with related resources, like referenced FMUs, parameter files, etc.</p>
 </div>
 <div class="paragraph">
-<p>System Structure Package files <strong>MUST</strong> be valid ZIP archives as specified in [ZIP635] with the following restrictions:</p>
+<p>System Structure Package files <strong>MUST</strong> be valid ZIP archives as specified in [<a href="#ZIP635">[ZIP635]</a>] with the following restrictions:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -1511,7 +1511,7 @@ The use of sub-directories beginning with <code>org.modelica</code> and <code>or
 <div class="paragraph">
 <p>It is explicitly allowed for tools and users other than the original creator of an SSP to modify/add/delete entries in the <code>extra/</code> prefix without affecting the validity of SSP in all other aspects.
 Specifically all validation or digital signature schemes used to protect SSP content <strong>SHOULD</strong> take the variability of extra file content into account.
-[ <em>For example by by having seperate checksums/signatures for SSP core content and extra content, or not having signatures at all for extra content.</em> ]</p>
+[ <em>For example by having separate checksums/signatures for SSP core content and extra content, or not having signatures at all for extra content.</em> ]</p>
 </div>
 <div class="paragraph">
 <p>The ZIP archive <strong>MAY</strong> contain additional entries with the prefix <code>documentation/</code> which can be used to store documentation on the package contents.
@@ -1816,7 +1816,7 @@ When processing information from multiple files, either from the same or separat
 <h5 id="_baseunit">4.4.2.1. BaseUnit</h5>
 <div class="paragraph">
 <p>This element defines the base unit of the given unit in SI units.
-This is completely aligned with the specification of base units in section 2.4.3 of the FMI 3.0 standard [FMI30] and section 2.2.2 of the FMI 2.0 standard [FMI20].</p>
+This is completely aligned with the specification of base units in section 2.4.3 of the FMI 3.0 standard [<a href="#FMI30">[FMI30]</a>] and section 2.2.2 of the FMI 2.0 standard [<a href="#FMI20">[FMI20]</a>].</p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="images/image10.png" alt="image" width="263" height="771"></span></p>
@@ -2148,7 +2148,7 @@ The name <strong>MUST</strong> match the name of an Enumeration entry in the Enu
 <p><span class="image"><img src="images/image17.png" alt="image" width="319" height="114"></span></p>
 </div>
 <div class="paragraph">
-<p>This type specifies that the connector in question represents a length-terminated binary data type, like the binary type defined for the FMI 3.0 standard, or substitute types like the binary type defined via the OSI Sensor Model Packaging specification [OSMP150].</p>
+<p>This type specifies that the connector in question represents a length-terminated binary data type, like the binary type defined for the FMI 3.0 standard, or substitute types like the binary type defined via the OSI Sensor Model Packaging specification [<a href="#OSMP150">[OSMP150]</a>].</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -2723,7 +2723,7 @@ In this case the URI is resolved against the (resolved) URI of the meta data sou
 <p>A System Structure Description describes a nested hierarchy of interconnected (sub-)systems and atomic components.</p>
 </div>
 <div class="paragraph">
-<p>A System Structure Description file (SSD, file extension .ssd) <strong>MUST</strong> be a well-formed XML 1.0 [XML10] file that conforms to the SystemStructureDescription XML Schema distributed as part of this standard.
+<p>A System Structure Description file (SSD, file extension .ssd) <strong>MUST</strong> be a well-formed XML 1.0 [<a href="#XML10">[XML10]</a>] file that conforms to the SystemStructureDescription XML Schema distributed as part of this standard.
 The file <strong>MUST</strong> use the UTF-8 encoding.
 All SSD-specific elements live in the <code><a href="http://ssp-standard.org/SSP1/SystemStructureDescription" class="bare">http://ssp-standard.org/SSP1/SystemStructureDescription</a></code> namespace, nicknamed <code>ssd</code>.</p>
 </div>
@@ -4257,7 +4257,7 @@ Different from ElementGeometry, where x1 &gt; x2 and y1 &gt; y2 indicate flippin
 <p>If undefined, the system canvas extent defaults to the bounding box of all ElementGeometry elements of the child elements of the system.</p>
 </div>
 <div class="paragraph">
-<p>When displaying the content of a sub-system together with the enclosing parent system, the transformation of co-coordinates inside the sub-system to co-ordinates in the parent system is defined by the transformation from SystemGeometry.\{x1,y1,x2,y2} to ElementGeometry.\{x1',y1',x2',y2'}, where ElementGeometry.z' is the respective coordinate of the sub-system when instantiated in the parent system after rotation.</p>
+<p>When displaying the content of a sub-system together with the enclosing parent system, the transformation of co-coordinates inside the sub-system to co-ordinates in the parent system is defined by the transformation from SystemGeometry.{x1,y1,x2,y2} to ElementGeometry.{x1',y1',x2',y2'}, where ElementGeometry.z' is the respective coordinate of the sub-system when instantiated in the parent system after rotation.</p>
 </div>
 <div class="paragraph">
 <p>When importing or exporting systems, the nominal unit of the coordinates is 1 mm for all axis.
@@ -4474,7 +4474,7 @@ It is an error if the specified type of FMU implementation is not present in the
 <p><span class="image"><img src="images/SystemStructureDescription_SignalDictionaryReference.png" alt="image" width="555" height="733"></span></p>
 </div>
 <div class="paragraph">
-<p>A signal dictionary reference is an element of a system that references a signal dictionary, i.e. it is the place-holder of the signal dictionary that allows access to the contents of the signal dictionary through its connectors, which <strong>MUST</strong> reference signal dictionary entries.</p>
+<p>A signal dictionary reference is an element of a system that references a signal dictionary, i.e. it is the placeholder of the signal dictionary that allows access to the contents of the signal dictionary through its connectors, which <strong>MUST</strong> reference signal dictionary entries.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -4515,7 +4515,7 @@ The XML element can be inlined with its parent element or referenced from the pa
 <p>For information on hierarchical naming structure and precedence rules, see <a href="#_parameterbindings">Section 5.2.3</a>.</p>
 </div>
 <div class="paragraph">
-<p>An SSV file <strong>MUST</strong> be a well-formed XML 1.0 [XML10] file that conforms to the SystemStructureParameterValues XML Schema that is distributed as part of this standard.
+<p>An SSV file <strong>MUST</strong> be a well-formed XML 1.0 [<a href="#XML10">[XML10]</a>] file that conforms to the SystemStructureParameterValues XML Schema that is distributed as part of this standard.
 The file <strong>MUST</strong> use the UTF-8 encoding.
 All SSV-specific elements live in the <code><a href="http://ssp-standard.org/SSP1/SystemStructureParameterValues" class="bare">http://ssp-standard.org/SSP1/SystemStructureParameterValues</a></code> namespace, nicknamed <code>ssv</code>.</p>
 </div>
@@ -5270,14 +5270,14 @@ It should be noted that the implementation is <strong>not required</strong> to p
 <div class="sectionbody">
 <div class="paragraph">
 <p>A parameter mapping describes a mapping between the parameters in a parameter source and the actual parameters of a system or component to which the parameters are to be applied.
-The mapping maps the names of parameters in the source to the names of the parameters in the system or component that are to be parametrized.
+The mapping maps the names of parameters in the source to the names of the parameters in the system or component that are to be parameterized.
 It can also optionally provide for transformations that are to be applied on the value of the parameters prior to them being applied.</p>
 </div>
 <div class="paragraph">
 <p>A parameter mapping can be provided either as a stand-alone XML file (an SSM file), which can be referenced from SSD files, or it can be embedded in an ssd:ParameterMapping element of the SSD directly (see <a href="#_parametermapping">Section 5.2.3.2</a>).</p>
 </div>
 <div class="paragraph">
-<p>An SSM file <strong>MUST</strong> be a well-formed XML 1.0 [XML10] file that conforms to the SystemStructureParameterMapping XML Schema that is distributed as part of this standard.
+<p>An SSM file <strong>MUST</strong> be a well-formed XML 1.0 [<a href="#XML10">[XML10]</a>] file that conforms to the SystemStructureParameterMapping XML Schema that is distributed as part of this standard.
 The file <strong>MUST</strong> use the UTF-8 encoding.
 All SSM-specific elements live in the <code><a href="http://ssp-standard.org/SSP1/SystemStructureParameterMapping" class="bare">http://ssp-standard.org/SSP1/SystemStructureParameterMapping</a></code> namespace, nicknamed <code>ssm</code>.</p>
 </div>
@@ -5328,7 +5328,7 @@ If it is 1.0 the file <strong>MUST</strong> also conform fully to the 1.0 standa
 <p><span class="image"><img src="images/image57.png" alt="image" width="577" height="556"></span></p>
 </div>
 <div class="paragraph">
-<p>This element specifies a single mapping between a parameter in the source and a parameter of the system or component being parametrized.
+<p>This element specifies a single mapping between a parameter in the source and a parameter of the system or component being parameterized.
 Through its optional GTransformationChoice element a transformation can be specified that is to be applied to the parameter value prior to its application to its target parameter.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
@@ -5349,7 +5349,7 @@ Through its optional GTransformationChoice element a transformation can be speci
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">target</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">This required attribute specifies the name of the parameter in the system or component that is to be parametrized, i.e. that is the target of this mapping entry.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This required attribute specifies the name of the parameter in the system or component that is to be parameterized, i.e. that is the target of this mapping entry.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">suppressUnitConversion</p></td>
@@ -5397,7 +5397,7 @@ See <a href="#ssc_transformations">Section 4.5.2</a> for details.</p></td>
 <p>A signal dictionary can be provided either as a stand-alone XML file (an SSB file), which can be referenced from SSD files, or it can be embedded in an ssd:SignalDictionary element of the SSD directly (see <a href="#_signaldictionaries">Section 5.3.3</a>).</p>
 </div>
 <div class="paragraph">
-<p>An SSB file <strong>MUST</strong> be a well-formed XML 1.0 [XML10] file that conforms to the SystemStructureSignalDictionary XML Schema that is distributed as part of this standard.
+<p>An SSB file <strong>MUST</strong> be a well-formed XML 1.0 [<a href="#XML10">[XML10]</a>] file that conforms to the SystemStructureSignalDictionary XML Schema that is distributed as part of this standard.
 The file <strong>MUST</strong> use the UTF-8 encoding.
 All SSB-specific elements live in the <code><a href="http://ssp-standard.org/SSP1/SystemStructureSignalDictionary" class="bare">http://ssp-standard.org/SSP1/SystemStructureSignalDictionary</a></code> namespace, nicknamed <code>ssb</code>.</p>
 </div>
@@ -5536,31 +5536,31 @@ See <a href="#ssc_dimensions">Section 4.5.3</a> for details.</p></td>
 <h2 id="_literature">9. Literature</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>[RFC2119] IETF: <strong>RFC 2119 - Key words for use in RFCs to Indicate Requirement Levels.</strong> IETF Best Current Practice BCP 14. 1997.<br>
+<p>[<a id="RFC2119"></a>] IETF: <strong>RFC 2119 - Key words for use in RFCs to Indicate Requirement Levels.</strong> IETF Best Current Practice BCP 14. 1997.<br>
 <a href="https://www.ietf.org/rfc/rfc2119.txt" class="bare">https://www.ietf.org/rfc/rfc2119.txt</a></p>
 </div>
 <div class="paragraph">
-<p>[ZIP635] PKWARE Inc.: <strong>APPNOTE.TXT - .ZIP File Format Specification, Version 6.3.5.</strong> 2018.<br>
+<p>[<a id="ZIP635"></a>] PKWARE Inc.: <strong>APPNOTE.TXT - .ZIP File Format Specification, Version 6.3.5.</strong> 2018.<br>
 <a href="https://pkware.cachefly.net/webdocs/APPNOTE/APPNOTE-6.3.5.TXT" class="bare">https://pkware.cachefly.net/webdocs/APPNOTE/APPNOTE-6.3.5.TXT</a></p>
 </div>
 <div class="paragraph">
-<p>[SV200] Preston-Werner, T.: <strong>Semantic Versioning 2.0.0.</strong> 2013.<br>
+<p>[<a id="SV200"></a>] Preston-Werner, T.: <strong>Semantic Versioning 2.0.0.</strong> 2013.<br>
 <a href="https://semver.org/spec/v2.0.0.html" class="bare">https://semver.org/spec/v2.0.0.html</a></p>
 </div>
 <div class="paragraph">
-<p>[XML10] World Wide Web Consortium: <strong>Extensible Markup Language (XML) 1.0 (Fifth Edition).</strong> W3C Recommendation. 2008.<br>
+<p>[<a id="XML10"></a>] World Wide Web Consortium: <strong>Extensible Markup Language (XML) 1.0 (Fifth Edition).</strong> W3C Recommendation. 2008.<br>
 <a href="http://www.w3.org/TR/2008/REC-xml-20081126/" class="bare">http://www.w3.org/TR/2008/REC-xml-20081126/</a></p>
 </div>
 <div class="paragraph">
-<p>[FMI20] Modelica Association: <strong>Functional Mock-up Interface for Model Exchange and Co-Simulation, Version 2.0.4.</strong> 2022.<br>
-<a href="https://github.com/modelica/fmi-standard/releases/download/v2.0.4/FMI-Specification-2.0.4.pdf" class="bare">https://github.com/modelica/fmi-standard/releases/download/v2.0.4/FMI-Specification-2.0.4.pdf</a></p>
+<p>[<a id="FMI20"></a>] Modelica Association: <strong>Functional Mock-up Interface for Model Exchange and Co-Simulation, Version 2.0.5.</strong> 2024.<br>
+<a href="https://github.com/modelica/fmi-standard/releases/download/v2.0.5/FMI-Specification-2.0.5.pdf" class="bare">https://github.com/modelica/fmi-standard/releases/download/v2.0.5/FMI-Specification-2.0.5.pdf</a></p>
 </div>
 <div class="paragraph">
-<p>[FMI30] Modelica Association: <strong>Functional Mock-up Interface Specification, Version 3.0.1.</strong> 2023.<br>
-<a href="https://fmi-standard.org/docs/3.0.1/" class="bare">https://fmi-standard.org/docs/3.0.1/</a></p>
+<p>[<a id="FMI30"></a>] Modelica Association: <strong>Functional Mock-up Interface Specification, Version 3.0.2.</strong> 2024.<br>
+<a href="https://fmi-standard.org/docs/3.0.2/" class="bare">https://fmi-standard.org/docs/3.0.2/</a></p>
 </div>
 <div class="paragraph">
-<p>[OSMP150] ASAM e.V.: <strong>OSI Sensor Model Packaging Version 1.5.0.</strong> 2024.<br>
+<p>[<a id="OSMP150"></a>] ASAM e.V.: <strong>OSI Sensor Model Packaging Version 1.5.0.</strong> 2024.<br>
 <a href="https://github.com/OpenSimulationInterface/osi-sensor-model-packaging/releases/tag/v1.5.0" class="bare">https://github.com/OpenSimulationInterface/osi-sensor-model-packaging/releases/tag/v1.5.0</a></p>
 </div>
 </div>
