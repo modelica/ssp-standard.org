@@ -587,7 +587,7 @@ document.addEventListener('keydown', (event) => {
 <div id="header">
 <h1>System Structure and Parameterization</h1>
 <div class="details">
-<span id="revnumber">version f4c3948,</span>
+<span id="revnumber">version c3b517a,</span>
 <span id="revdate">2026-02-09</span>
 </div>
 <div id="toc" class="toc2">
@@ -1353,7 +1353,7 @@ The content of the ssc:Annotation element <strong>CAN</strong> be arbitrary XML 
 <div class="sect3">
 <h4 id="_extra_files_mechanism">2.1.2. Extra Files Mechanism</h4>
 <div class="paragraph">
-<p>The System Structure Package (SSP) file format is a ZIP-based packaging format, and thus not XML-based.
+<p>The system structure package (SSP) file format is a ZIP-based packaging format, and thus not XML-based.
 It offers a separate mechanism to include additional data and meta-data into the package format through the reserved extra/ ZIP entry prefix (i.e. top-level directory), as defined in <a href="#Packaging">Chapter 3</a>.
 Files are placed inside sub-directories under that top-level directory using the namespace as defined in <a href="#_extension_namespaces">Section 2.1.3</a> as part of the sub-directory name.
 The content of files and further sub-directories placed in those sub-directories are unrestricted.</p>
@@ -1459,10 +1459,10 @@ Besides basic support for file-schema URIs, the set of schemas and transport mec
 <h2 id="Packaging">3. System Structure Package (SSP)</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>System Structure Package (file extension .ssp) files are specified to allow the packaging of System Structure Description (<code>*.ssd</code>) files together with related resources, like referenced FMUs, parameter files, etc.</p>
+<p>System structure package (file extension .ssp) files are specified to allow the packaging of system structure description (<code>*.ssd</code>) files together with related resources, like referenced FMUs, parameter files, etc.</p>
 </div>
 <div class="paragraph">
-<p>System Structure Package files <strong>MUST</strong> be valid ZIP archives as specified in [<a href="#ZIP635">[ZIP635]</a>] with the following restrictions:</p>
+<p>System structure package files <strong>MUST</strong> be valid ZIP archives as specified in [<a href="#ZIP635">[ZIP635]</a>] with the following restrictions:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -1492,16 +1492,16 @@ If use of a larger character set is needed, it is <strong>RECOMMENDED</strong> t
 <em>It should also be noted that Unicode normalization issues that affect cross filesystem/OS compatibility might need to be addressed, since those issues are not addressed in the ZIP specification.</em> ]</p>
 </div>
 <div class="paragraph">
-<p>The ZIP archive <strong>MUST</strong> contain an entry named SystemStructure.ssd at root level, containing a valid System Structure Description, as specified in <a href="#SSD">Chapter 5</a>.</p>
+<p>The ZIP archive <strong>MUST</strong> contain an entry named SystemStructure.ssd at root level, containing a valid system structure description, as specified in <a href="#SSD">Chapter 5</a>.</p>
 </div>
 <div class="paragraph">
 <p>Optionally the ZIP archive <strong>MAY</strong> contain multiple SSD file entries at root level, each with a different file name [ <em>e.g. SystemStructure.ssd, VarA.ssd, VarB.ssd</em> ].
-This allows the bundling of multiple variants of a system structure definition referencing a similar set of packaged resources as one SSP.
+This allows the bundling of multiple variants of a system structure description referencing a similar set of packaged resources as one SSP.
 There <strong>MUST</strong> still be one SSD file named SystemStructure.ssd at the root of the ZIP archive which is deemed to be the default variant.
 Tools not supporting variant-containing SSPs <strong>MUST</strong> deal with the given SSP by ignoring all contained SSD files except for the SystemStructure.ssd default file.</p>
 </div>
 <div class="paragraph">
-<p>If the ZIP archive contains multiple SSD file entries at the root level, the <code>name</code> attribute of each such system structure definition <strong>MUST</strong> be different from any of the other root level system structure definitions.</p>
+<p>If the ZIP archive contains multiple SSD file entries at the root level, the <code>name</code> attribute of each such system structure description <strong>MUST</strong> be different from any of the other root level system structure descriptions.</p>
 </div>
 <div class="paragraph">
 <p>[ <em>Tools <strong>MAY</strong> want to be prepared to handle SSP archives that violate the unique name requirement, as this was not present in earlier releases of SSP, and manually generated SSP archives may inadvertantly violate this requirement.</em> ]</p>
@@ -1510,7 +1510,7 @@ Tools not supporting variant-containing SSPs <strong>MUST</strong> deal with the
 <p>Tools <strong>SHOULD</strong> use the name attribute of the root SystemStructureDescription element of the SSD files when presenting the system structure to the user, for example when selecting individual variant SSDs from an SSP.</p>
 </div>
 <div class="paragraph">
-<p>The ZIP archive <strong>MAY</strong> contain additional entries with the prefix <code>resources/</code> which can be used to bundle resources referenced from the System Structure Description file(s) through relative URIs as specified in the sections below.</p>
+<p>The ZIP archive <strong>MAY</strong> contain additional entries with the prefix <code>resources/</code> which can be used to bundle resources referenced from the system structure description file(s) through relative URIs as specified in the sections below.</p>
 </div>
 <div class="paragraph">
 <p>[ <em>Note: These additional entries may include additional files describing Parameter Values (<code><strong>.ssv</code>), Parameter Mappings (<code></strong>.ssm</code>) or Signal Dictionaries (<code>*.ssb</code>).</em>
@@ -2814,10 +2814,10 @@ In this case the URI is resolved against the (resolved) URI of the meta data sou
 <h2 id="SSD">5. System Structure Description (SSD)</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>A System Structure Description describes a nested hierarchy of interconnected (sub-)systems and atomic components.</p>
+<p>A system structure description describes a nested hierarchy of interconnected (sub-)systems and atomic components.</p>
 </div>
 <div class="paragraph">
-<p>A System Structure Description file (SSD, file extension .ssd) <strong>MUST</strong> be a well-formed XML 1.0 [<a href="#XML10">[XML10]</a>] file that conforms to the SystemStructureDescription XML Schema distributed as part of this standard.
+<p>A system structure description file (SSD, file extension .ssd) <strong>MUST</strong> be a well-formed XML 1.0 [<a href="#XML10">[XML10]</a>] file that conforms to the SystemStructureDescription XML Schema distributed as part of this standard.
 The file <strong>MUST</strong> use the UTF-8 encoding.
 All SSD-specific elements live in the <code><a href="http://ssp-standard.org/SSP1/SystemStructureDescription" class="bare">http://ssp-standard.org/SSP1/SystemStructureDescription</a></code> namespace, nicknamed <code>ssd</code>.</p>
 </div>
@@ -4600,7 +4600,7 @@ If that lookup yields no match, the lookup is performed on the enclosing system,
 <h2 id="SSV">6. System Structure Parameter Values (SSV)</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>A System Structure Parameter Values (abbreviated SSV) element provides parameter sets for a component or system.
+<p>A system structure parameter values (abbreviated SSV) element provides parameter sets for a component or system.
 The XML element can be inlined with its parent element or referenced from the parent element and supplied as a separate file that is either included within an SSP package or specified as an external URL.</p>
 </div>
 <div class="paragraph">
