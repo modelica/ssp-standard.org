@@ -587,7 +587,7 @@ document.addEventListener('keydown', (event) => {
 <div id="header">
 <h1>System Structure and Parameterization</h1>
 <div class="details">
-<span id="revnumber">version fe2cf74,</span>
+<span id="revnumber">version ab56287,</span>
 <span id="revdate">2026-02-23</span>
 </div>
 <div id="toc" class="toc2">
@@ -1767,6 +1767,10 @@ When processing information from multiple files, either from the same or separat
 </tr>
 </tbody>
 </table>
+<div class="paragraph">
+<p>[ <em>Note that the value attribute is a signed integer value with 64-bit precision in SSP 2.0, to support the enhanced value space of enumerations in FMI 3.0, but it is a 32-bit signed integer value in SSP 1.0, to be compatible with the enumeration value space of FMI 2.0.</em>
+<em>The initial release of SSP 2.0 had erroneously retained the 32-bit signed integer value space for enumeration items, which is now corrected.</em> ]</p>
+</div>
 </div>
 </div>
 <div class="sect3">
