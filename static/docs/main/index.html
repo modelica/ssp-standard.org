@@ -587,7 +587,7 @@ document.addEventListener('keydown', (event) => {
 <div id="header">
 <h1>System Structure and Parameterization</h1>
 <div class="details">
-<span id="revnumber">version b705156,</span>
+<span id="revnumber">version 101c056,</span>
 <span id="revdate">2026-02-23</span>
 </div>
 <div id="toc" class="toc2">
@@ -1508,7 +1508,7 @@ Tools not supporting variant-containing SSPs <strong>MUST</strong> deal with the
 <p>The ZIP archive <strong>MAY</strong> contain additional entries with the prefix <code>resources/</code> which can be used to bundle resources referenced from the system structure description file(s) through relative URIs as specified in the sections below.</p>
 </div>
 <div class="paragraph">
-<p>[ <em>Note: These additional entries may include additional files describing Parameter Values (<code><strong>.ssv</code>), Parameter Mappings (<code></strong>.ssm</code>) or Signal Dictionaries (<code>*.ssb</code>).</em>
+<p>[ <em>Note: These additional entries may include additional files describing Parameter Values (*.ssv), Parameter Mappings (*.ssm) or Signal Dictionaries (*.ssb).</em>
 <em>The names of these files, like all other additional files, are arbitrary and are independent of variant handling or the names of the referencing SSD files themselves.</em>
 <em>All stand-alone files are referenced by SSD files via (relative) URIs.</em> ]</p>
 </div>
@@ -1611,7 +1611,7 @@ When it is present, it <strong>MUST</strong> contain 1 or more Annotation elemen
 <p>In order to ensure uniqueness the annotation type <strong>SHOULD</strong> be provided in reverse domain name notation [ <em>cf.
 Java package names or Apple UTIs</em> ] of a domain that is controlled by the entity defining the semantics and content of the annotation.
 For vendor-specific annotations this <strong>SHOULD</strong> be a domain controlled by the tool vendor.
-For MAP-SSP-defined annotations, this <strong>MUST</strong> be a domain under the org.modelica or org.ssp-standard prefixes.
+For MAP-SSP-defined annotations, this <strong>MUST</strong> be a domain under the <code>org.modelica</code> or <code>org.ssp-standard</code> prefixes.
 Annotations that are not defined by MAP SSP <strong>MUST NOT</strong> use these two prefixes,</p>
 </div>
 <div class="paragraph">
@@ -3281,7 +3281,7 @@ If x1&gt;x2 this indicates horizontal flipping, y1&gt;y2 indicates vertical flip
 <p>The optional attribute rotation (in degrees) defines an additional rotation (applied after flipping), where positive numbers indicate a counter clockwise rotation.</p>
 </div>
 <div class="paragraph">
-<p>[<em>Sometimes such a counter clockwise orientation is also called a left rotation (x→y), with the coordinate system orientation: x → right, y → up)</em>]</p>
+<p>[ <em>Sometimes such a counter clockwise orientation is also called a left rotation (x→y), with the coordinate system orientation: x → right, y → up)</em> ]</p>
 </div>
 <div class="paragraph">
 <p>The optional attribute iconSource defines an icon URI with the same semantics as for the source attribute of the Component element.
@@ -3294,7 +3294,7 @@ The optional attribute iconFixedAspectRatio defines whether the icon shall be fi
 The optional attribute iconFlip defines whether any flipping indicated by (x1,y1), (x2,y2) shall be applied to the icon graphics, too.</p>
 </div>
 <div class="paragraph">
-<p>[<em>If no explicit icon is given, the icon used by the tool to represent the system should be rotated accordingly.</em>]</p>
+<p>[ <em>If no explicit icon is given, the icon used by the tool to represent the system should be rotated accordingly.</em> ]</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -3354,7 +3354,7 @@ It is <strong>RECOMMENDED</strong> that implementations that support graphical p
 ]</p>
 </div>
 <div class="paragraph">
-<p>[<em>The next examples show the effects of attributes of the ElementGeometry on the visual representation of a reference element:</em></p>
+<p>[ <em>The next examples show the effects of attributes of the ElementGeometry on the visual representation of a reference element:</em></p>
 </div>
 <div class="paragraph">
 <p><em><strong>Non-transformed reference</strong> (icon fills rectangle, left 2 inputs, right 1 output)</em></p>
@@ -4524,7 +4524,7 @@ Implementations <strong>MUST NOT</strong> specify an empty relative URI to indic
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">implementation</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">When the referenced component is an FMU that contains multiple implementations [ <em>for example Co-Simulation and Model Exchange</em>], this optional attribute can be used to determine which FMU implementation should be employed.
+<td class="tableblock halign-left valign-top"><p class="tableblock">When the referenced component is an FMU that contains multiple implementations [ <em>for example Co-Simulation and Model Exchange</em> ], this optional attribute can be used to determine which FMU implementation should be employed.
 If the attribute is missing or uses the default value any, the importing tool is free to choose what kind of FMU implementation to use.
 If the value is CoSimulation, ModelExchange, or ScheduledExecution the corresponding FMU implementation <strong>MUST</strong> be used.
 It is an error if the specified type of FMU implementation is not present in the FMU.</p></td>
