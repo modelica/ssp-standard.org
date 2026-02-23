@@ -587,8 +587,8 @@ document.addEventListener('keydown', (event) => {
 <div id="header">
 <h1>System Structure and Parameterization</h1>
 <div class="details">
-<span id="revnumber">version c3b517a,</span>
-<span id="revdate">2026-02-09</span>
+<span id="revnumber">version fe2cf74,</span>
+<span id="revdate">2026-02-23</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Contents</div>
@@ -3263,8 +3263,8 @@ Any inside view is not overridden.</p>
 </tbody>
 </table>
 <div class="paragraph">
-<p>[ <em>Graphical example for a ConnectorGeometry:</em>
-<span class="image"><img src="images/ConnectorGeometryExample.png" alt="image"></span>
+<p>[ <em>Graphical example for a ConnectorGeometry:</em><br>
+<span class="image"><img src="images/Example_ConnectorGeometry.svg" alt="image"></span><br>
 ]</p>
 </div>
 </div>
@@ -3350,150 +3350,123 @@ It is <strong>RECOMMENDED</strong> that implementations that support graphical p
 </tbody>
 </table>
 <div class="paragraph">
-<p>[ <em>Graphical example for an ElementGeometry:</em>
-<span class="image"><img src="images/ElementGeometryExample.png" alt="image"></span>
+<p>[ <em>Graphical example for an ElementGeometry:</em><br>
+<span class="image"><img src="images/Example_ElementGeometry.svg" alt="image"></span><br>
 ]</p>
 </div>
 <div class="paragraph">
 <p>[<em>The next examples show the effects of attributes of the ElementGeometry on the visual representation of a reference element:</em></p>
 </div>
 <div class="paragraph">
-<p><em>*Non-transformed reference* (icon fills rectangle, left 2 inputs, right 1 output)</em></p>
+<p><em><strong>Non-transformed reference</strong> (icon fills rectangle, left 2 inputs, right 1 output)</em></p>
 </div>
 <div class="paragraph">
-<p><span class="image"><img src="images/IconExampleBase.png" alt="image" width="245" height="86"></span></p>
+<p><span class="image"><img src="images/Example_Icon0.svg" alt="image"></span></p>
 </div>
 <div class="paragraph">
-<p><strong><em>Coordinate systems:</em></strong></p>
+<p><em><strong>Example 1: No flip</strong> (</em>x1<em>&lt;</em>x2<em>, </em>y1<em>&lt;</em>y2<em>), </em>rotation<em>=<strong>0</strong><br>
+</em>iconRotation<em>=<strong>0</strong>, </em>iconFixedAspectRatio<em>=<strong>true</strong>, </em>iconFlip<em>=<strong>IGNORED</strong> (relevant only if element is flipped)</em></p>
 </div>
 <div class="paragraph">
-<p><em>Red: ConnectorGeometry<br>
-Blue: ElementGeometry</em></p>
+<p><span class="image"><img src="images/Example_Icon1.svg" alt="image"></span></p>
 </div>
 <div class="paragraph">
-<p><em>*Example 1: No flip* (</em>x1<em>&lt;</em>x2<em>,</em> y1<em>&lt;</em>y2<em>),</em> rotation<em>=<strong>0</strong><br>
-</em>iconRotation<em>=<strong>0</strong>,</em> iconFixedAspectRatio<em>=<strong>true</strong>,</em> iconFlip<em>=<strong>IGNORED</strong> (relevant only if element is flipped)</em></p>
+<p><em><strong>Example 2: No flip</strong> (</em>x1<em>&lt;</em>x2<em>, </em>y1<em>&lt;</em>y2<em>), </em>rotation<em>=<strong>0</strong><br>
+</em>iconRotation<em>=<strong>0</strong>, </em>iconFixedAspectRatio<em>=<strong>false</strong>, </em>iconFlip<em>=<strong>IGNORED</strong></em></p>
 </div>
 <div class="paragraph">
-<p><span class="image"><img src="images/IconExample1.png" alt="image" width="367" height="215"></span></p>
+<p><span class="image"><img src="images/Example_Icon2.svg" alt="image"></span></p>
 </div>
 <div class="paragraph">
-<p><em>*Example 2: No flip* (</em>x1<em>&lt;</em>x2<em>,</em> y1<em>&lt;</em>y2<em>),</em> rotation<em>=<strong>0</strong><br>
-</em>iconRotation<em>=<strong>0</strong>,</em> iconFixedAspectRatio<em>=<strong>false, </strong></em>iconFlip<em>=<strong>IGNORED</strong></em></p>
+<p><em><strong>Example 3: No flip</strong> (</em>x1<em>&lt;</em>x2<em>, </em>y1<em>&lt;</em>y2<em>), </em>rotation<em>=<strong>&#x03C6;</strong><br>
+</em>iconRotation<em>=<strong>&#x03C6;</strong>, </em>iconFixedAspectRatio<em>=<strong>true</strong>, </em>iconFlip<em>=<strong>IGNORED</strong></em></p>
 </div>
 <div class="paragraph">
-<p><span class="image"><img src="images/IconExample2.png" alt="image" width="245" height="143"></span></p>
+<p><span class="image"><img src="images/Example_Icon3.svg" alt="image"></span></p>
 </div>
 <div class="paragraph">
-<p><strong>_<br>
-_</strong></p>
+<p><em><strong>Example 4: No flip</strong> (</em>x1<em>&lt;</em>x2<em>, </em>y1<em>&lt;</em>y2<em>), </em>rotation<em>=<strong>&#x03C6;</strong><br>
+</em>iconRotation<em>=<strong>&#x03C6;</strong>, </em>iconFixedAspectRatio<em>=<strong>false</strong>, </em>iconFlip<em>=<strong>IGNORED</strong></em></p>
 </div>
 <div class="paragraph">
-<p><em>*Example 3: No flip* (</em>x1<em>&lt;</em>x2<em>,</em> y1<em>&lt;</em>y2<em>),</em> rotation<em>=<strong>ϕ</strong><br>
-</em>iconRotation<em>=<strong>ϕ</strong>,</em> iconFixedAspectRatio<em>=<strong>true</strong>,</em> iconFlip<em>=<strong>IGNORED</strong></em></p>
+<p><span class="image"><img src="images/Example_Icon4.svg" alt="image"></span></p>
 </div>
 <div class="paragraph">
-<p><span class="image"><img src="images/IconExample3.png" alt="image" width="367" height="215"></span></p>
+<p><em><strong>Example 5: No flip</strong> (</em>x1<em>&lt;</em>x2<em>, </em>y1<em>&lt;</em>y2<em>), </em>rotation<em>=<strong>&#x03C6;</strong><br>
+</em>iconRotation<em>=<strong>0</strong>, </em>iconFixedAspectRatio<em>=<strong>true</strong>, </em>iconFlip<em>=<strong>IGNORED</strong></em></p>
 </div>
 <div class="paragraph">
-<p><em>*Example 4: No flip* (</em>x1<em>&lt;</em>x2<em>,</em> y1<em>&lt;</em>y2<em>),</em> rotation<em>=<strong>ϕ<br>
-</strong></em>iconRotation<em>=<strong>ϕ</strong>,</em> iconFixedAspectRatio<em>=<strong>false</strong>,</em> iconFlip<em>=<strong>IGNORED</strong></em></p>
+<p><span class="image"><img src="images/Example_Icon5.svg" alt="image"></span></p>
 </div>
 <div class="paragraph">
-<p><span class="image"><img src="images/IconExample4.png" alt="image" width="249" height="147"></span></p>
+<p><em><strong>Example 6: No flip</strong> (</em>x1<em>&lt;</em>x2<em>, </em>y1<em>&lt;</em>y2<em>), </em>rotation<em>=<strong>&#x03C6;</strong><br>
+</em>iconRotation<em>=<strong>0</strong>, </em>iconFixedAspectRatio<em>=<strong>false</strong>, </em>iconFlip<em>=<strong>IGNORED</strong></em></p>
 </div>
 <div class="paragraph">
-<p><strong>_<br>
-_</strong></p>
+<p><span class="image"><img src="images/Example_Icon6.svg" alt="image"></span></p>
 </div>
 <div class="paragraph">
-<p><em>*Example 5: No flip* (</em>x1<em>&lt;</em>x2<em>,</em> y1<em>&lt;</em>y2<em>),</em> rotation<em>=<strong>ϕ</strong><br>
-</em>iconRotation<em>=<strong>0</strong>,</em> iconFixedAspectRatio<em>=<strong>true</strong>,</em> iconFlip<em>=<strong>IGNORED</strong></em></p>
+<p><em><strong>Example 7: Horizontal flip</strong> (</em>x1<em>&gt;</em>x2<em>), </em>rotation<em>=<strong>&#x03C6;</strong><br>
+</em>iconRotation<em>=<strong>&#x03C6;</strong>, </em>iconFixedAspectRatio<em>=<strong>true</strong>, </em>iconFlip<em>=<strong>true</strong></em></p>
 </div>
 <div class="paragraph">
-<p><span class="image"><img src="images/IconExample5.png" alt="image" width="367" height="215"></span></p>
+<p><span class="image"><img src="images/Example_Icon7.svg" alt="image"></span></p>
 </div>
 <div class="paragraph">
-<p><em>*Example 6: No flip* (</em>x1<em>&lt;</em>x2<em>,</em> y1<em>&lt;</em>y2<em>),</em> rotation<em>=<strong>ϕ</strong><br>
-</em>iconRotation<em>=<strong>0</strong>,</em> iconFixedAspectRatio<em>=<strong>false</strong>,</em> iconFlip<em>=<strong>IGNORED</strong></em></p>
+<p><em><strong>Example 8: Horizontal flip</strong> (</em>x1<em>&gt;</em>x2<em>), </em>rotation<em>=<strong>&#x03C6;</strong><br>
+</em>iconRotation<em>=<strong>&#x03C6;</strong>, </em>iconFixedAspectRatio<em>=<strong>false</strong>, </em>iconFlip<em>=<strong>false</strong></em></p>
 </div>
 <div class="paragraph">
-<p><span class="image"><img src="images/IconExample6.png" alt="image" width="249" height="147"></span></p>
+<p><span class="image"><img src="images/Example_Icon8.svg" alt="image"></span></p>
 </div>
 <div class="paragraph">
-<p>_<br>
-_</p>
+<p><em><strong>Example 9: Horizontal flip</strong> (</em>x1<em>&gt;</em>x2<em>), </em>rotation<em>=<strong>&#x03C6;</strong><br>
+</em>iconRotation<em>=<strong>&#x03C6;</strong>, </em>iconFixedAspectRatio<em>=<strong>true</strong>, </em>iconFlip<em>=<strong>false</strong></em></p>
 </div>
 <div class="paragraph">
-<p><em>*Example 7: Horizontal flip* (</em>x1<em>&gt;</em>x2<em>),</em> rotation<em>=<strong>ϕ</strong><br>
-</em>iconRotation<em>=<strong>ϕ</strong>,</em> iconFixedAspectRatio<em>=<strong>true</strong>,</em> iconFlip<em>=<strong>true</strong></em></p>
+<p><span class="image"><img src="images/Example_Icon9.svg" alt="image"></span></p>
 </div>
 <div class="paragraph">
-<p><span class="image"><img src="images/IconExample7.png" alt="image" width="367" height="215"></span></p>
+<p><em><strong>Example 10: Vertical flip</strong> (</em>y1<em>&gt;</em>y2<em>), </em>rotation<em>=<strong>0</strong><br>
+</em>iconRotation<em>=<strong>0</strong>, </em>iconFixedAspectRatio<em>=<strong>true</strong>, </em>iconFlip<em>=<strong>false</strong></em></p>
 </div>
 <div class="paragraph">
-<p><em>*Example 8: Horizontal flip* (</em>x1<em>&gt;</em>x2<em>),</em> rotation<em>=<strong>ϕ</strong><br>
-</em>iconRotation<em>=<strong>ϕ</strong>,</em> iconFixedAspectRatio<em>=<strong>false</strong>,</em> iconFlip<em>=<strong>false</strong></em></p>
+<p><span class="image"><img src="images/Example_Icon10.svg" alt="image"></span></p>
 </div>
 <div class="paragraph">
-<p><span class="image"><img src="images/IconExample8.png" alt="image" width="241" height="143"></span></p>
+<p><em><strong>Example 11: Horizontal and vertical flip</strong> (</em>x1<em>&gt;</em>x2<em>, </em>y1<em>&gt;</em>y2<em>), </em>rotation<em>=<strong>0</strong><br>
+</em>iconRotation<em>=<strong>0</strong>, </em>iconFixedAspectRatio<em>=<strong>true</strong>, </em>iconFlip<em>=<strong>false</strong></em></p>
 </div>
 <div class="paragraph">
-<p><em>*Example 9: Horizontal flip* (</em>x1<em>&gt;</em>x2<em>),</em> rotation<em>=<strong>ϕ</strong><br>
-</em>iconRotation<em>=<strong>ϕ</strong>,</em> iconFixedAspectRatio<em>=<strong>true</strong>,</em> iconFlip<em>=<strong>false</strong></em></p>
+<p><span class="image"><img src="images/Example_Icon11.svg" alt="image"></span></p>
 </div>
 <div class="paragraph">
-<p><span class="image"><img src="images/IconExample9.png" alt="image" width="245" height="147"></span></p>
+<p><em><strong>Example 12: Horizontal and vertical flip</strong> (</em>x1<em>&gt;</em>x2<em>, </em>y1<em>&gt;</em>y2<em>), </em>rotation<em>=<strong>0</strong><br>
+</em>iconRotation<em>=<strong>0</strong>, </em>iconFixedAspectRatio<em>=<strong>true</strong>, </em>iconFlip<em>=<strong>true</strong></em></p>
 </div>
 <div class="paragraph">
-<p>_<br>
-_</p>
+<p><span class="image"><img src="images/Example_Icon12.svg" alt="image"></span></p>
 </div>
 <div class="paragraph">
-<p><em>*Example 10: Vertical flip* (</em>y1<em>&gt;</em>y2<em>),</em> rotation<em>=<strong>0<br>
-</strong></em>iconRotation<em>=<strong>0</strong>,</em> iconFixedAspectRatio<em>=<strong>true</strong>,</em> iconFlip<em>=<strong>false</strong></em></p>
+<p><em><strong>Example 13: Horizontal and vertical flip</strong> (</em>x1<em>&gt;</em>x2<em>, </em>y1<em>&gt;</em>y2<em>), </em>rotation<em>=<strong>&#x03C6;</strong><br>
+</em>iconRotation<em>=<strong>&#x03C6;</strong>, </em>iconFixedAspectRatio<em>=<strong>true</strong>, </em>iconFlip<em>=<strong>true</strong></em></p>
 </div>
 <div class="paragraph">
-<p><span class="image"><img src="images/IconExample10.png" alt="image" width="367" height="215"></span></p>
+<p><span class="image"><img src="images/Example_Icon13.svg" alt="image"></span></p>
 </div>
 <div class="paragraph">
-<p><em>*Example 11: Horizontal and vertical flip* (</em>x1<em>&gt;</em>x2<em>,</em> y1<em>&gt;</em>y2<em>),</em> rotation<em>=<strong>0<br>
-</strong></em>iconRotation<em>=<strong>0</strong>,</em> iconFixedAspectRatio<em>=<strong>true</strong>,</em> iconFlip<em>=<strong>false</strong></em></p>
+<p><em><strong>Example 14: Horizontal and vertical flip</strong> (</em>x1<em>&gt;</em>x2<em>, </em>y1<em>&gt;</em>y2<em>), </em>rotation<em>=<strong>&#x03C6;</strong><br>
+</em>iconRotation<em>=<strong>&#x03C6;</strong>, </em>iconFixedAspectRatio<em>=<strong>false</strong>, </em>iconFlip<em>=<strong>true</strong></em></p>
 </div>
 <div class="paragraph">
-<p><span class="image"><img src="images/IconExample11.png" alt="image" width="367" height="215"></span></p>
+<p><span class="image"><img src="images/Example_Icon14.svg" alt="image"></span></p>
 </div>
 <div class="paragraph">
-<p><em>*Example 12: Horizontal and vertical flip* (</em>x1<em>&gt;</em>x2<em>,</em> y1<em>&gt;</em>y2<em>)*, *</em>rotation<em>=<strong>0<br>
-</strong></em>iconRotation<em>=<strong>0</strong>,</em> iconFixedAspectRatio<em>=<strong>true,</strong></em> iconFlip<em>=<strong>true</strong></em></p>
+<p><em><strong>Example 15: Horizontal and vertical flip</strong> (</em>x1<em>&gt;</em>x2<em>, </em>y1<em>&gt;</em>y2<em>), </em>rotation<em>=<strong>&#x03C6;</strong><br>
+</em>iconRotation<em>=<strong>&#x03C6;</strong>, </em>iconFixedAspectRatio<em>=<strong>true</strong>, </em>iconFlip<em>=<strong>false</strong></em></p>
 </div>
 <div class="paragraph">
-<p><span class="image"><img src="images/IconExample12.png" alt="image" width="249" height="147"></span></p>
-</div>
-<div class="paragraph">
-<p><strong>_<br>
-_</strong></p>
-</div>
-<div class="paragraph">
-<p><em>*Example 13: Horizontal and vertical flip* (</em>x1<em>&gt;</em>x2<em>,</em> y1<em>&gt;</em>y2<em>),</em> rotation<em>=<strong>ϕ<br>
-</strong></em>iconRotation<em>=<strong>ϕ</strong>,</em> iconFixedAspectRatio<em>=<strong>true</strong>,</em> iconFlip<em>=<strong>true</strong></em></p>
-</div>
-<div class="paragraph">
-<p><span class="image"><img src="images/IconExample13.png" alt="image" width="367" height="215"></span></p>
-</div>
-<div class="paragraph">
-<p><em>*Example 14: Horizontal and vertical flip* (</em>x1<em>&gt;</em>x2<em>,</em> y1<em>&gt;</em>y2<em>),</em> rotation<em>=<strong>ϕ<br>
-</strong></em>iconRotation<em>=<strong>ϕ</strong>,</em> iconFixedAspectRatio<em>=<strong>false, </strong></em>iconFlip<em>=<strong>true</strong></em></p>
-</div>
-<div class="paragraph">
-<p><span class="image"><img src="images/IconExample14.png" alt="image" width="249" height="147"></span></p>
-</div>
-<div class="paragraph">
-<p><em>*Example 15: Horizontal and vertical flip* (</em>x1<em>&gt;</em>x2<em>,</em> y1<em>&gt;</em>y2<em>),</em> rotation<em>=<strong>ϕ<br>
-</strong></em>iconRotation<em>=<strong>ϕ</strong>,</em> iconFixedAspectRatio<em>=<strong>true, </strong></em>iconFlip<em>=<strong>false</strong></em></p>
-</div>
-<div class="paragraph">
-<p><span class="image"><img src="images/IconExample15.png" alt="image" width="245" height="147"></span></p>
+<p><span class="image"><img src="images/Example_Icon15.svg" alt="image"></span></p>
 </div>
 <div class="paragraph">
 <p>]</p>
@@ -4269,8 +4242,8 @@ Note that x and y coordinates are in the coordinate system of the enclosing syst
 </tbody>
 </table>
 <div class="paragraph">
-<p>[ <em>Graphical example for a ConnectionGeometry:</em>
-<span class="image"><img src="images/ConnectionGeometryExample.png" alt="image"></span>
+<p>[ <em>Graphical example for a ConnectionGeometry:</em><br>
+<span class="image"><img src="images/Example_ConnectionGeometry.svg" alt="image"></span><br>
 ]</p>
 </div>
 </div>
@@ -4393,41 +4366,41 @@ This common unit for coordinates is defined to allow a seamless integration of S
 </tbody>
 </table>
 <div class="paragraph">
-<p>[ <em>Graphical example for a SystemGeometry:</em>
-<span class="image"><img src="images/SystemGeometryExample.png" alt="image"></span>
+<p>[ <em>Graphical example for a SystemGeometry:</em><br>
+<span class="image"><img src="images/Example_SystemGeometry.svg" alt="image"></span><br>
 ]</p>
 </div>
 <div class="paragraph">
-<p>[ <em>Graphical example showing the interplay of SystemGeometry, ElementGeometry, ConnectorGeometry, and ConnectionGeometry:</em>
-<span class="image"><img src="images/GeometryInterplayExample.png" alt="image"></span>
+<p>[ <em>Graphical example showing the interplay of SystemGeometry, ElementGeometry, ConnectorGeometry, and ConnectionGeometry:</em><br>
+<span class="image"><img src="images/Example_GeometryInterplay.svg" alt="image"></span><br>
 ]</p>
 </div>
 <div class="paragraph">
 <p>[ <em>Example how the given Geometries can be used to transform coordinates to show elements on different hierarchy levels in a single graphic:</em></p>
 </div>
 <div class="paragraph">
-<p><em>Subsystem A is an element with an ElementGeometry (x1_Ae, y1_Ae, x2_Ae, y2_Ae) and a SystemGeometry (x1_As, y1_As, x2_As, y2_As).</em></p>
+<p><em>Subsystem A is an element with an ElementGeometry (\(x_{1AE}, y_{1AE}, x_{2AE}, y_{2AE}\)) and a SystemGeometry (\(x_{1AS}, y_{1AS}, x_{2AS}, y_{2AS}\)).</em></p>
 </div>
 <div class="paragraph">
-<p><em>B is an element in subystem A with an ElementGeometry coordinates (x1_Be, y1_Be, x2_Be, y2_Be).</em></p>
+<p><em>B is an element in subystem A with an ElementGeometry coordinates (\(x_{1BE}, y_{1BE}, x_{2BE}, y_{2BE}\)).</em></p>
 </div>
 <div class="paragraph">
-<p><span class="image"><img src="images/GeometryInterplayCoordinates.png" alt="image"></span></p>
+<p><span class="image"><img src="images/Example_NestedElementGeometry.svg" alt="image"></span></p>
 </div>
 <div class="paragraph">
 <p><em>To plot the element B in the system where A is located, use the following coordinate transformation:</em></p>
 </div>
 <div class="paragraph">
-<p><em>x1_Be &#8594; (x1_Ae + (x1_Be - x1_As) * (x2_Ae - x1_Ae) / (x2_As - x1_As))</em></p>
+<p>\(x_{1BE} \rightarrow x_{1AE} + (x_{1BE} - x_{1AS}) \cdot \frac{x_{2AE} - x_{1AE}}{x_{2AS} - x_{1AS}}\)</p>
 </div>
 <div class="paragraph">
-<p><em>y1_Be &#8594; (y1_Ae + (y1_Be - y1_As) * (y2_Ae - y1_Ae) / (y2_As - y1_As))</em></p>
+<p>\(y_{1BE} \rightarrow y_{1AE} + (y_{1BE} - y_{1AS}) \cdot \frac{y_{2AE} - y_{1AE}}{y_{2AS} - y_{1AS}}\)</p>
 </div>
 <div class="paragraph">
-<p><em>x2_Be &#8594; (x1_Ae + (x2_Be - x1_As) * (x2_Ae - x1_Ae) / (x2_As - x1_As))</em></p>
+<p>\(x_{2BE} \rightarrow x_{2AE} + (x_{2BE} - x_{1AS}) \cdot \frac{x_{2AE} - x_{1AE}}{x_{2AS} - x_{1AS}}\)</p>
 </div>
 <div class="paragraph">
-<p><em>y2_Be &#8594; (y1_Ae + (y2_Be - y1_As) * (y2_Ae - y1_Ae) / (y2_As - y1_As))</em> ]</p>
+<p>\(y_{2BE} \rightarrow y_{2AE} + (y_{2BE} - y_{1AS}) \cdot \frac{y_{2AE} - y_{1AE}}{y_{2AS} - y_{1AS}}\) ]</p>
 </div>
 </div>
 <div class="sect3">
