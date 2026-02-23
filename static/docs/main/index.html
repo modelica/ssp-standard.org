@@ -587,7 +587,7 @@ document.addEventListener('keydown', (event) => {
 <div id="header">
 <h1>System Structure and Parameterization</h1>
 <div class="details">
-<span id="revnumber">version 101c056,</span>
+<span id="revnumber">version 2c80a0e,</span>
 <span id="revdate">2026-02-23</span>
 </div>
 <div id="toc" class="toc2">
@@ -3131,6 +3131,11 @@ See below for details.</p></td>
 </div>
 <div class="paragraph">
 <p>The association of a connector to a clock is given by the presence of one or more Clock elements.</p>
+</div>
+<div class="paragraph">
+<p>[ <em>Note: The element name Clock is used for two different child elements in the Connector context.</em>
+<em>In the type choice, Clock refers to the SystemStructureCommon element <code>ssc:Clock</code> (the connector type).</em>
+<em>The additional Clock child element with attribute <code>name</code> refers to the SystemStructureDescription element <code>ssd:Clock</code> (the connector-to-clock association).</em> ]</p>
 </div>
 <div class="paragraph">
 <p>When Modelica models are represented in SSP, built-in input and output connectors shall be mapped as follows:</p>
