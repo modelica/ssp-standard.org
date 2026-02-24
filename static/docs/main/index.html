@@ -587,8 +587,8 @@ document.addEventListener('keydown', (event) => {
 <div id="header">
 <h1>System Structure and Parameterization</h1>
 <div class="details">
-<span id="revnumber">version 7c70dcd,</span>
-<span id="revdate">2026-02-23</span>
+<span id="revnumber">version 3eb775e,</span>
+<span id="revdate">2026-02-24</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Contents</div>
@@ -607,8 +607,9 @@ document.addEventListener('keydown', (event) => {
 </li>
 <li><a href="#_feature_overview">1.3. Feature Overview</a></li>
 <li><a href="#_acknowledgements">1.4. Acknowledgements</a></li>
-<li><a href="#_changes_in_2_0_0">1.5. Changes in 2.0.0</a></li>
-<li><a href="#_changes_in_1_0_1">1.6. Changes in 1.0.1</a></li>
+<li><a href="#_changes_in_2_0_1">1.5. Changes in 2.0.1</a></li>
+<li><a href="#_changes_in_2_0_0">1.6. Changes in 2.0.0</a></li>
+<li><a href="#_changes_in_1_0_1">1.7. Changes in 1.0.1</a></li>
 </ul>
 </li>
 <li><a href="#_ssp_common_concepts">2. SSP Common Concepts</a>
@@ -796,13 +797,13 @@ document.addEventListener('keydown', (event) => {
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Document version: 2.0</p>
+<p>Document version: 2.0.1-rc.1</p>
 </div>
 <div class="paragraph">
-<p>December 20, 2024</p>
+<p>February 24, 2026</p>
 </div>
 <div class="paragraph">
-<p>This document is release 2.0 of the System Structure and Parameterization Standard (SSP).</p>
+<p>This document is the first release candidate of release 2.0.1 of the System Structure and Parameterization Standard (SSP).</p>
 </div>
 <div class="paragraph">
 <p>This specification, as well as supporting XML schema files, is provided on the SSP site (<a href="https://ssp-standard.org/" class="bare">https://ssp-standard.org/</a>).
@@ -842,6 +843,11 @@ For non-public issues, contact the SSP development group at <a href="mailto:map-
 <td class="tableblock halign-left valign-top"><p class="tableblock">2.0</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2024-12-20</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Public Release of SSP 2.0</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2.0.1-rc.1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2026-02-24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">First Release Candidate of SSP 2.0.1</p></td>
 </tr>
 </tbody>
 </table>
@@ -1188,7 +1194,77 @@ The following companies and persons were involved in the creation of the standar
 </div>
 </div>
 <div class="sect2">
-<h3 id="_changes_in_2_0_0">1.5. Changes in 2.0.0</h3>
+<h3 id="_changes_in_2_0_1">1.5. Changes in 2.0.1</h3>
+<div class="paragraph">
+<p>The following changes were performed as part of the 2.0.1 maintenance release:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Update error condition for sizeConnector attribute (<a href="https://github.com/modelica/ssp-standard/pull/90" class="bare">https://github.com/modelica/ssp-standard/pull/90</a>)</p>
+</li>
+<li>
+<p>Documentation updates (<a href="https://github.com/modelica/ssp-standard/pull/87" class="bare">https://github.com/modelica/ssp-standard/pull/87</a>)</p>
+</li>
+<li>
+<p>Add justification for SSP "size" vs FMI "start" attribute naming (<a href="https://github.com/modelica/ssp-standard/pull/91" class="bare">https://github.com/modelica/ssp-standard/pull/91</a>)</p>
+</li>
+<li>
+<p>Add favicon (<a href="https://github.com/modelica/ssp-standard/pull/93" class="bare">https://github.com/modelica/ssp-standard/pull/93</a>)</p>
+</li>
+<li>
+<p>Clarify support for mixed SSP versions in nested SSP (<a href="https://github.com/modelica/ssp-standard/pull/92" class="bare">https://github.com/modelica/ssp-standard/pull/92</a>)</p>
+</li>
+<li>
+<p>Update all schema images, fix missing clock section (<a href="https://github.com/modelica/ssp-standard/pull/98" class="bare">https://github.com/modelica/ssp-standard/pull/98</a>)</p>
+</li>
+<li>
+<p>Fix SSP relationship to FMI as complementary standard (<a href="https://github.com/modelica/ssp-standard/pull/102" class="bare">https://github.com/modelica/ssp-standard/pull/102</a>)</p>
+</li>
+<li>
+<p>Update MAP link in readme.md (<a href="https://github.com/modelica/ssp-standard/pull/106" class="bare">https://github.com/modelica/ssp-standard/pull/106</a>)</p>
+</li>
+<li>
+<p>Bump copyright to year 2026 (<a href="https://github.com/modelica/ssp-standard/pull/101" class="bare">https://github.com/modelica/ssp-standard/pull/101</a>)</p>
+</li>
+<li>
+<p>Change "system structure definition" to "system structure description" (<a href="https://github.com/modelica/ssp-standard/pull/105" class="bare">https://github.com/modelica/ssp-standard/pull/105</a>)</p>
+</li>
+<li>
+<p>Update all geometry example images, fix formatting issues in geometry section (<a href="https://github.com/modelica/ssp-standard/pull/100" class="bare">https://github.com/modelica/ssp-standard/pull/100</a>)</p>
+</li>
+<li>
+<p>Fix enumeration value space for SSP2 (fixes #96) (<a href="https://github.com/modelica/ssp-standard/pull/109" class="bare">https://github.com/modelica/ssp-standard/pull/109</a>)</p>
+</li>
+<li>
+<p>Fix literature references/keys (<a href="https://github.com/modelica/ssp-standard/pull/110" class="bare">https://github.com/modelica/ssp-standard/pull/110</a>)</p>
+</li>
+<li>
+<p>Advise users to report issues on github (<a href="https://github.com/modelica/ssp-standard/pull/111" class="bare">https://github.com/modelica/ssp-standard/pull/111</a>)</p>
+</li>
+<li>
+<p>Remove xml namespace links (<a href="https://github.com/modelica/ssp-standard/pull/112" class="bare">https://github.com/modelica/ssp-standard/pull/112</a>)</p>
+</li>
+<li>
+<p>Fix formatting issues (<a href="https://github.com/modelica/ssp-standard/pull/113" class="bare">https://github.com/modelica/ssp-standard/pull/113</a>)</p>
+</li>
+<li>
+<p>Add note for clock namespaces (<a href="https://github.com/modelica/ssp-standard/pull/114" class="bare">https://github.com/modelica/ssp-standard/pull/114</a>)</p>
+</li>
+<li>
+<p>Remove reference to non existing changelog file (<a href="https://github.com/modelica/ssp-standard/pull/115" class="bare">https://github.com/modelica/ssp-standard/pull/115</a>)</p>
+</li>
+<li>
+<p>Add legend for schema images (<a href="https://github.com/modelica/ssp-standard/pull/116" class="bare">https://github.com/modelica/ssp-standard/pull/116</a>)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Note that the schema definition for enumeration item values was updated to cover the full range of values for the new data types in FMI 3.0, as originally intended in the 2.0 release.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_changes_in_2_0_0">1.6. Changes in 2.0.0</h3>
 <div class="paragraph">
 <p>This major release of the SSP standard provides support for FMI 3.0, as well as other enhancements in response to new end-user requirements for architectural design, traceability, incremental development, and support of Modelica models as components.</p>
 </div>
@@ -1293,7 +1369,7 @@ This feature enables more advanced graphical editing of SSP models.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_changes_in_1_0_1">1.6. Changes in 1.0.1</h3>
+<h3 id="_changes_in_1_0_1">1.7. Changes in 1.0.1</h3>
 <div class="paragraph">
 <p>The following changes were performed as part of the 1.0.1 maintenance release:</p>
 </div>
