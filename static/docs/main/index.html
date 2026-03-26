@@ -587,8 +587,8 @@ document.addEventListener('keydown', (event) => {
 <div id="header">
 <h1>System Structure and Parameterization</h1>
 <div class="details">
-<span id="revnumber">version 3eb775e,</span>
-<span id="revdate">2026-02-24</span>
+<span id="revnumber">version f501be5,</span>
+<span id="revdate">2026-03-26</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Contents</div>
@@ -2393,7 +2393,7 @@ Lower values indicate higher priority.</p>
 <p><span class="image"><img src="images/SystemStructureCommon_LinearTransformation.svg" alt="image"></span></p>
 </div>
 <div class="paragraph">
-<p>This element provides for a linear transformation of the source value to the target value, i.e. in the calculation target = factor * source + offset.</p>
+<p>This element provides for a linear transformation of the source value to the target value, i.e. in the calculation \(\text{target} = \text{factor} \cdot \text{source} + \text{offset}\).</p>
 </div>
 <div class="paragraph">
 <p>Note that conversions based on different units are performed, unless prevented by suppressUnitConversion, prior to the application of the linear transformation, i.e. the value of source is already converted to the target unit in the formula above.
@@ -4352,8 +4352,10 @@ When a large number of signals have to be handled, signal dictionaries can help 
 <p>This optional element provides the set of defined signal dictionaries for the system.</p>
 </div>
 <div class="paragraph">
-<p><span class="image"><img src="images/SystemStructureDescription_SignalDictionary.svg" alt="image"></span>
-A signal dictionary is a collection of signals which can be accessed in different systems at different levels of the hierarchy through signal dictionary references referencing the signal dictionary.</p>
+<p><span class="image"><img src="images/SystemStructureDescription_SignalDictionary.svg" alt="image"></span></p>
+</div>
+<div class="paragraph">
+<p>A signal dictionary is a collection of signals which can be accessed in different systems at different levels of the hierarchy through signal dictionary references referencing the signal dictionary.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
