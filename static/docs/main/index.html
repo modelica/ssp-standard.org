@@ -587,8 +587,8 @@ document.addEventListener('keydown', (event) => {
 <div id="header">
 <h1>System Structure and Parameterization</h1>
 <div class="details">
-<span id="revnumber">version 60ccfd6,</span>
-<span id="revdate">2026-05-04</span>
+<span id="revnumber">version 26a796c,</span>
+<span id="revdate">2026-05-05</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Contents</div>
@@ -1753,7 +1753,9 @@ Annotations that are not defined by MAP SSP <strong>MUST NOT</strong> use these 
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">generationDateAndTime</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Optional attribute giving the date and time this file was generated.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Optional attribute giving the date and time this file was generated.
+The value must be a valid ISO 8601 date-time string (type <code>xs:dateTime</code>).
+[ <em>For example <code>2009-12-08T14:33:22Z</code>, <code>2025-06-12T19:14:14.839539+02:00</code>, etc.</em> ]</p></td>
 </tr>
 </tbody>
 </table>
